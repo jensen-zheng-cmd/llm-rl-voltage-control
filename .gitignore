@@ -8,9 +8,10 @@
 
 # Reference PDFs and page renders are recoverable local reading material.
 /references/**/*.pdf
-/references/**/rendered-pages/
-/references/**/rendered-supplement/
-/原论文/*.pdf
+/support/**/*.pdf
+/support/**/rendered-pages/
+/support/**/rendered-supplement/
+/support/重复资料/
 
 # Python environments and caches.
 .venv/

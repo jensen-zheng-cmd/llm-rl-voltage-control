@@ -15,7 +15,7 @@ import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-METADATA = json.loads((ROOT / "evidence/mapdn_dataset_inspection.json").read_text(encoding="utf-8"))
+METADATA = json.loads((ROOT / "support/evidence/mapdn_dataset_inspection.json").read_text(encoding="utf-8"))
 REVISION = METADATA["dataset_commit"]
 URL = "https://huggingface.co/datasets/hsvgbkhgbv/Multi-Agent-Power-Distribution-Networks/resolve/" + REVISION + "/voltage_control_data.zip"
 ARCHIVE_SIZE = next(f["size"] for f in METADATA["files"] if f["path"] == "voltage_control_data.zip")
@@ -162,7 +162,7 @@ def main():
     RAW.mkdir(parents=True, exist_ok=True)
     WORK.mkdir(parents=True, exist_ok=True)
     manifest = {"dataset_revision": REVISION, "archive_url": URL, "files": [], "csv_checks": []}
-    report_path = ROOT / "evidence/case33_download_manifest.json"
+    report_path = ROOT / "support/evidence/case33_download_manifest.json"
     with zipfile.ZipFile(DirectoryReader()) as archive:
         members = [info for info in archive.infolist() if "/case33_3min_final/" in info.filename and not info.is_dir()]
     if {Path(info.filename).name for info in members} != {"load_active.csv", "load_reactive.csv", "pv_active.csv", "model.p"}:

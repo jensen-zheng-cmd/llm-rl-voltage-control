@@ -1,0 +1,392 @@
+{
+  "date": "2026-11-02",
+  "scope": "workflow documentation, local file organization and path repair only",
+  "moved_files": 59,
+  "moved_snapshots_verified_unchanged": 58,
+  "intentionally_rewritten_current_documents": [
+    "docs\\实施路线.md"
+  ],
+  "raw_files_sha256_verified": [
+    {
+      "path": "data\\raw\\mapdn_case33\\load_active.csv",
+      "sha256_verified": true,
+      "bytes": 351655119
+    },
+    {
+      "path": "data\\raw\\mapdn_case33\\load_reactive.csv",
+      "sha256_verified": true,
+      "bytes": 356496345
+    },
+    {
+      "path": "data\\raw\\mapdn_case33\\pv_active.csv",
+      "sha256_verified": true,
+      "bytes": 54296160
+    },
+    {
+      "path": "data\\raw\\mapdn_case33\\model.p",
+      "sha256_verified": true,
+      "bytes": 39024
+    }
+  ],
+  "network_sha256_verified": true,
+  "pdf_copy_checks": "pass",
+  "python_syntax": "pass",
+  "downloader_local_metadata_load": "pass; module loaded under a non-main name without downloading",
+  "json_files_parsed": 11,
+  "simulation_or_training_executed": false,
+  "moved_snapshot_manifest": [
+    {
+      "old_path": "evidence\\case33_download_manifest.json",
+      "new_path": "support\\evidence\\case33_download_manifest.json",
+      "sha256": "676b791cea2c17dcd801fe7f8e75586a204866eb99b158a9d14a13324cb77822",
+      "bytes": 3669
+    },
+    {
+      "old_path": "evidence\\mapdn_bus33bw_generator.py",
+      "new_path": "support\\evidence\\mapdn_bus33bw_generator.py",
+      "sha256": "44ce2a1a1887dd615f000b4b8783d91ddb90f3b7f8278d686f0901269467c8f8",
+      "bytes": 2188
+    },
+    {
+      "old_path": "evidence\\mapdn_dataset_inspection.json",
+      "new_path": "support\\evidence\\mapdn_dataset_inspection.json",
+      "sha256": "5419045e9ebc25864569044cfcc6338eb6aa5dca48a3132436f9d588cea36050",
+      "bytes": 11117
+    },
+    {
+      "old_path": "evidence\\mapdn_env_config.yaml",
+      "new_path": "support\\evidence\\mapdn_env_config.yaml",
+      "sha256": "1ef31af00eaa75d5741dde5055dc354f5fc0007005aa3463a41f696ae751e30f",
+      "bytes": 639
+    },
+    {
+      "old_path": "evidence\\network_static_checks.json",
+      "new_path": "support\\evidence\\network_static_checks.json",
+      "sha256": "7343781b253a64f71064aa47cc078f3d9302127ab9c2b563863ee4bfce54d34b",
+      "bytes": 1865
+    },
+    {
+      "old_path": "evidence\\package_verification.json",
+      "new_path": "support\\evidence\\package_verification.json",
+      "sha256": "3afd95664095008db71d9618904e838466db9644297a5344e8a6af77e1f11558",
+      "bytes": 335
+    },
+    {
+      "old_path": "references\\前期分析\\audit-report.json",
+      "new_path": "support\\前期分析\\audit-report.json",
+      "sha256": "c45f3a380f7a85d9fa23f8bcf2ac1ae1976747d38f4afe196007c20f04516d8f",
+      "bytes": 2472
+    },
+    {
+      "old_path": "references\\前期分析\\inspect_remote_sources.py",
+      "new_path": "support\\前期分析\\inspect_remote_sources.py",
+      "sha256": "d6fadbdf7dbb3c633852a060d124a0c243c21f2a7352955c4ee9ea11b339ecbe",
+      "bytes": 4106
+    },
+    {
+      "old_path": "references\\前期分析\\paper-card.md",
+      "new_path": "support\\前期分析\\paper-card.md",
+      "sha256": "1b88a3b869587e8942411d2535c25a39beb9c6cda3ff69c10497e52dbc553c93",
+      "bytes": 31813
+    },
+    {
+      "old_path": "references\\前期分析\\source_bundle.json",
+      "new_path": "support\\前期分析\\source_bundle.json",
+      "sha256": "e7ffad4045d531a1b395863485e605e5bad9c4fb557264620816368a6087e2c6",
+      "bytes": 90547
+    },
+    {
+      "old_path": "references\\前期分析\\supplement_bundle.json",
+      "new_path": "support\\前期分析\\supplement_bundle.json",
+      "sha256": "91669a502906687705116a9ba663563db567b6cd0e650925b8a9a74158cb5e1b",
+      "bytes": 37872
+    },
+    {
+      "old_path": "references\\前期分析\\supplementary.pdf",
+      "new_path": "support\\前期分析\\supplementary.pdf",
+      "sha256": "481e2bcec0e0921857d2648e7fcc66ad2c429a20d038a36eb738c5ef0384af88",
+      "bytes": 3070227
+    },
+    {
+      "old_path": "references\\前期分析\\system_selection.json",
+      "new_path": "support\\前期分析\\system_selection.json",
+      "sha256": "33650fc7b62a5c0af16f1ab85e09d9e075bfc96851cbac52e5a6cd3f2b8f20f8",
+      "bytes": 2770
+    },
+    {
+      "old_path": "references\\前期分析\\verify_network_sources.py",
+      "new_path": "support\\前期分析\\verify_network_sources.py",
+      "sha256": "ccaf5be11f2ed91d95feb0ba91360b3185c0a27d9fba85d135eca59a90ea66eb",
+      "bytes": 3124
+    },
+    {
+      "old_path": "references\\前期分析\\系统选型与Proposed实施顺序.md",
+      "new_path": "support\\前期分析\\系统选型与Proposed实施顺序.md",
+      "sha256": "aeb9110977fe1a134a7cf500b0751f96ada0373a405a1502ab154f234325f8fe",
+      "bytes": 16951
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-001.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-001.png",
+      "sha256": "951dbfef90b547b059cb1fcae68409687ad7a5e866729de6d7dd2eb7072b02fa",
+      "bytes": 255822
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-002.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-002.png",
+      "sha256": "88b160f097508634298b85a8d26dd5fc46b095f37edf377b6fbb8257c98349e0",
+      "bytes": 274314
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-003.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-003.png",
+      "sha256": "a460edeecaba2b2cfd8478dcdea4bd049cda8dddb19e2ffa18fd9f638e5048c7",
+      "bytes": 270677
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-004.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-004.png",
+      "sha256": "a7fece135cff22a0a8115170b1829658bd7d5a1e97a2af6532db676b192fbba3",
+      "bytes": 245114
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-005.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-005.png",
+      "sha256": "8d306af04fcd1993a09d3a7b69230761a7c4b4b4d5c20f0e7d71e1b9833d0b9f",
+      "bytes": 309307
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-006.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-006.png",
+      "sha256": "89ed0e1f8025403ea330ecc27fa0885b465a678ebb8f40d6bb40e762518a94a9",
+      "bytes": 272278
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-007.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-007.png",
+      "sha256": "35fe892733af71f05ec19152ea621f61675983f813a4e6ed99e05adafc2b3556",
+      "bytes": 224805
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-008.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-008.png",
+      "sha256": "614c6abfd4e520bc1b3c7019df50d572508581faf68e4010e0e502725b5c20be",
+      "bytes": 250299
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-009.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-009.png",
+      "sha256": "1fb5a885b2cfe11d356ef9a30ae408ece14bdd4b26a9cf41f0f87cb2a0fc810c",
+      "bytes": 259723
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-010.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-010.png",
+      "sha256": "cc9fa3724ef52b5ee6f38dd288f91a8c2fcc96b42f0a6176cab9abd6872d48be",
+      "bytes": 273153
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-011.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-011.png",
+      "sha256": "e66b2efac1c6cbe2471e98fdec6db7a9779671d52cfc8255f4cfc22685e4c9e4",
+      "bytes": 250145
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-012.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-012.png",
+      "sha256": "bab1162b7b06433edb0ab54b853f521a694c5cbec159cdd035f6e8247988506a",
+      "bytes": 220255
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-013.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-013.png",
+      "sha256": "43e1416c388eaa16d405132c24e73c552485015b5ea883f7591a854ce23ae7da",
+      "bytes": 263020
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-014.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-014.png",
+      "sha256": "bfe0c06663cc22faf97199a9b17254f64aed1f4b6f0fe74182ff59fe27c9ad03",
+      "bytes": 266027
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-pages\\page-015.png",
+      "new_path": "support\\前期分析\\rendered-pages\\page-015.png",
+      "sha256": "c106fa2710ecda3059628ab04dbad3250a98a91d3d8af3785d73f8006ca632b5",
+      "bytes": 243177
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-001.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-001.png",
+      "sha256": "58ca923f8aa3081f45ebd06c51bc8228ea76b6db48435eb063b94a2d08f6aa57",
+      "bytes": 108354
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-002.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-002.png",
+      "sha256": "0c773dfe054ab406e41cbd24513d1d55a15c791a1f01a8e0b5b264c738c92ae5",
+      "bytes": 201260
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-003.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-003.png",
+      "sha256": "e793d4dbad683a050a105119096a741a8f11e96bad92da63eb8dee75c55326e0",
+      "bytes": 127414
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-004.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-004.png",
+      "sha256": "beebf9a4ab0091f503306154ebaf0bc418ab1cd6fa9c38269ff3ba52bebb3132",
+      "bytes": 130516
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-005.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-005.png",
+      "sha256": "a6eb237f07f742b8c4375b54743425986be597a252c40815b24411d5e2d153f5",
+      "bytes": 105543
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-006.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-006.png",
+      "sha256": "74b416634bc9703d4ab2ba8ebea2e0daa29fa9adcfb6044ae2fce375f352c575",
+      "bytes": 125966
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-007.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-007.png",
+      "sha256": "da8ec0354e17b0ca7add87e282469dec6fdca2410517ba0f4bb8596ee3212051",
+      "bytes": 126495
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-008.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-008.png",
+      "sha256": "a03198140a9b7728c7deea3a22d0325b8aaced172b73e3f2ec38e4eccce6074b",
+      "bytes": 107197
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-009.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-009.png",
+      "sha256": "3f6a883567a451bbd8a16982a91de8256044d47e3535b2a9eae3ae31518f3649",
+      "bytes": 202393
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-010.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-010.png",
+      "sha256": "dfaf5238ad7a239210d159dfbd109fef989c5d7093d0554ffbacaf4d34343888",
+      "bytes": 171872
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-011.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-011.png",
+      "sha256": "d1ffa2ffd0cef3df9160aa1662c0e3c03ebb54e20f5154fd9ac3a4e9ca0724f0",
+      "bytes": 118095
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-012.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-012.png",
+      "sha256": "0a768c95961628babe34787a09070839d484fd27ef6facad364c29373fbb75b7",
+      "bytes": 115416
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-013.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-013.png",
+      "sha256": "e1f4d257360e6e094393ce1f7b380b3484496f7f74905f028c5be6f4cb24cad8",
+      "bytes": 51776
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-014.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-014.png",
+      "sha256": "958db0f9a24816c62eac5d72cdc3b5926dcf028c197565bb3483f558fbdad394",
+      "bytes": 206390
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-015.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-015.png",
+      "sha256": "ebd1cd98cc3d59131cf3ca3458fb054a6819f1962c7b428d1e5c93416466ed8b",
+      "bytes": 207466
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-016.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-016.png",
+      "sha256": "78cd2ded1b3735c90c0e0ecc29c99558052ad94a12ddca2095099ba5a75b6b61",
+      "bytes": 174468
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-017.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-017.png",
+      "sha256": "a708d453e9e38b470a6820ae8662b8724cba148d59279290d951729da6147477",
+      "bytes": 104351
+    },
+    {
+      "old_path": "references\\前期分析\\rendered-supplement\\page-018.png",
+      "new_path": "support\\前期分析\\rendered-supplement\\page-018.png",
+      "sha256": "f05aa7f8aed848adecb40c83d0346dca7b1ae023a5965fa60b9c942be03fca63",
+      "bytes": 73615
+    },
+    {
+      "old_path": "references\\前期分析\\source_checks\\case141.m",
+      "new_path": "support\\前期分析\\source_checks\\case141.m",
+      "sha256": "613c313b92629160c5f250e28bd33b22df316c81a8c6507f5958b3d23fe1c88e",
+      "bytes": 14994
+    },
+    {
+      "old_path": "references\\前期分析\\source_checks\\case33bw.m",
+      "new_path": "support\\前期分析\\source_checks\\case33bw.m",
+      "sha256": "b40831eeb444669ae876e2996f0dda9f05cd83e81b314b8dfca51e4890cca95d",
+      "bytes": 4866
+    },
+    {
+      "old_path": "references\\前期分析\\source_checks\\load_active_sample.txt",
+      "new_path": "support\\前期分析\\source_checks\\load_active_sample.txt",
+      "sha256": "1cfd8f60df6116367185eb67b92a82e0246246f13c686ecf8cf0376cf4c94944",
+      "bytes": 3377
+    },
+    {
+      "old_path": "references\\前期分析\\source_checks\\load_reactive_sample.txt",
+      "new_path": "support\\前期分析\\source_checks\\load_reactive_sample.txt",
+      "sha256": "156f20b97fc77bafd85155c0d270176fdd614aa48810858bdc1db7d78d965d77",
+      "bytes": 3418
+    },
+    {
+      "old_path": "references\\前期分析\\source_checks\\mapdn_bus33bw_generator.py",
+      "new_path": "support\\前期分析\\source_checks\\mapdn_bus33bw_generator.py",
+      "sha256": "44ce2a1a1887dd615f000b4b8783d91ddb90f3b7f8278d686f0901269467c8f8",
+      "bytes": 2188
+    },
+    {
+      "old_path": "references\\前期分析\\source_checks\\mapdn_dataset_inspection.json",
+      "new_path": "support\\前期分析\\source_checks\\mapdn_dataset_inspection.json",
+      "sha256": "5419045e9ebc25864569044cfcc6338eb6aa5dca48a3132436f9d588cea36050",
+      "bytes": 11117
+    },
+    {
+      "old_path": "references\\前期分析\\source_checks\\mapdn_env_config.yaml",
+      "new_path": "support\\前期分析\\source_checks\\mapdn_env_config.yaml",
+      "sha256": "1ef31af00eaa75d5741dde5055dc354f5fc0007005aa3463a41f696ae751e30f",
+      "bytes": 639
+    },
+    {
+      "old_path": "references\\前期分析\\source_checks\\network_static_checks.json",
+      "new_path": "support\\前期分析\\source_checks\\network_static_checks.json",
+      "sha256": "7343781b253a64f71064aa47cc078f3d9302127ab9c2b563863ee4bfce54d34b",
+      "bytes": 1865
+    },
+    {
+      "old_path": "references\\前期分析\\source_checks\\pv_active_sample.txt",
+      "new_path": "support\\前期分析\\source_checks\\pv_active_sample.txt",
+      "sha256": "a3a1de874a4ffc206b3d06ac5e9fbb72809e53433bc63a44f00cf86cbc7ae7c0",
+      "bytes": 245
+    },
+    {
+      "old_path": "原论文\\Two-Stage Active Distribution Network Vo.pdf",
+      "new_path": "support\\重复资料\\原论文\\Two-Stage Active Distribution Network Vo.pdf",
+      "sha256": "edd4dfcf4632499a4cf2565e07cd28295dd8645ca8f34584d1b3bc91d368dc51",
+      "bytes": 5494402
+    }
+  ],
+  "local_document_links_checked": 36,
+  "local_document_links": "pass",
+  "active_path_references": "pass",
+  "ignored_source_files_checked": 41,
+  "ignored_source_files": "pass"
+}

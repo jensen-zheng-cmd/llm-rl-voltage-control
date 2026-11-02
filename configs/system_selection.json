@@ -106,7 +106,7 @@
     "rows_per_csv": 526080,
     "first_timestamp": "2012-01-01 00:03:00",
     "last_timestamp": "2015-01-01 00:00:00",
-    "download_manifest": "evidence/case33_download_manifest.json"
+    "download_manifest": "support/evidence/case33_download_manifest.json"
   },
   "controller": {
     "rl": "centralized_PPO_six_continuous_outputs",
