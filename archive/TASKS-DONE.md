@@ -35,3 +35,11 @@ Git关联：与本条记录同次提交；提交信息为“建立执行记录�
 - 产物：[环境验收说明](../docs/环境验收说明.md)、[最新运行指针](../support/evidence/latest_environment_run.json)；大文件和完整报告在D盘outputs，代码在src/scripts/tests，依赖在D盘tools。
 - 未执行/遗留：未训练RL/LLM、未运行MISOCP；未证明全天3分钟和热限额合规。日期、容量与时间语义按本轮明确的工程约定冻结，不称作作者原始设置。
 - Git关联：验收记录与实现同次本地提交，提交信息“接受T02：33节点数据处理与全天环境验收”。本地提交和远端push分别按用户授权执行。
+
+## T03 公开GitHub仓库与推送工作流
+
+- 日期：2026-11-02；状态：`accepted`。用户本轮明确授权创建公开仓库、原样推送并将方法写入工作流；按该授权直接完成本地提交与本次push。
+- 做了什么：创建 [jensen-zheng-cmd/llm-rl-voltage-control](https://github.com/jensen-zheng-cmd/llm-rl-voltage-control) 公开仓库，设置origin与main上游，首次推送既有完整Git历史；将“接受只commit，明确push才上传”的规则、建仓和核对命令写入AGENTS及 [GitHub工作流](../docs/GitHub工作流.md)。
+- 验证：插件与CLI账号一致；仓库PUBLIC、默认分支main；T02首次推送后远端main与本地 `f891736a550383bae892779a0e67c293103837bc` 一致。暂存内容无原始大数据/PDF/图片，常见凭据模式检查未发现命中文件。
+- 范围：保留当前.gitignore和已有源文件内容，不重新打包、不修改实验实现、不自动发Release或部署。此前T02的7项测试及54项物理检查没有因本轮文档工作重复运行。
+- Git关联：本条工作流及记录单独提交；随后在本轮明确授权内push该文档提交，并核对远端main与本地HEAD。未来“接受”不再隐含任何push权限。

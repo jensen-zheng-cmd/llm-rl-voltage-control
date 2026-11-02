@@ -2,6 +2,8 @@
 
 已选定：**Baran–Wu 33节点径向配电网 + MAPDN历史负荷/光伏时序 + 目标论文的OLTC/SC配置**。
 
+公开仓库：[llm-rl-voltage-control](https://github.com/jensen-zheng-cmd/llm-rl-voltage-control)。协作指令：“接受”只做本地提交，明确要求“push”才推送。
+
 先完成Proposed，之后派生对照，MISOCP独立补做验证。平时从本页和 [TASKS.md](TASKS.md) 看起。
 
 ## 阅读入口
@@ -10,6 +12,7 @@
 |---|---|
 | [TASKS.md](TASKS.md) | 当前进展、未定问题、做完后的待验收记录 |
 | [AGENTS.md](AGENTS.md) | 执行与记录规矩、技术和文件约定 |
+| [GitHub工作流](docs/GitHub工作流.md) | 本地提交、公开仓库创建、push及结果核对方法 |
 | [系统与数据说明](docs/系统与数据说明.md) | 系统设备、历史数据、采样与处理边界 |
 | [环境验收说明](docs/环境验收说明.md) | 一天96步的结果、4张图、工程约定与重跑命令 |
 | [实施路线](docs/实施路线.md) | 已确认的六步路线与每阶段验收要求 |
