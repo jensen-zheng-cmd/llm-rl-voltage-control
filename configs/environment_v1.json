@@ -1,0 +1,44 @@
+{
+  "version": "case33_environment_v1",
+  "system_config": "configs/system_selection.json",
+  "output_root": "D:/Codex/outputs/llm-rl-voltage",
+  "processed_subdirectory": "data/mapdn_case33_15min_v1",
+  "source_interval_minutes": 3,
+  "target_interval_minutes": 15,
+  "aggregation": "arithmetic_mean_of_five_equal_intervals",
+  "source_timestamp_assumption": "right_endpoint_of_3_minute_interval; explicit reproduction assumption",
+  "state_time_semantics": "equivalent_15_minute_interval_average; not a claim of causal access to future window means in field deployment",
+  "load_scale": 1.0,
+  "pv_scale": 1.0,
+  "splits": {
+    "train": ["2012-01-01", "2014-01-01"],
+    "validation": ["2014-01-01", "2014-07-01"],
+    "test": ["2014-07-01", "2015-01-01"]
+  },
+  "split_boundary_semantics": "inclusive step_start, exclusive step_end_date",
+  "capacity_rule": "1.2_times_each_inverter_raw_3_minute_training_peak",
+  "capacity_factor": 1.2,
+  "initial_state": {"oltc_tap": 0, "sc_on": [0, 0, 0], "pv_q_mvar": [0, 0, 0, 0, 0, 0]},
+  "cross_day_policy": "independent_daily_reset; no cross_day_switching_cost",
+  "sc_model": "constant_reactive_injection_as_paper_equation_3; not_voltage_squared_shunt",
+  "solver": {"algorithm": "nr", "tolerance_mva": 1e-9, "max_iteration": 50, "numba": false},
+  "voltage_reference_pu": 1.0,
+  "voltage_limits_pu": [0.95, 1.05],
+  "reward_includes_reference_bus": true,
+  "manual_schedule": {
+    "purpose": "environment_acceptance_fixture_not_a_trained_or_optimized_policy",
+    "oltc_times_hour": [0, 6, 10, 16, 20],
+    "oltc_positions": [0, 1, -1, 0, 1],
+    "sc_intervals_hour": [[18, 22], [18, 22], [18, 22]],
+    "pv_q_fraction_times_hour": [0, 6, 10, 16, 20],
+    "pv_q_fractions": [0.0, 0.25, -0.5, 0.25, 0.5]
+  },
+  "engineering_assumptions_not_claimed_as_original_paper_settings": [
+    "right_endpoint_timestamp_interpretation",
+    "five_point_average",
+    "calendar_splits",
+    "training_only_derived_inverter_capacities",
+    "independent_daily_reset",
+    "manual_acceptance_schedule"
+  ]
+}

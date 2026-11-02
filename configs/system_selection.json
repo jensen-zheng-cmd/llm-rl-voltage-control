@@ -1,5 +1,5 @@
 {
-  "status": "selected_first_system_not_yet_simulated",
+  "status": "environment_v1_accepted",
   "as_of": "2026-11-02",
   "implementation_priority": [
     "Proposed",
@@ -40,8 +40,34 @@
       33
     ],
     "pv_reactive_capacity_factor": 0.3,
-    "pv_rated_apparent_capacity_mva": null,
-    "initial_state_and_cross_day_policy": null
+    "pv_rated_apparent_capacity_mva": [
+      1.8477956547707923,
+      1.8477956547707923,
+      2.1162927430192617,
+      3.1082294310885454,
+      0.31030685381514095,
+      0.31030685381514095
+    ],
+    "initial_state_and_cross_day_policy": {
+      "initial": {
+        "oltc_tap": 0,
+        "sc_on": [
+          0,
+          0,
+          0
+        ],
+        "pv_q_mvar": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "cross_day": "independent_daily_reset; no transition cost between episodes"
+    },
+    "capacity_provenance": "configs/derived_capacities_v1.json; training-only engineering assumption, not author-reported ratings"
   },
   "regions_from_paper_topology": {
     "region1": [
@@ -97,8 +123,24 @@
     "target_interval_minutes": 15,
     "sample_read_verified": true,
     "full_dataset_audit_complete": false,
-    "calendar_splits": null,
-    "load_and_pv_scaling": null,
+    "calendar_splits": {
+      "train": [
+        "2012-01-01",
+        "2014-01-01"
+      ],
+      "validation": [
+        "2014-01-01",
+        "2014-07-01"
+      ],
+      "test": [
+        "2014-07-01",
+        "2015-01-01"
+      ]
+    },
+    "load_and_pv_scaling": {
+      "load": 1.0,
+      "pv": 1.0
+    },
     "matches_target_paper_original_dataset": "not_established",
     "raw_data_path": "data/raw/mapdn_case33",
     "raw_files_download_complete": true,
@@ -106,7 +148,10 @@
     "rows_per_csv": 526080,
     "first_timestamp": "2012-01-01 00:03:00",
     "last_timestamp": "2015-01-01 00:00:00",
-    "download_manifest": "support/evidence/case33_download_manifest.json"
+    "download_manifest": "support/evidence/case33_download_manifest.json",
+    "processed_dataset_path": "D:/Codex/outputs/llm-rl-voltage/data/mapdn_case33_15min_v1",
+    "aggregation": "five_point_mean; right_endpoint timestamp assumption",
+    "numeric_finite_nonnegative_and_energy_checks_complete": true
   },
   "controller": {
     "rl": "centralized_PPO_six_continuous_outputs",
@@ -118,11 +163,14 @@
     "freeze_llm_knowledge_before_ppo_finetuning": true,
     "freeze_all_updates_for_final_test": true
   },
-  "implementation_stack": "recommend_Python_pandapower_PPO_LLM_adapter_not_installed_by_this_step",
+  "implementation_stack": "Python 3.12.13; pandapower 3.5.6; numpy 2.4.6; pandas 2.3.3; matplotlib 3.10.9",
   "validation": {
     "network_static_checks": "passed",
-    "power_flow_executed": false,
+    "power_flow_executed": true,
     "training_executed": false,
-    "paid_llm_calls_made": false
+    "paid_llm_calls_made": false,
+    "environment_unit_tests": "7 passed",
+    "physical_acceptance_checks": "54 passed",
+    "latest_environment_run": "support/evidence/latest_environment_run.json"
   }
 }

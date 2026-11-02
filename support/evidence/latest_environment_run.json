@@ -1,0 +1,63 @@
+{
+  "status": "pass",
+  "run_directory": "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\2026-11-02_233807_environment_v1",
+  "report": "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\2026-11-02_233807_environment_v1\\index.html",
+  "summary": "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\2026-11-02_233807_environment_v1\\summary.json",
+  "training_date": "2012-03-20",
+  "physics_checks_passed": 54,
+  "manual_schedule": {
+    "steps": 96,
+    "mean_absolute_voltage_deviation_pu": 0.0183532347341706,
+    "violation_pct": 0.5366161616161615,
+    "minimum_voltage_pu": 0.9452237078470592,
+    "maximum_voltage_pu": 1.027222344630561,
+    "total_undiscounted_reward": -1.7619105344803772,
+    "maximum_nodal_residual_mva": 8.48266783854432e-09,
+    "observation_dimensions": {
+      "p_load_mw": 32,
+      "q_load_mvar": 32,
+      "voltage_pu": 33,
+      "p_pv_mw": 6,
+      "q_pv_mvar": 6,
+      "tap_one_hot": 11,
+      "sc_one_hot": 6
+    },
+    "oltc_changes_after_initial": 4,
+    "sc_commitment_intervals": [
+      1,
+      1,
+      1
+    ]
+  },
+  "zero_action_reference": {
+    "steps": 96,
+    "mean_absolute_voltage_deviation_pu": 0.020292433205621716,
+    "violation_pct": 6.123737373737374,
+    "minimum_voltage_pu": 0.9366663541139805,
+    "maximum_voltage_pu": 1.0230471217568977,
+    "total_undiscounted_reward": -1.9480735877396849,
+    "maximum_nodal_residual_mva": 7.1082206328724254e-09,
+    "observation_dimensions": {
+      "p_load_mw": 32,
+      "q_load_mvar": 32,
+      "voltage_pu": 33,
+      "p_pv_mw": 6,
+      "q_pv_mvar": 6,
+      "tap_one_hot": 11,
+      "sc_one_hot": 6
+    },
+    "oltc_changes_after_initial": 0,
+    "sc_commitment_intervals": [
+      0,
+      0,
+      0
+    ]
+  },
+  "runtime_versions": {
+    "pandapower": "3.5.6",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.9",
+    "scipy": "1.18.1"
+  }
+}
