@@ -1,0 +1,105 @@
+{
+  "dataset_revision": "a41d8c269e402a827d36d9a153a4bce73a990e53",
+  "archive_url": "https://huggingface.co/datasets/hsvgbkhgbv/Multi-Agent-Power-Distribution-Networks/resolve/a41d8c269e402a827d36d9a153a4bce73a990e53/voltage_control_data.zip",
+  "files": [
+    {
+      "path": "data\\raw\\mapdn_case33\\load_active.csv",
+      "archive_member": "voltage_control_data/case33_3min_final/load_active.csv",
+      "bytes": 351655119,
+      "sha256": "35c7657e886e46d8f2685540db1ee0ae327ec9446e21270217bbde190fc2365f",
+      "crc32": 3616394099,
+      "zip_crc_verified": true
+    },
+    {
+      "path": "data\\raw\\mapdn_case33\\load_reactive.csv",
+      "archive_member": "voltage_control_data/case33_3min_final/load_reactive.csv",
+      "bytes": 356496345,
+      "sha256": "0f296701a1f01be68cc63b19dc3787baa2883e101979dd5c5acc9e89b280cdc3",
+      "crc32": 1862577025,
+      "zip_crc_verified": true
+    },
+    {
+      "path": "data\\raw\\mapdn_case33\\pv_active.csv",
+      "archive_member": "voltage_control_data/case33_3min_final/pv_active.csv",
+      "bytes": 54296160,
+      "sha256": "a5d64f59e8e291f366768d601f16fe95662a5d25ccba86f21d31d04e940db9ef",
+      "crc32": 2651992851,
+      "zip_crc_verified": true
+    },
+    {
+      "path": "data\\raw\\mapdn_case33\\model.p",
+      "archive_member": "voltage_control_data/case33_3min_final/model.p",
+      "bytes": 39024,
+      "sha256": "b9452fa9896fc709258edd4cb7c431aec2ef348a090fd4184ada21dc821d3ef3",
+      "crc32": 847197210,
+      "zip_crc_verified": true
+    }
+  ],
+  "csv_checks": [
+    {
+      "path": "data\\raw\\mapdn_case33\\load_active.csv",
+      "signals": 32,
+      "rows": 526080,
+      "first_timestamp": "2012-01-01 00:03:00",
+      "last_timestamp": "2015-01-01 00:00:00",
+      "interval_seconds_histogram": {
+        "180": 526079
+      },
+      "date_count": 1097,
+      "rows_per_calendar_date_histogram": {
+        "479": 1,
+        "480": 1095,
+        "1": 1
+      },
+      "first_calendar_date_rows": 479,
+      "last_calendar_date_rows": 1,
+      "column_count_errors": 0,
+      "empty_or_nonfinite_tokens": 0,
+      "scope": "full timestamp and table-shape scan; not a full physical-value or power-flow audit"
+    },
+    {
+      "path": "data\\raw\\mapdn_case33\\load_reactive.csv",
+      "signals": 32,
+      "rows": 526080,
+      "first_timestamp": "2012-01-01 00:03:00",
+      "last_timestamp": "2015-01-01 00:00:00",
+      "interval_seconds_histogram": {
+        "180": 526079
+      },
+      "date_count": 1097,
+      "rows_per_calendar_date_histogram": {
+        "479": 1,
+        "480": 1095,
+        "1": 1
+      },
+      "first_calendar_date_rows": 479,
+      "last_calendar_date_rows": 1,
+      "column_count_errors": 0,
+      "empty_or_nonfinite_tokens": 0,
+      "scope": "full timestamp and table-shape scan; not a full physical-value or power-flow audit"
+    },
+    {
+      "path": "data\\raw\\mapdn_case33\\pv_active.csv",
+      "signals": 6,
+      "rows": 526080,
+      "first_timestamp": "2012-01-01 00:03:00",
+      "last_timestamp": "2015-01-01 00:00:00",
+      "interval_seconds_histogram": {
+        "180": 526079
+      },
+      "date_count": 1097,
+      "rows_per_calendar_date_histogram": {
+        "479": 1,
+        "480": 1095,
+        "1": 1
+      },
+      "first_calendar_date_rows": 479,
+      "last_calendar_date_rows": 1,
+      "column_count_errors": 0,
+      "empty_or_nonfinite_tokens": 0,
+      "scope": "full timestamp and table-shape scan; not a full physical-value or power-flow audit"
+    }
+  ],
+  "complete": true,
+  "power_flow_executed": false
+}

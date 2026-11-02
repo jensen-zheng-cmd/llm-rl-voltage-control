@@ -1,0 +1,99 @@
+{
+  "case33bw": {
+    "source_url": "https://github.com/MATPOWER/matpower/blob/master/data/case33bw.m",
+    "snapshot_sha256": "b40831eeb444669ae876e2996f0dda9f05cd83e81b314b8dfca51e4890cca95d",
+    "buses": 33,
+    "branches_total": 37,
+    "branches_closed": 32,
+    "connected": true,
+    "radial": true,
+    "base_mva": 10.0,
+    "base_kv": [
+      12.66
+    ],
+    "reference_buses": [
+      1
+    ],
+    "power_flow_executed": false,
+    "base_load_mw": 3.715,
+    "base_load_mvar": 2.3
+  },
+  "case141": {
+    "source_url": "https://github.com/MATPOWER/matpower/blob/master/data/case141.m",
+    "snapshot_sha256": "613c313b92629160c5f250e28bd33b22df316c81a8c6507f5958b3d23fe1c88e",
+    "buses": 141,
+    "branches_total": 140,
+    "branches_closed": 140,
+    "connected": true,
+    "radial": true,
+    "base_mva": 10.0,
+    "base_kv": [
+      12.47
+    ],
+    "reference_buses": [
+      1
+    ],
+    "power_flow_executed": false
+  },
+  "case33_pv_mapping": {
+    "source_zero_based": [
+      12,
+      17,
+      21,
+      24,
+      28,
+      32
+    ],
+    "paper_one_based": [
+      13,
+      18,
+      22,
+      25,
+      29,
+      33
+    ],
+    "matches_paper_figure": true
+  },
+  "candidate_regions_one_based": {
+    "region1": [
+      2,
+      3,
+      4,
+      5,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "region2": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "region3": [
+      6,
+      7,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33
+    ]
+  },
+  "regions_cover_each_nonreference_bus_once": true,
+  "region_map_status": "transcribed from target-paper supplementary topology; not from MAPDN zone labels"
+}
