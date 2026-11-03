@@ -1,0 +1,7 @@
+{
+  "steps": 14400,
+  "episodes": 150,
+  "training_seconds": 329.35331580002094,
+  "reload_check": "passed",
+  "validation": "deferred"
+}

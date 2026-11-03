@@ -28,3 +28,5 @@
 ## LLM 日前计划 v1
 
 [接口、六日经验库与三日 Reflexion 结果](llm-v1/README.md)
+
+[PPO 微调 v1](ppo-finetune-v1/README.md)

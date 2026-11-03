@@ -1,0 +1,5184 @@
+[
+  {
+    "date": "2013-08-12",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": [
+          10,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.7762372039859978
+  },
+  {
+    "date": "2012-11-12",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          22
+        ],
+        "9": [
+          7,
+          22
+        ],
+        "26": [
+          7,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.9503466892770682
+  },
+  {
+    "date": "2012-09-18",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": [
+          10,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.8137981749151931
+  },
+  {
+    "date": "2012-07-06",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2013-08-25",
+    "similarity": 0.9100072686591859
+  },
+  {
+    "date": "2012-07-02",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          17,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-07-15",
+    "similarity": 0.8722093408369852
+  },
+  {
+    "date": "2012-09-25",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          10,
+          15
+        ],
+        "9": [
+          10,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.9258856840247439
+  },
+  {
+    "date": "2013-11-25",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          22
+        ],
+        "9": [
+          7,
+          22
+        ],
+        "26": [
+          7,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8296755134488444
+  },
+  {
+    "date": "2013-06-28",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-07-15",
+    "similarity": 0.8402465329571096
+  },
+  {
+    "date": "2013-11-23",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          22
+        ],
+        "9": [
+          7,
+          22
+        ],
+        "26": [
+          7,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.924711761113547
+  },
+  {
+    "date": "2013-12-08",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          18,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9676809087302889
+  },
+  {
+    "date": "2013-06-18",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": [
+          10,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.8125298479564345
+  },
+  {
+    "date": "2013-08-20",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          6,
+          -1
+        ],
+        [
+          16,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-04-21",
+    "similarity": 0.931805803420715
+  },
+  {
+    "date": "2012-08-21",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          18,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          18,
+          22
+        ],
+        "9": null,
+        "26": [
+          18,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.9433367931470528
+  },
+  {
+    "date": "2012-01-12",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.7169729620991299
+  },
+  {
+    "date": "2012-05-03",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          8,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2012-06-24",
+    "similarity": 0.7029059631439823
+  },
+  {
+    "date": "2012-07-19",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": [
+          10,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.7565980984499674
+  },
+  {
+    "date": "2013-09-17",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": [
+          10,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.8627219155649423
+  },
+  {
+    "date": "2012-09-23",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          17,
+          -1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          19,
+          23
+        ],
+        "9": [
+          10,
+          15
+        ],
+        "26": null
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.9020631161270857
+  },
+  {
+    "date": "2012-12-10",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          17,
+          -1
+        ],
+        [
+          20,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8865200709594102
+  },
+  {
+    "date": "2013-05-09",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": [
+          10,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.8456216352476293
+  },
+  {
+    "date": "2012-12-11",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          18,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8374650820675458
+  },
+  {
+    "date": "2012-12-07",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.7867742800557597
+  },
+  {
+    "date": "2013-01-16",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.7959098922361155
+  },
+  {
+    "date": "2013-03-03",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          11,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          21
+        ],
+        "9": [
+          9,
+          21
+        ],
+        "26": [
+          9,
+          21
+        ]
+      }
+    },
+    "reference_date": "2013-05-19",
+    "similarity": 0.8794589696372057
+  },
+  {
+    "date": "2012-11-28",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          22
+        ],
+        "9": [
+          7,
+          22
+        ],
+        "26": [
+          7,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.7883220220348176
+  },
+  {
+    "date": "2012-01-16",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          18,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          22
+        ],
+        "9": [
+          7,
+          22
+        ],
+        "26": [
+          7,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.7854091430661035
+  },
+  {
+    "date": "2012-04-18",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2012-06-24",
+    "similarity": 0.8078263173771506
+  },
+  {
+    "date": "2013-10-16",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          14,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-25",
+    "similarity": 0.8735260996859028
+  },
+  {
+    "date": "2013-08-27",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          17,
+          23
+        ],
+        "9": [
+          17,
+          23
+        ],
+        "26": [
+          17,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-08-12",
+    "similarity": 0.9210367710234177
+  },
+  {
+    "date": "2012-07-23",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          18,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          20
+        ],
+        "9": null,
+        "26": [
+          9,
+          20
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.8599654872571326
+  },
+  {
+    "date": "2013-06-01",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -2
+        ],
+        [
+          17,
+          2
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2013-06-16",
+    "similarity": 0.9552537384860181
+  },
+  {
+    "date": "2013-09-28",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.9361021514394939
+  },
+  {
+    "date": "2013-06-25",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          6,
+          -1
+        ],
+        [
+          16,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-04-21",
+    "similarity": 0.8983048028168341
+  },
+  {
+    "date": "2012-10-26",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.8920426709454508
+  },
+  {
+    "date": "2012-06-26",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2013-05-11",
+    "similarity": 0.5563802976556573
+  },
+  {
+    "date": "2013-01-02",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9003282039176932
+  },
+  {
+    "date": "2013-03-28",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          17,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-06-08",
+    "similarity": 0.883512680630922
+  },
+  {
+    "date": "2013-10-30",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          17,
+          23
+        ],
+        "9": [
+          17,
+          23
+        ],
+        "26": [
+          17,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-08-12",
+    "similarity": 0.7754172467543099
+  },
+  {
+    "date": "2013-09-29",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          8,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": [
+          10,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.867565147663877
+  },
+  {
+    "date": "2013-10-06",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          8,
+          1
+        ],
+        [
+          10,
+          -1
+        ],
+        [
+          14,
+          1
+        ],
+        [
+          17,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-25",
+    "similarity": 0.9128792719117828
+  },
+  {
+    "date": "2013-01-25",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.7910847736191043
+  },
+  {
+    "date": "2012-06-03",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2012-04-16",
+    "similarity": 0.7198950916530632
+  },
+  {
+    "date": "2012-06-30",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          6,
+          -1
+        ],
+        [
+          16,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2013-04-21",
+    "similarity": 0.9739159772367916
+  },
+  {
+    "date": "2012-08-25",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": [
+          10,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.827111246494081
+  },
+  {
+    "date": "2012-07-10",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          17,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          18,
+          22
+        ],
+        "9": null,
+        "26": [
+          18,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.8840073639805953
+  },
+  {
+    "date": "2012-11-15",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.938664735075181
+  },
+  {
+    "date": "2012-04-30",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2013-08-25",
+    "similarity": 0.8651773860137368
+  },
+  {
+    "date": "2013-02-11",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          15,
+          1
+        ],
+        [
+          18,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          21
+        ],
+        "9": [
+          9,
+          21
+        ],
+        "26": [
+          9,
+          21
+        ]
+      }
+    },
+    "reference_date": "2013-12-25",
+    "similarity": 0.8795544181267516
+  },
+  {
+    "date": "2012-03-18",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          10,
+          -2
+        ],
+        [
+          17,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          15
+        ],
+        "9": [
+          10,
+          16
+        ],
+        "26": [
+          9,
+          15
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.9464404584277827
+  },
+  {
+    "date": "2013-03-13",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9085767067759926
+  },
+  {
+    "date": "2012-01-23",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8321208522022101
+  },
+  {
+    "date": "2012-12-02",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          22
+        ],
+        "9": [
+          7,
+          22
+        ],
+        "26": [
+          7,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9545347440995272
+  },
+  {
+    "date": "2013-11-02",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          10,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9174299432377638
+  },
+  {
+    "date": "2013-06-14",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          18,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          18,
+          22
+        ],
+        "9": null,
+        "26": [
+          18,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.9678393186896713
+  },
+  {
+    "date": "2012-05-12",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.9100927637121184
+  },
+  {
+    "date": "2013-04-15",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          2
+        ],
+        [
+          17,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-04-21",
+    "similarity": 0.7095622649969132
+  },
+  {
+    "date": "2013-06-07",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": [
+          10,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.9157034181699464
+  },
+  {
+    "date": "2012-11-27",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8031104746139934
+  },
+  {
+    "date": "2013-07-08",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          11,
+          -1
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          19,
+          22
+        ],
+        "9": null,
+        "26": [
+          19,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.9122455618775958
+  },
+  {
+    "date": "2012-04-02",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          16,
+          1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          21
+        ],
+        "9": [
+          9,
+          21
+        ],
+        "26": [
+          9,
+          21
+        ]
+      }
+    },
+    "reference_date": "2013-05-19",
+    "similarity": 0.8437949619091417
+  },
+  {
+    "date": "2012-07-29",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2012-04-16",
+    "similarity": 0.8773830856111453
+  },
+  {
+    "date": "2013-03-10",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          17,
+          23
+        ],
+        "9": [
+          17,
+          23
+        ],
+        "26": [
+          17,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-08-12",
+    "similarity": 0.8952430813136578
+  },
+  {
+    "date": "2012-08-24",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          17,
+          23
+        ],
+        "9": [
+          17,
+          23
+        ],
+        "26": [
+          17,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-08-12",
+    "similarity": 0.8176327635874091
+  },
+  {
+    "date": "2012-12-16",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9649985092906435
+  },
+  {
+    "date": "2013-06-03",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          18,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          18,
+          22
+        ],
+        "9": null,
+        "26": [
+          18,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.9049381872154315
+  },
+  {
+    "date": "2012-04-01",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          17,
+          23
+        ],
+        "9": [
+          17,
+          23
+        ],
+        "26": [
+          17,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-08-12",
+    "similarity": 0.9003835444303538
+  },
+  {
+    "date": "2012-08-04",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2013-08-25",
+    "similarity": 0.9291262270294672
+  },
+  {
+    "date": "2013-11-28",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8905898720271016
+  },
+  {
+    "date": "2013-04-23",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          15,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          18,
+          23
+        ],
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-21",
+    "similarity": 0.769076634965955
+  },
+  {
+    "date": "2013-04-08",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          11,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          20
+        ],
+        "9": [
+          8,
+          20
+        ],
+        "26": [
+          8,
+          20
+        ]
+      }
+    },
+    "reference_date": "2013-12-25",
+    "similarity": 0.8399918600153063
+  },
+  {
+    "date": "2013-11-03",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          14,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          22
+        ],
+        "9": [
+          9,
+          22
+        ],
+        "26": [
+          9,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-25",
+    "similarity": 0.8649858575730807
+  },
+  {
+    "date": "2012-04-14",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          -1
+        ],
+        [
+          22,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          16
+        ],
+        "9": [
+          8,
+          16
+        ],
+        "26": [
+          17,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.8176927493801149
+  },
+  {
+    "date": "2013-11-30",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9227459502524293
+  },
+  {
+    "date": "2013-08-05",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": [
+          9,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.7967063172034976
+  },
+  {
+    "date": "2012-05-08",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2013-08-25",
+    "similarity": 0.9277731706642427
+  },
+  {
+    "date": "2012-11-11",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          10,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.9243109377664972
+  },
+  {
+    "date": "2012-07-21",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-07-15",
+    "similarity": 0.8251345647928462
+  },
+  {
+    "date": "2012-10-27",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          15,
+          1
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          22,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          22
+        ],
+        "9": [
+          9,
+          22
+        ],
+        "26": [
+          9,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-25",
+    "similarity": 0.8365882057934714
+  },
+  {
+    "date": "2013-10-01",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          16,
+          1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          21
+        ],
+        "9": [
+          9,
+          21
+        ],
+        "26": [
+          9,
+          21
+        ]
+      }
+    },
+    "reference_date": "2013-05-19",
+    "similarity": 0.8130738924748483
+  },
+  {
+    "date": "2013-01-10",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8035277522091584
+  },
+  {
+    "date": "2013-08-07",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          18,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          21
+        ],
+        "9": null,
+        "26": [
+          9,
+          21
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.8854707413001369
+  },
+  {
+    "date": "2012-03-26",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": -1,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.8896708803512463
+  },
+  {
+    "date": "2013-05-04",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-07-15",
+    "similarity": 0.820540915573365
+  },
+  {
+    "date": "2013-03-31",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          8,
+          -1
+        ],
+        [
+          17,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-06-08",
+    "similarity": 0.778728777531596
+  },
+  {
+    "date": "2013-01-24",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 4,
+      "tap_changes": [
+        [
+          8,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.7922065274940545
+  },
+  {
+    "date": "2012-08-29",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          19,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          18,
+          22
+        ],
+        "9": null,
+        "26": [
+          18,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.9271236053738822
+  },
+  {
+    "date": "2012-02-03",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          8,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          22
+        ],
+        "9": [
+          7,
+          22
+        ],
+        "26": [
+          7,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.7218898972342623
+  },
+  {
+    "date": "2012-01-29",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          13,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          10,
+          21
+        ],
+        "9": [
+          10,
+          21
+        ],
+        "26": [
+          10,
+          21
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9234616264085213
+  },
+  {
+    "date": "2013-11-11",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.9319238395523806
+  },
+  {
+    "date": "2013-08-01",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": [
+          10,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.8271282409711478
+  },
+  {
+    "date": "2013-12-20",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.85296697963461
+  },
+  {
+    "date": "2012-08-16",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          8,
+          -1
+        ],
+        [
+          17,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-06-08",
+    "similarity": 0.9232683490788367
+  },
+  {
+    "date": "2012-05-30",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          5,
+          1
+        ],
+        [
+          10,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          22
+        ],
+        "9": [
+          9,
+          22
+        ],
+        "26": [
+          9,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.8795993771611431
+  },
+  {
+    "date": "2012-07-09",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          11,
+          -1
+        ],
+        [
+          16,
+          -1
+        ],
+        [
+          20,
+          -1
+        ],
+        [
+          22,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-25",
+    "similarity": 0.9279483256830938
+  },
+  {
+    "date": "2013-04-16",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          21
+        ],
+        "9": [
+          9,
+          21
+        ],
+        "26": [
+          9,
+          21
+        ]
+      }
+    },
+    "reference_date": "2013-05-19",
+    "similarity": 0.903065085378022
+  },
+  {
+    "date": "2012-10-29",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          22
+        ],
+        "9": [
+          7,
+          22
+        ],
+        "26": [
+          7,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9358401634714065
+  },
+  {
+    "date": "2013-11-09",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          21
+        ],
+        "9": [
+          8,
+          21
+        ],
+        "26": [
+          8,
+          21
+        ]
+      }
+    },
+    "reference_date": "2013-05-19",
+    "similarity": 0.7501799660023694
+  },
+  {
+    "date": "2013-10-23",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          11,
+          -1
+        ],
+        [
+          15,
+          1
+        ],
+        [
+          18,
+          1
+        ],
+        [
+          22,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          22
+        ],
+        "9": [
+          9,
+          22
+        ],
+        "26": [
+          9,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-25",
+    "similarity": 0.7837018887898671
+  },
+  {
+    "date": "2013-08-06",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          18,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          18,
+          22
+        ],
+        "9": null,
+        "26": [
+          18,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.8541224419484618
+  },
+  {
+    "date": "2012-09-06",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          17,
+          23
+        ],
+        "9": [
+          17,
+          23
+        ],
+        "26": [
+          17,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-08-12",
+    "similarity": 0.8743770367730197
+  },
+  {
+    "date": "2012-05-18",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          17,
+          23
+        ],
+        "9": [
+          17,
+          23
+        ],
+        "26": [
+          17,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-08-12",
+    "similarity": 0.8312326049967548
+  },
+  {
+    "date": "2012-03-12",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9401129450912172
+  },
+  {
+    "date": "2012-04-11",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.9417901347092277
+  },
+  {
+    "date": "2013-11-04",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          8,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          22
+        ],
+        "9": [
+          7,
+          22
+        ],
+        "26": [
+          7,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9521343276038874
+  },
+  {
+    "date": "2012-02-01",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.7478924051527415
+  },
+  {
+    "date": "2013-11-14",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          10,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          22
+        ],
+        "9": [
+          7,
+          22
+        ],
+        "26": [
+          7,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8791300193629138
+  },
+  {
+    "date": "2012-01-28",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          18,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          23
+        ],
+        "9": [
+          8,
+          23
+        ],
+        "26": [
+          8,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8757934717005887
+  },
+  {
+    "date": "2012-06-20",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          18,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-04-21",
+    "similarity": 0.731746706893463
+  },
+  {
+    "date": "2013-06-04",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          16,
+          1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          21
+        ],
+        "9": [
+          9,
+          21
+        ],
+        "26": [
+          9,
+          21
+        ]
+      }
+    },
+    "reference_date": "2013-05-19",
+    "similarity": 0.9040563607830693
+  },
+  {
+    "date": "2013-03-18",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          8,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          17,
+          23
+        ],
+        "9": [
+          17,
+          23
+        ],
+        "26": [
+          17,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-08-12",
+    "similarity": 0.813581137526777
+  },
+  {
+    "date": "2013-01-30",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8262932513260537
+  },
+  {
+    "date": "2013-05-08",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          17,
+          23
+        ],
+        "9": [
+          17,
+          23
+        ],
+        "26": [
+          17,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-08-12",
+    "similarity": 0.9298976669067355
+  },
+  {
+    "date": "2012-12-28",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          22
+        ],
+        "9": [
+          7,
+          22
+        ],
+        "26": [
+          7,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8363306037273931
+  },
+  {
+    "date": "2013-03-04",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          21
+        ],
+        "9": [
+          9,
+          21
+        ],
+        "26": [
+          9,
+          21
+        ]
+      }
+    },
+    "reference_date": "2013-05-19",
+    "similarity": 0.7990343357401298
+  },
+  {
+    "date": "2012-09-11",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.8709607511755232
+  },
+  {
+    "date": "2013-03-26",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          18,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-25",
+    "similarity": 0.8749358407738611
+  },
+  {
+    "date": "2013-06-23",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          8,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          20,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-21",
+    "similarity": 0.915641602823331
+  },
+  {
+    "date": "2013-06-06",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          8,
+          -2
+        ],
+        [
+          17,
+          2
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2013-06-16",
+    "similarity": 0.632535957629
+  },
+  {
+    "date": "2012-02-11",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9344872551099705
+  },
+  {
+    "date": "2012-09-29",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          16,
+          -1
+        ],
+        [
+          19,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          16
+        ],
+        "9": [
+          8,
+          16
+        ],
+        "26": [
+          8,
+          16
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.8350439837242333
+  },
+  {
+    "date": "2013-12-16",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9065360117858481
+  },
+  {
+    "date": "2012-05-04",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          8,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          19,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-04-16",
+    "similarity": 0.1559241165648907
+  },
+  {
+    "date": "2012-04-07",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          8,
+          -1
+        ],
+        [
+          17,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-06-08",
+    "similarity": 0.85810171432897
+  },
+  {
+    "date": "2013-01-14",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8812482552130557
+  },
+  {
+    "date": "2012-07-26",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          23,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          10,
+          16
+        ],
+        "9": [
+          10,
+          16
+        ],
+        "26": null
+      }
+    },
+    "reference_date": "2012-06-08",
+    "similarity": 0.9508606052407954
+  },
+  {
+    "date": "2012-10-30",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.9391323378922264
+  },
+  {
+    "date": "2013-05-02",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 1,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          17,
+          23
+        ],
+        "9": [
+          17,
+          23
+        ],
+        "26": [
+          17,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-08-12",
+    "similarity": 0.8657958444977247
+  },
+  {
+    "date": "2013-09-13",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          6,
+          -1
+        ],
+        [
+          16,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-04-21",
+    "similarity": 0.8714473878175293
+  },
+  {
+    "date": "2013-03-01",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.903050350877729
+  },
+  {
+    "date": "2013-10-14",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.9672583690803935
+  },
+  {
+    "date": "2012-05-25",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2013-08-25",
+    "similarity": 0.974336347468259
+  },
+  {
+    "date": "2013-04-20",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          8,
+          -1
+        ],
+        [
+          17,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-06-08",
+    "similarity": 0.8602741587493072
+  },
+  {
+    "date": "2012-08-03",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          8,
+          -1
+        ],
+        [
+          17,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-07-15",
+    "similarity": 0.8013622404716004
+  },
+  {
+    "date": "2012-09-05",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-25",
+    "similarity": 0.8879158719526
+  },
+  {
+    "date": "2012-06-29",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-07-15",
+    "similarity": 0.7890557151558504
+  },
+  {
+    "date": "2012-05-14",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2012-06-24",
+    "similarity": 0.823296879022308
+  },
+  {
+    "date": "2013-05-25",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          6,
+          -1
+        ],
+        [
+          16,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-04-21",
+    "similarity": 0.9420227436131364
+  },
+  {
+    "date": "2013-05-26",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2012-04-16",
+    "similarity": 0.9105147509127773
+  },
+  {
+    "date": "2013-11-01",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          18,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          22
+        ],
+        "9": [
+          7,
+          22
+        ],
+        "26": [
+          7,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.9201777610361913
+  },
+  {
+    "date": "2012-09-17",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          6,
+          -1
+        ],
+        [
+          10,
+          -1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          9,
+          18
+        ],
+        "9": [
+          9,
+          18
+        ],
+        "26": [
+          9,
+          18
+        ]
+      }
+    },
+    "reference_date": "2013-04-27",
+    "similarity": 0.8947665037583428
+  },
+  {
+    "date": "2013-10-05",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.9085383640423572
+  },
+  {
+    "date": "2012-12-06",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          -1
+        ],
+        [
+          17,
+          -1
+        ],
+        [
+          20,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.7477692981757033
+  },
+  {
+    "date": "2012-09-30",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          7,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": [
+          10,
+          15
+        ],
+        "26": [
+          18,
+          23
+        ]
+      }
+    },
+    "reference_date": "2013-04-26",
+    "similarity": 0.924046329276728
+  },
+  {
+    "date": "2012-10-25",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.8628316221404704
+  },
+  {
+    "date": "2013-02-06",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          22,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          7,
+          23
+        ],
+        "9": [
+          7,
+          23
+        ],
+        "26": [
+          7,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-12-24",
+    "similarity": 0.8850693399363113
+  },
+  {
+    "date": "2012-06-09",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          6,
+          -1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": null
+      }
+    },
+    "reference_date": "2013-08-25",
+    "similarity": 0.8886388567751562
+  },
+  {
+    "date": "2012-09-19",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          23,
+          -1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          17,
+          23
+        ],
+        "9": [
+          17,
+          23
+        ],
+        "26": [
+          17,
+          23
+        ]
+      }
+    },
+    "reference_date": "2012-08-12",
+    "similarity": 0.8164770960436621
+  },
+  {
+    "date": "2013-04-28",
+    "group": "high_pv",
+    "plan": {
+      "initial_tap": 0,
+      "tap_changes": [
+        [
+          8,
+          -1
+        ],
+        [
+          17,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": null,
+        "9": null,
+        "26": [
+          18,
+          22
+        ]
+      }
+    },
+    "reference_date": "2012-06-08",
+    "similarity": 0.6570165117680867
+  },
+  {
+    "date": "2012-09-27",
+    "group": "ordinary",
+    "plan": {
+      "initial_tap": 3,
+      "tap_changes": [
+        [
+          10,
+          -1
+        ],
+        [
+          14,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          21,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-25",
+    "similarity": 0.9202297001493202
+  },
+  {
+    "date": "2012-01-17",
+    "group": "high_load",
+    "plan": {
+      "initial_tap": 2,
+      "tap_changes": [
+        [
+          9,
+          1
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          20,
+          1
+        ]
+      ],
+      "sc_intervals": {
+        "4": [
+          8,
+          22
+        ],
+        "9": [
+          8,
+          22
+        ],
+        "26": [
+          8,
+          22
+        ]
+      }
+    },
+    "reference_date": "2013-12-31",
+    "similarity": 0.7508463589352949
+  }
+]
