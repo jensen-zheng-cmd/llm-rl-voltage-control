@@ -30,3 +30,6 @@ __pycache__/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# Local model weights and paired observation statistics.
+/results/models/

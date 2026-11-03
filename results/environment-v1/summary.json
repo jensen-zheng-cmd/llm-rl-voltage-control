@@ -1,0 +1,279 @@
+{
+  "status": "pass",
+  "run_id": "2026-11-02_233807_environment_v1",
+  "training_date": "2012-03-20",
+  "day_selection": "closest to training median daily P-load and P-PV features in standardized feature space",
+  "physics": {
+    "base_case_min_voltage_pu": 0.913090479361055,
+    "base_case_loss_mw": 0.20267712645595815,
+    "packaged_case_max_voltage_error_pu": 0.0,
+    "checks_passed": 54,
+    "largest_independent_nodal_residual_mva": 1.096559433908803e-08
+  },
+  "zero_action_reference": {
+    "steps": 96,
+    "mean_absolute_voltage_deviation_pu": 0.020292433205621716,
+    "violation_pct": 6.123737373737374,
+    "minimum_voltage_pu": 0.9366663541139805,
+    "maximum_voltage_pu": 1.0230471217568977,
+    "total_undiscounted_reward": -1.9480735877396849,
+    "maximum_nodal_residual_mva": 7.1082206328724254e-09,
+    "observation_dimensions": {
+      "p_load_mw": 32,
+      "q_load_mvar": 32,
+      "voltage_pu": 33,
+      "p_pv_mw": 6,
+      "q_pv_mvar": 6,
+      "tap_one_hot": 11,
+      "sc_one_hot": 6
+    },
+    "oltc_changes_after_initial": 0,
+    "sc_commitment_intervals": [
+      0,
+      0,
+      0
+    ]
+  },
+  "manual_schedule": {
+    "steps": 96,
+    "mean_absolute_voltage_deviation_pu": 0.0183532347341706,
+    "violation_pct": 0.5366161616161615,
+    "minimum_voltage_pu": 0.9452237078470592,
+    "maximum_voltage_pu": 1.027222344630561,
+    "total_undiscounted_reward": -1.7619105344803772,
+    "maximum_nodal_residual_mva": 8.48266783854432e-09,
+    "observation_dimensions": {
+      "p_load_mw": 32,
+      "q_load_mvar": 32,
+      "voltage_pu": 33,
+      "p_pv_mw": 6,
+      "q_pv_mvar": 6,
+      "tap_one_hot": 11,
+      "sc_one_hot": 6
+    },
+    "oltc_changes_after_initial": 4,
+    "sc_commitment_intervals": [
+      1,
+      1,
+      1
+    ]
+  },
+  "capacities_mva": [
+    1.8477956547707923,
+    1.8477956547707923,
+    2.1162927430192617,
+    3.1082294310885454,
+    0.31030685381514095,
+    0.31030685381514095
+  ],
+  "pv_buses_one_based": [
+    13,
+    18,
+    22,
+    25,
+    29,
+    33
+  ],
+  "assumptions": {
+    "version": "case33_environment_v1",
+    "system_config": "configs/system_selection.json",
+    "output_root": "D:/Codex/outputs/llm-rl-voltage",
+    "processed_subdirectory": "data/mapdn_case33_15min_v1",
+    "source_interval_minutes": 3,
+    "target_interval_minutes": 15,
+    "aggregation": "arithmetic_mean_of_five_equal_intervals",
+    "source_timestamp_assumption": "right_endpoint_of_3_minute_interval; explicit reproduction assumption",
+    "state_time_semantics": "equivalent_15_minute_interval_average; not a claim of causal access to future window means in field deployment",
+    "load_scale": 1.0,
+    "pv_scale": 1.0,
+    "splits": {
+      "train": [
+        "2012-01-01",
+        "2014-01-01"
+      ],
+      "validation": [
+        "2014-01-01",
+        "2014-07-01"
+      ],
+      "test": [
+        "2014-07-01",
+        "2015-01-01"
+      ]
+    },
+    "split_boundary_semantics": "inclusive step_start, exclusive step_end_date",
+    "capacity_rule": "1.2_times_each_inverter_raw_3_minute_training_peak",
+    "capacity_factor": 1.2,
+    "initial_state": {
+      "oltc_tap": 0,
+      "sc_on": [
+        0,
+        0,
+        0
+      ],
+      "pv_q_mvar": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cross_day_policy": "independent_daily_reset; no cross_day_switching_cost",
+    "sc_model": "constant_reactive_injection_as_paper_equation_3; not_voltage_squared_shunt",
+    "solver": {
+      "algorithm": "nr",
+      "tolerance_mva": 1e-09,
+      "max_iteration": 50,
+      "numba": false
+    },
+    "voltage_reference_pu": 1.0,
+    "voltage_limits_pu": [
+      0.95,
+      1.05
+    ],
+    "reward_includes_reference_bus": true,
+    "manual_schedule": {
+      "purpose": "environment_acceptance_fixture_not_a_trained_or_optimized_policy",
+      "oltc_times_hour": [
+        0,
+        6,
+        10,
+        16,
+        20
+      ],
+      "oltc_positions": [
+        0,
+        1,
+        -1,
+        0,
+        1
+      ],
+      "sc_intervals_hour": [
+        [
+          18,
+          22
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          18,
+          22
+        ]
+      ],
+      "pv_q_fraction_times_hour": [
+        0,
+        6,
+        10,
+        16,
+        20
+      ],
+      "pv_q_fractions": [
+        0.0,
+        0.25,
+        -0.5,
+        0.25,
+        0.5
+      ]
+    },
+    "engineering_assumptions_not_claimed_as_original_paper_settings": [
+      "right_endpoint_timestamp_interpretation",
+      "five_point_average",
+      "calendar_splits",
+      "training_only_derived_inverter_capacities",
+      "independent_daily_reset",
+      "manual_acceptance_schedule"
+    ]
+  },
+  "dataset_manifest_path": "D:\\Codex\\outputs\\llm-rl-voltage\\data\\mapdn_case33_15min_v1\\manifest.json",
+  "processed_npz_sha256": "a5889b0c468443c77d73d394071a3e2cd1f7c04f2eedded0dc359a28216006cf",
+  "runtime_versions": {
+    "pandapower": "3.5.6",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.9",
+    "scipy": "1.18.1"
+  },
+  "git_head_before_acceptance": "859b4555b1d2a12b83af7b9e48b87fc55a7e1310",
+  "worktree_uncommitted": true,
+  "source_snapshot": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "a811077bd540aefd91e9a48bfc4a0a51cb7ec22558b157137180ca040af1f030"
+    },
+    {
+      "path": "src/voltage_control/__init__.py",
+      "sha256": "08a93e47423194d9d6d133fe9a52a2cb2013801bccfc7824e783ddfbfe35d619"
+    },
+    {
+      "path": "src/voltage_control/acceptance.py",
+      "sha256": "1fca194a5af2c66cf483c20c2181fe2231e39e2ba79706d164755be0e651c7d1"
+    },
+    {
+      "path": "src/voltage_control/common.py",
+      "sha256": "1da648301cce95faf0311ff1161040e755d64e360820b87e6f7841d6f3cca1ea"
+    },
+    {
+      "path": "src/voltage_control/data.py",
+      "sha256": "1be5812b3c5ff8f371f115c3371c85fed0e6cb97c941b974f7da9eef9cbc5dc8"
+    },
+    {
+      "path": "src/voltage_control/environment.py",
+      "sha256": "590a9fe3441b9f0ffcb71c08c1d60686c47ee2d348b6a44ee7d6da2fab036434"
+    },
+    {
+      "path": "src/voltage_control/figures.py",
+      "sha256": "a6e158ccb389507b684b226e0ed1b5547c66bc595e60922450695d4c653b722e"
+    },
+    {
+      "path": "src/voltage_control/mapping.py",
+      "sha256": "45a491b351ea0b6b625bc1022eb9bca195c11282bca98030d8e05aa05d09123c"
+    },
+    {
+      "path": "src/voltage_control/network.py",
+      "sha256": "41003f2f7c22261f6526cfce5c468a2e444517da1a0001355f33537b4625039c"
+    },
+    {
+      "path": "configs/derived_capacities_v1.json",
+      "sha256": "e80740882cf9da7ccbe3f27a9d7f2284e9e5c6cc0a5bcedaac75ca612a075814"
+    },
+    {
+      "path": "configs/environment_v1.json",
+      "sha256": "4e05c7ea605a927708c14af0fa7f6b3d64ddd1137e4638cb46ebe248120be2c7"
+    },
+    {
+      "path": "configs/system_selection.json",
+      "sha256": "58524b926ff33010bcd03095806e0244aa0e6c483bd0da465e64154675743f2d"
+    },
+    {
+      "path": "scripts/download_case33_data.py",
+      "sha256": "5af700b45232d8e40286ed0fbacdd5ec0d40ac265b70bc2ffa173a4e7cd7bad5"
+    },
+    {
+      "path": "scripts/prepare_case33_data.py",
+      "sha256": "d6df688f3bb956a8e4ec86df91fc6f8baa903bc68786a132b3f0fcda3b54b866"
+    },
+    {
+      "path": "scripts/run_environment_acceptance.py",
+      "sha256": "6d7ce6a82ef5ec853bd9e6f49928e6945f83b864a69967f372b0317e41601aeb"
+    },
+    {
+      "path": "tests/test_environment.py",
+      "sha256": "c1c16d361c9a676bd413c531cc3ab661d0054fb9b5fa9723587147dd7e553525"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "sha256": "81276f077b5e07e6596f4f391df19ccc3d993487907494208d803eacc78df028"
+    }
+  ],
+  "claim_boundary": "Environment checks and manual fixtures only; no PPO/LLM training, no optimized-performance claim, no field deployment, no thermal-rating validation",
+  "random_seed": null,
+  "randomness": "none: deterministic training-day selection, fixed schedule and AC solvers",
+  "automated_tests": {
+    "passed": 7,
+    "log": "pytest_environment.txt"
+  },
+  "figure_visual_inspection": "all four PNGs manually inspected; Chinese text and legends legible"
+}
