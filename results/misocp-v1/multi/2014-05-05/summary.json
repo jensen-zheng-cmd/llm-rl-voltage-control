@@ -1,0 +1,102 @@
+{
+  "date": "2014-05-05",
+  "llm_comparison": {
+    "date": "2014-05-05",
+    "zero_mad_pu": "0.018869279185716525",
+    "zero_violation_pct": "6.281565656565656",
+    "zero_min_pu": "0.9598355259140213",
+    "zero_max_pu": "1.1277479268602504",
+    "pretrained_mad_pu": "0.012209869608141454",
+    "pretrained_violation_pct": "3.2196969696969697",
+    "pretrained_min_pu": "0.9641338822756128",
+    "pretrained_max_pu": "1.1069802182319017",
+    "finetuned_mad_pu": "0.012511740097525011",
+    "finetuned_violation_pct": "3.2196969696969697",
+    "finetuned_min_pu": "0.9624907877898196",
+    "finetuned_max_pu": "1.1069802182319017"
+  },
+  "joint": {
+    "status": 3,
+    "solutions": 0,
+    "seconds": 0.1510000228881836,
+    "variables": 16556,
+    "binary_variables": 336,
+    "cone_constraints": 3072,
+    "soft_voltage": false,
+    "objective": "sum_abs_squared_voltage_deviation"
+  },
+  "joint_soft": {
+    "status": 2,
+    "solutions": 10,
+    "seconds": 25.806999921798706,
+    "variables": 22892,
+    "binary_variables": 336,
+    "cone_constraints": 3072,
+    "soft_voltage": true,
+    "objective": "sum_abs_squared_voltage_deviation_plus_100_times_voltage_slack",
+    "objective_value": 65.29979249322564,
+    "mip_gap": 0.001964076699578149,
+    "objective_bound": 65.1715386923024,
+    "model_voltage": {
+      "mad_pu": 0.00896815109173488,
+      "violation_pct": 0.25252525252525254,
+      "min_pu": 0.961542502157544,
+      "max_pu": 1.0642332321092405
+    },
+    "ac_voltage": {
+      "mad_pu": 0.009597406676079018,
+      "violation_pct": 2.462121212121212,
+      "min_pu": 0.97,
+      "max_pu": 1.090412287509075
+    },
+    "max_voltage_difference_pu": 0.026298724822657826,
+    "max_cone_slack_pu_squared": 1.2100433869835467,
+    "min_cone_slack_pu_squared": 2.7777979808084834e-07,
+    "model_loss_mwh": 9.61848773352895,
+    "ac_loss_mwh": 4.274581354075819,
+    "max_ac_balance_residual_mva": 9.638262121135266e-09,
+    "q_bound_roundoff_correction_mvar": 0.0,
+    "oltc_changes": 4
+  },
+  "fixed_llm": {
+    "status": 3,
+    "solutions": 0,
+    "seconds": 0.5329999923706055,
+    "variables": 16128,
+    "binary_variables": 0,
+    "cone_constraints": 3072,
+    "soft_voltage": false,
+    "objective": "sum_abs_squared_voltage_deviation"
+  },
+  "fixed_llm_soft": {
+    "status": 2,
+    "solutions": 1,
+    "seconds": 0.38700008392333984,
+    "variables": 22464,
+    "binary_variables": 0,
+    "cone_constraints": 3072,
+    "soft_voltage": true,
+    "objective": "sum_abs_squared_voltage_deviation_plus_100_times_voltage_slack",
+    "objective_value": 132.0124137147646,
+    "model_voltage": {
+      "mad_pu": 0.009295602993223285,
+      "violation_pct": 1.1363636363636365,
+      "min_pu": 0.9735673537110431,
+      "max_pu": 1.08066476214593
+    },
+    "ac_voltage": {
+      "mad_pu": 0.009887548497166677,
+      "violation_pct": 3.2828282828282833,
+      "min_pu": 0.9744404618300846,
+      "max_pu": 1.106980218238677
+    },
+    "max_voltage_difference_pu": 0.02643072938780655,
+    "max_cone_slack_pu_squared": 1.2630275281730814,
+    "min_cone_slack_pu_squared": 1.8921243357568205e-09,
+    "model_loss_mwh": 9.280668344634865,
+    "ac_loss_mwh": 4.360628928927459,
+    "max_ac_balance_residual_mva": 7.285427234481491e-09,
+    "q_bound_roundoff_correction_mvar": 0.0,
+    "oltc_changes": 2
+  }
+}

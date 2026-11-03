@@ -1,0 +1,15 @@
+{
+  "date": "2014-05-29",
+  "time_limit": 60.0,
+  "source_plans": "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_retrieval_validation_1793702590987",
+  "solver_version": [
+    13,
+    0,
+    1
+  ],
+  "voltage_hard_limits": [
+    0.95,
+    1.05
+  ],
+  "objective": "sum_abs_squared_voltage_deviation"
+}

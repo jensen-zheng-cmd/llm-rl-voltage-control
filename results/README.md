@@ -32,3 +32,5 @@
 [PPO 微调 v1](ppo-finetune-v1/README.md)
 
 [181 日 PPO 联合验证](ppo-joint-v1/README.md)
+
+[单日 MISOCP 与 AC 回代](misocp-v1/README.md)

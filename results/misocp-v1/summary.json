@@ -1,0 +1,82 @@
+{
+  "date": "2014-05-22",
+  "llm_comparison": {
+    "date": "2014-05-22",
+    "zero_mad_pu": "0.0180646378436545",
+    "zero_violation_pct": "0.726010101010101",
+    "zero_min_pu": "0.9503431411010055",
+    "zero_max_pu": "1.0870787787208207",
+    "pretrained_mad_pu": "0.01105708398513259",
+    "pretrained_violation_pct": "0.0",
+    "pretrained_min_pu": "0.9628784037301169",
+    "pretrained_max_pu": "1.049716451945772",
+    "finetuned_mad_pu": "0.01148454637835186",
+    "finetuned_violation_pct": "0.31565656565656564",
+    "finetuned_min_pu": "0.959786407953415",
+    "finetuned_max_pu": "1.0556252780967736"
+  },
+  "joint": {
+    "status": 2,
+    "solutions": 6,
+    "seconds": 7.763000011444092,
+    "variables": 16556,
+    "binary_variables": 336,
+    "cone_constraints": 3072,
+    "soft_voltage": false,
+    "objective": "sum_abs_squared_voltage_deviation",
+    "objective_value": 37.2158512065828,
+    "mip_gap": 0.004976416731500754,
+    "objective_bound": 37.03064962196132,
+    "model_voltage": {
+      "mad_pu": 0.005889585156201874,
+      "violation_pct": 0.0,
+      "min_pu": 0.9761552501233438,
+      "max_pu": 1.0486847091665876
+    },
+    "ac_voltage": {
+      "mad_pu": 0.006002927601193379,
+      "violation_pct": 0.06313131313131314,
+      "min_pu": 0.9761570811172731,
+      "max_pu": 1.0573539799968363
+    },
+    "max_voltage_difference_pu": 0.008693345692989629,
+    "max_cone_slack_pu_squared": 0.5761673988466918,
+    "min_cone_slack_pu_squared": 4.85621022908167e-09,
+    "model_loss_mwh": 2.7673927911695033,
+    "ac_loss_mwh": 1.880319187397806,
+    "max_ac_balance_residual_mva": 8.827215989479619e-09,
+    "q_bound_roundoff_correction_mvar": 2.0313681126093996e-08,
+    "oltc_changes": 4
+  },
+  "fixed_llm": {
+    "status": 2,
+    "solutions": 1,
+    "seconds": 0.31100010871887207,
+    "variables": 16128,
+    "binary_variables": 0,
+    "cone_constraints": 3072,
+    "soft_voltage": false,
+    "objective": "sum_abs_squared_voltage_deviation",
+    "objective_value": 53.86101821467885,
+    "model_voltage": {
+      "mad_pu": 0.00856649194486129,
+      "violation_pct": 0.0,
+      "min_pu": 0.965472346239845,
+      "max_pu": 1.044245384574863
+    },
+    "ac_voltage": {
+      "mad_pu": 0.008593130590009896,
+      "violation_pct": 0.0,
+      "min_pu": 0.9654723460210216,
+      "max_pu": 1.0497863149522448
+    },
+    "max_voltage_difference_pu": 0.005554910867386242,
+    "max_cone_slack_pu_squared": 0.058703707835965735,
+    "min_cone_slack_pu_squared": -8.16241171874843e-12,
+    "model_loss_mwh": 2.04078121141287,
+    "ac_loss_mwh": 1.8666788351076202,
+    "max_ac_balance_residual_mva": 5.736119232541984e-09,
+    "q_bound_roundoff_correction_mvar": 5.925988144639405e-09,
+    "oltc_changes": 2
+  }
+}
