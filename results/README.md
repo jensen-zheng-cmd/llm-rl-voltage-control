@@ -24,3 +24,7 @@
 本地最终模型与对应的观测归一化参数成对放在 `results/models/ppo-v1/`，分别为 `ppo.zip` 和 `normalization.npz`。该目录由 Git 忽略。
 
 完整配置、阶段权重、日志及训练场景清单位于 D:\Codex\outputs\llm-rl-voltage\runs\ppo_v1_1793672833807_formal。训练脚本使用项目 Python，接受 `--episodes 20` 或 `--episodes 1500`，并通过 `--output` 指定新的运行目录。
+
+## LLM 日前计划 v1
+
+[接口、六日经验库与三日 Reflexion 结果](llm-v1/README.md)

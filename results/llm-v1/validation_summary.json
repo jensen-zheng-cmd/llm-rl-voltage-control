@@ -1,0 +1,101 @@
+{
+  "all": {
+    "days": 181,
+    "with": {
+      "reward": -1.7414329330813691,
+      "mad_pu": 0.01813992638626426,
+      "violation_pct": 3.7090518444109604,
+      "min_pu": 0.948880339485698,
+      "max_pu": 1.068893449490246,
+      "worst_min_pu": 0.9224319662860148,
+      "worst_max_pu": 1.1287006510012734
+    },
+    "without": {
+      "reward": -2.0730181352501122,
+      "mad_pu": 0.021593938908855335,
+      "violation_pct": 6.394399799095932,
+      "min_pu": 0.9420328153727198,
+      "max_pu": 1.0731478307948648,
+      "worst_min_pu": 0.923800717331065,
+      "worst_max_pu": 1.1529755850931298
+    },
+    "paired_mad_pu": {
+      "mean_delta": -0.0034540125225910735,
+      "improved": 170,
+      "worsened": 11,
+      "tied": 0
+    },
+    "paired_violation_pct": {
+      "mean_delta": -2.6853479546849712,
+      "improved": 151,
+      "worsened": 21,
+      "tied": 9
+    }
+  },
+  "similarity_at_least_0.7": {
+    "days": 158,
+    "with": {
+      "reward": -1.730450399435603,
+      "mad_pu": 0.018025524994120867,
+      "violation_pct": 3.370932425521033,
+      "min_pu": 0.9480953870436885,
+      "max_pu": 1.0635452934164464,
+      "worst_min_pu": 0.9296070015883516,
+      "worst_max_pu": 1.1287006510012734
+    },
+    "without": {
+      "reward": -2.051567587999786,
+      "mad_pu": 0.021370495708331105,
+      "violation_pct": 5.975698440097174,
+      "min_pu": 0.941537180213736,
+      "max_pu": 1.0668875908715048,
+      "worst_min_pu": 0.923800717331065,
+      "worst_max_pu": 1.1465357732464263
+    },
+    "paired_mad_pu": {
+      "mean_delta": -0.0033449707142102396,
+      "improved": 150,
+      "worsened": 8,
+      "tied": 0
+    },
+    "paired_violation_pct": {
+      "mean_delta": -2.6047660145761413,
+      "improved": 131,
+      "worsened": 18,
+      "tied": 9
+    }
+  },
+  "similarity_below_0.7": {
+    "days": 23,
+    "with": {
+      "reward": -1.8168781642131522,
+      "mad_pu": 0.01892581421055367,
+      "violation_pct": 6.031785243741766,
+      "min_pu": 0.9542726214786337,
+      "max_pu": 1.105632956431999,
+      "worst_min_pu": 0.9224319662860148,
+      "worst_max_pu": 1.1217690044493438
+    },
+    "without": {
+      "reward": -2.22037406853496,
+      "mad_pu": 0.023128896547239167,
+      "violation_pct": 9.270696091348265,
+      "min_pu": 0.9454376134213905,
+      "max_pu": 1.116152957224902,
+      "worst_min_pu": 0.9291785636677149,
+      "worst_max_pu": 1.1529755850931298
+    },
+    "paired_mad_pu": {
+      "mean_delta": -0.004203082336685498,
+      "improved": 20,
+      "worsened": 3,
+      "tied": 0
+    },
+    "paired_violation_pct": {
+      "mean_delta": -3.2389108476065,
+      "improved": 20,
+      "worsened": 3,
+      "tied": 0
+    }
+  }
+}
