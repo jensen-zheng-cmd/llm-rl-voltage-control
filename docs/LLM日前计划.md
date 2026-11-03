@@ -1,6 +1,6 @@
 # LLM 日前计划
 
-入口为 [run_llm_planning.py](../scripts/run_llm_planning.py)。使用项目 Python 运行，通过 `--key-file` 指定仅含一行密钥的本地文件，通过 `--output` 指定新的运行目录。请求使用 DeepSeek 官方 Chat Completions JSON 模式和 `deepseek-flash`，关闭 thinking，temperature 0.7，top_p 0.8。
+入口为 [run_llm_planning.py](../scripts/run_llm_planning.py)。使用项目 Python 运行，通过 `--key-file` 指定仅含一行密钥的本地文件，通过 `--output` 指定新的运行目录。当前默认使用智算云 Chat Completions JSON 模式，模型 ID 为 `DeepSeek-V4.1-Flash-1017`，使用智算云密钥文件。关闭 thinking，temperature 0.7，top_p 0.8。此前批次使用 DeepSeek 官方 API；如需复跑官方入口，在当前终端设置 `$env:LLM_PROVIDER = "deepseek"`，并传入对应的官方密钥文件。运行记录分别注明供应商和模型。
 
 | 阶段 | 参数 | 工作内容 |
 |---|---|---|

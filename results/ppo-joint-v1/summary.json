@@ -1,0 +1,51 @@
+{
+  "days": 181,
+  "new_steps": 34752,
+  "elapsed_seconds": 853.0731521000271,
+  "zero": {
+    "mad_pu": 0.01813992638626426,
+    "violation_pct": 3.7090518444109604,
+    "min_pu": 0.9224319662860148,
+    "max_pu": 1.1287006510012734
+  },
+  "pretrained": {
+    "mad_pu": 0.010816638509028684,
+    "violation_pct": 0.8301244489089792,
+    "min_pu": 0.9230290315525449,
+    "max_pu": 1.1069802182319017
+  },
+  "finetuned": {
+    "mad_pu": 0.01094489549755007,
+    "violation_pct": 0.828206094090072,
+    "min_pu": 0.9289995987022157,
+    "max_pu": 1.1069802182319017
+  },
+  "zero_to_pretrained": {
+    "mad_pu": {
+      "mean_delta": -0.00732328787723558,
+      "improved": 180,
+      "worsened": 1,
+      "tied": 0
+    },
+    "violation_pct": {
+      "mean_delta": -2.878927395501981,
+      "improved": 162,
+      "worsened": 9,
+      "tied": 10
+    }
+  },
+  "pretrained_to_finetuned": {
+    "mad_pu": {
+      "mean_delta": 0.00012825698852138924,
+      "improved": 39,
+      "worsened": 142,
+      "tied": 0
+    },
+    "violation_pct": {
+      "mean_delta": -0.001918354818907308,
+      "improved": 32,
+      "worsened": 56,
+      "tied": 93
+    }
+  }
+}

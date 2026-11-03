@@ -12,7 +12,7 @@ import torch
 from stable_baselines3 import PPO
 from stable_baselines3.common.logger import configure
 
-from run_llm_planning import Dataset, VoltageControlEnv, closest, forecast, parse_plan, save
+from run_llm_planning import MODEL, PROVIDER, Dataset, VoltageControlEnv, closest, forecast, parse_plan, save
 from train_ppo import flatten
 from validate_llm_retrieval import evaluate_arm
 
@@ -90,7 +90,7 @@ def main():
     excluded = {day for cfg in args.exclude_config for day in json.loads(cfg.read_bytes())["dates"]}
     excluded.update(e["forecast"]["date"] for e in pool)
     selection = select_days(dataset, excluded)
-    config = {"seed": SEED, "selection": selection, "excluded_training_dates": len(excluded),
+    config = {"provider": PROVIDER, "model": MODEL, "seed": SEED, "selection": selection, "excluded_training_dates": len(excluded),
               "settings": SETTINGS, "episodes": 150, "steps": 14400,
               "input_sha256": {name: hashlib.sha256(path.read_bytes()).hexdigest() for name, path in (
                   ("pool", args.pool), ("ppo", args.pretrained / "ppo.zip"),

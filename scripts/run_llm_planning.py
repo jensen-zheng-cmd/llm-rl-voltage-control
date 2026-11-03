@@ -2,6 +2,7 @@
 import argparse
 from datetime import date, datetime, timezone
 import json
+import os
 from pathlib import Path
 import sys
 from urllib.error import HTTPError, URLError
@@ -13,7 +14,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from voltage_control.data import Dataset
 from voltage_control.environment import DayPlan, VoltageControlEnv
 
-MODEL = "deepseek-flash"
+PROVIDER = os.environ.get("LLM_PROVIDER", "paratera")
+ENDPOINT, MODEL = {
+    "paratera": ("https://llmapi.paratera.com/v1/chat/completions", "DeepSeek-V4.1-Flash-1017"),
+    "deepseek": ("https://api.deepseek.com/chat/completions", "deepseek-flash"),
+}[PROVIDER]
 FORECAST_SEED = 42
 SYSTEM = """You schedule an OLTC and three switched capacitors in the balanced
 Baran-Wu 33-bus radial feeder. Bus 1 is the source. Use only the provided
@@ -125,7 +130,7 @@ def generate(key, payload, directory):
               "response_format": {"type": "json_object"}, "thinking": {"type": "disabled"},
               "temperature": .7, "top_p": .8, "max_tokens": 1000}
     save(directory / "request.json", params)
-    request = Request("https://api.deepseek.com/chat/completions",
+    request = Request(ENDPOINT,
                       data=json.dumps(params).encode(),
                       headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"})
     try:
@@ -137,7 +142,7 @@ def generate(key, payload, directory):
         raise RuntimeError("DeepSeek API connection failed or timed out") from None
     choice = result["choices"][0]
     content = choice["message"].get("content")
-    save(directory / "response.json", {"requested_model": MODEL, "returned_model": result.get("model"),
+    save(directory / "response.json", {"provider": PROVIDER, "requested_model": MODEL, "returned_model": result.get("model"),
          "id": result.get("id"), "usage": result.get("usage"), "finish_reason": choice["finish_reason"],
          "received_at_utc": datetime.now(timezone.utc).isoformat(), "content": content})
     if choice["finish_reason"] != "stop" or not content or not content.strip():
@@ -214,7 +219,7 @@ def main():
         order = np.random.default_rng(2026).permutation(remaining)
         days = order[:3] if args.stage == "pilot" else order[3:203]
     save(args.output / "config.json", {"stage": args.stage, "dates": list(days),
-         "forecast_seed": FORECAST_SEED, "relative_noise_sd": .05, "model": MODEL,
+         "forecast_seed": FORECAST_SEED, "relative_noise_sd": .05, "provider": PROVIDER, "model": MODEL,
          "initial_pool": str(args.pool) if args.pool else None, "pv_q_fraction": 0,
          "similarity_threshold": .7})
     summaries = []

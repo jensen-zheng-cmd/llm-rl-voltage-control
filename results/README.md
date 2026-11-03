@@ -30,3 +30,5 @@
 [接口、六日经验库与三日 Reflexion 结果](llm-v1/README.md)
 
 [PPO 微调 v1](ppo-finetune-v1/README.md)
+
+[181 日 PPO 联合验证](ppo-joint-v1/README.md)

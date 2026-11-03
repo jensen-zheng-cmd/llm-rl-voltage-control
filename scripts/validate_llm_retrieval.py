@@ -9,7 +9,7 @@ from statistics import mean
 import numpy as np
 
 from run_llm_planning import (
-    FORECAST_SEED, MODEL, Dataset, VoltageControlEnv, closest, feedback, forecast,
+    FORECAST_SEED, MODEL, PROVIDER, Dataset, VoltageControlEnv, closest, feedback, forecast,
     generate, save, score,
 )
 
@@ -86,7 +86,7 @@ def main():
     args.output.mkdir(parents=True)
     (args.output / "frozen_pool.json").write_bytes(pool_bytes)
     save(args.output / "config.json", {
-        "model": MODEL, "forecast_seed": FORECAST_SEED, "dates": days.tolist(),
+        "provider": PROVIDER, "model": MODEL, "forecast_seed": FORECAST_SEED, "dates": days.tolist(),
         "source_pool_sha256": hashlib.sha256(pool_bytes).hexdigest(), "pool_size": len(pool),
         "pv_q_fraction": 0, "reflexion_rounds": 0, "order": "alternate by date",
         "similarity_reporting_threshold": .7, "retrieval": "nearest even below threshold",
