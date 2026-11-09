@@ -1,0 +1,519 @@
+{
+  "misocp": {
+    "pv_scale": 1,
+    "s_factor": 1.2,
+    "capacities_mva": [
+      1.8477956547707923,
+      1.8477956547707923,
+      2.1162927430192617,
+      2.9686240107510824,
+      0.2814319844706584,
+      0.2814319844706584
+    ],
+    "days": {
+      "2013-09-09": {
+        "pv_peak_mw": 6.861352720123438,
+        "net_export_peak_mw": 4.533671431117135,
+        "load_peak_mw": 2.7671941590392377,
+        "status": 2,
+        "feasible": true,
+        "model_voltage": {
+          "mad_pu": 0.006969079679412348,
+          "violation_pct": 0.0946969696969697,
+          "min_pu": 0.9718504422397456,
+          "max_pu": 1.0500000074637386
+        },
+        "ac_voltage": {
+          "mad_pu": 0.007263656947277405,
+          "violation_pct": 0.4734848484848485,
+          "min_pu": 0.9718504491524103,
+          "max_pu": 1.0604380158902558
+        },
+        "mip_gap": 0.000002006584982036762,
+        "max_voltage_difference_pu": 0.010471962118580702,
+        "seconds": 18.605000019073486
+      },
+      "2013-09-20": {
+        "pv_peak_mw": 6.85618093922652,
+        "net_export_peak_mw": 4.463561265615153,
+        "load_peak_mw": 2.8642587413131944,
+        "status": 2,
+        "feasible": true,
+        "model_voltage": {
+          "mad_pu": 0.007275156100501369,
+          "violation_pct": 0.03156565656565657,
+          "min_pu": 0.9727768988494735,
+          "max_pu": 1.0500000007950165
+        },
+        "ac_voltage": {
+          "mad_pu": 0.00759767695181708,
+          "violation_pct": 0.5366161616161615,
+          "min_pu": 0.9729807809702403,
+          "max_pu": 1.0612397479406892
+        },
+        "mip_gap": 0.00473033916290395,
+        "max_voltage_difference_pu": 0.011280141320633819,
+        "seconds": 21.40000009536743
+      },
+      "2013-04-20": {
+        "pv_peak_mw": 6.534430839679457,
+        "net_export_peak_mw": 4.753444185581494,
+        "load_peak_mw": 2.01748006659121,
+        "status": 2,
+        "feasible": true,
+        "model_voltage": {
+          "mad_pu": 0.005091742769573556,
+          "violation_pct": 0,
+          "min_pu": 0.9794389935038874,
+          "max_pu": 1.047971209913705
+        },
+        "ac_voltage": {
+          "mad_pu": 0.005435643639768101,
+          "violation_pct": 0.12626262626262627,
+          "min_pu": 0.9794389972884907,
+          "max_pu": 1.0559339554643459
+        },
+        "mip_gap": 0.004357884592545586,
+        "max_voltage_difference_pu": 0.00814148824142591,
+        "seconds": 17.569999933242798
+      },
+      "2013-06-01": {
+        "pv_peak_mw": 6.768140896421282,
+        "net_export_peak_mw": 4.737236785344727,
+        "load_peak_mw": 2.0309041110765547,
+        "status": 2,
+        "feasible": true,
+        "model_voltage": {
+          "mad_pu": 0.00507448914760895,
+          "violation_pct": 0.06313131313131314,
+          "min_pu": 0.9834052790114659,
+          "max_pu": 1.0500000003416001
+        },
+        "ac_voltage": {
+          "mad_pu": 0.005352760611538023,
+          "violation_pct": 0.22095959595959594,
+          "min_pu": 0.9834117270405212,
+          "max_pu": 1.059187945648202
+        },
+        "mip_gap": 0.004635851908246788,
+        "max_voltage_difference_pu": 0.009216273424919708,
+        "seconds": 68.37899994850159
+      },
+      "2013-01-23": {
+        "pv_peak_mw": 0.6479207107660143,
+        "net_export_peak_mw": -1.2084000000152146,
+        "load_peak_mw": 3.243220046925924,
+        "status": 2,
+        "feasible": true,
+        "model_voltage": {
+          "mad_pu": 0.006652214028770598,
+          "violation_pct": 0,
+          "min_pu": 0.9728393656206926,
+          "max_pu": 1.0240000000000007
+        },
+        "ac_voltage": {
+          "mad_pu": 0.006678135286093926,
+          "violation_pct": 0,
+          "min_pu": 0.9728420067099193,
+          "max_pu": 1.024
+        },
+        "mip_gap": 0.0042816844537439105,
+        "max_voltage_difference_pu": 0.0008271635511638564,
+        "seconds": 7.662999868392944
+      },
+      "2013-12-04": {
+        "pv_peak_mw": 1.9932696854312868,
+        "net_export_peak_mw": -0.398890162015652,
+        "load_peak_mw": 3.1912113618433255,
+        "status": 2,
+        "feasible": true,
+        "model_voltage": {
+          "mad_pu": 0.006807192515965825,
+          "violation_pct": 0,
+          "min_pu": 0.9655134999750119,
+          "max_pu": 1.018
+        },
+        "ac_voltage": {
+          "mad_pu": 0.00684690489037553,
+          "violation_pct": 0,
+          "min_pu": 0.9655158105620536,
+          "max_pu": 1.018
+        },
+        "mip_gap": 0.004939554548087156,
+        "max_voltage_difference_pu": 0.0011034635643409896,
+        "seconds": 18.16599988937378
+      }
+    },
+    "note": "joint MISOCP with hard 0.95-1.05 limits; AC replay of the optimised actions"
+  },
+  "misocp_ac_q_repair": {
+    "2013-01-23": {
+      "cone_slack_max": 0.3440496296782091,
+      "ac_before": {
+        "mad_pu": 0.006678135286093926,
+        "violation_pct": 0,
+        "min_pu": 0.9728420067099193,
+        "max_pu": 1.024
+      },
+      "repaired_steps": 0,
+      "ac_after": {
+        "mad": 0.006678135286093926,
+        "vr": 0,
+        "vmax": 1.024,
+        "vmin": 0.9728420067099193
+      },
+      "oltc_changes": 4
+    },
+    "2013-04-20": {
+      "cone_slack_max": 0.5064243072948927,
+      "ac_before": {
+        "mad_pu": 0.005435643639768101,
+        "violation_pct": 0.12626262626262627,
+        "min_pu": 0.9794389972884907,
+        "max_pu": 1.0559339554643459
+      },
+      "repaired_steps": 2,
+      "ac_after": {
+        "mad": 0.005415308819392305,
+        "vr": 0.12626262626262627,
+        "vmax": 1.0549124540885766,
+        "vmin": 0.9794389972884907
+      },
+      "oltc_changes": 4
+    },
+    "2013-06-01": {
+      "cone_slack_max": 0.5612528138845058,
+      "ac_before": {
+        "mad_pu": 0.005352760611538023,
+        "violation_pct": 0.22095959595959594,
+        "min_pu": 0.9834117270405212,
+        "max_pu": 1.059187945648202
+      },
+      "repaired_steps": 3,
+      "ac_after": {
+        "mad": 0.005340724881743137,
+        "vr": 0.15782828282828282,
+        "vmax": 1.0585176293144467,
+        "vmin": 0.9834117270405212
+      },
+      "oltc_changes": 4
+    },
+    "2013-09-09": {
+      "cone_slack_max": 0.6206747646374126,
+      "ac_before": {
+        "mad_pu": 0.007263656947277405,
+        "violation_pct": 0.4734848484848485,
+        "min_pu": 0.9718504491524103,
+        "max_pu": 1.0604380158902558
+      },
+      "repaired_steps": 8,
+      "ac_after": {
+        "mad": 0.00730482237370213,
+        "vr": 0.3787878787878788,
+        "vmax": 1.0592647388252436,
+        "vmin": 0.9718504491524103
+      },
+      "oltc_changes": 4
+    },
+    "2013-09-20": {
+      "cone_slack_max": 0.72764737486507,
+      "ac_before": {
+        "mad_pu": 0.00759767695181708,
+        "violation_pct": 0.5366161616161615,
+        "min_pu": 0.9729807809702403,
+        "max_pu": 1.0612397479406892
+      },
+      "repaired_steps": 9,
+      "ac_after": {
+        "mad": 0.0076222250972644845,
+        "vr": 0.3787878787878788,
+        "vmax": 1.0588172537056755,
+        "vmin": 0.9729807809702403
+      },
+      "oltc_changes": 4
+    },
+    "2013-12-04": {
+      "cone_slack_max": 0.3570330194160234,
+      "ac_before": {
+        "mad_pu": 0.00684690489037553,
+        "violation_pct": 0,
+        "min_pu": 0.9655158105620536,
+        "max_pu": 1.018
+      },
+      "repaired_steps": 0,
+      "ac_after": {
+        "mad": 0.00684690489037553,
+        "vr": 0,
+        "vmax": 1.018,
+        "vmin": 0.9655158105620536
+      },
+      "oltc_changes": 4
+    }
+  },
+  "ac_constructive_search": {
+    "2013-01-23": {
+      "date": "2013-01-23",
+      "pv_scale": 1,
+      "s_factor": 1.2,
+      "attempts": [
+        {
+          "sc_on_all_day": [
+            0,
+            0,
+            0
+          ],
+          "hours_without_any_feasible_tap": 0,
+          "tap_schedule": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "changes": 0,
+          "feasible": true
+        }
+      ],
+      "feasible": true
+    },
+    "2013-04-20": {
+      "date": "2013-04-20",
+      "pv_scale": 1,
+      "s_factor": 1.2,
+      "attempts": [
+        {
+          "sc_on_all_day": [
+            0,
+            0,
+            0
+          ],
+          "hours_without_any_feasible_tap": 0,
+          "tap_schedule": [
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4
+          ],
+          "changes": 0,
+          "feasible": true
+        }
+      ],
+      "feasible": true
+    },
+    "2013-06-01": {
+      "date": "2013-06-01",
+      "pv_scale": 1,
+      "s_factor": 1.2,
+      "attempts": [
+        {
+          "sc_on_all_day": [
+            0,
+            0,
+            0
+          ],
+          "hours_without_any_feasible_tap": 0,
+          "tap_schedule": [
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4
+          ],
+          "changes": 0,
+          "feasible": true
+        }
+      ],
+      "feasible": true
+    },
+    "2013-09-09": {
+      "date": "2013-09-09",
+      "pv_scale": 1,
+      "s_factor": 1.2,
+      "attempts": [
+        {
+          "sc_on_all_day": [
+            0,
+            0,
+            0
+          ],
+          "hours_without_any_feasible_tap": 0,
+          "tap_schedule": [
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -4,
+            -5,
+            -5,
+            -5,
+            -5,
+            -5,
+            -5,
+            -5,
+            -5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "changes": 2,
+          "feasible": true
+        }
+      ],
+      "feasible": true
+    },
+    "2013-09-20": {
+      "date": "2013-09-20",
+      "pv_scale": 1,
+      "s_factor": 1.2,
+      "attempts": [
+        {
+          "sc_on_all_day": [
+            0,
+            0,
+            0
+          ],
+          "hours_without_any_feasible_tap": 0,
+          "tap_schedule": [
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            -3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "changes": 1,
+          "feasible": true
+        }
+      ],
+      "feasible": true
+    },
+    "2013-12-04": {
+      "date": "2013-12-04",
+      "pv_scale": 1,
+      "s_factor": 1.2,
+      "attempts": [
+        {
+          "sc_on_all_day": [
+            0,
+            0,
+            0
+          ],
+          "hours_without_any_feasible_tap": 0,
+          "tap_schedule": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "changes": 0,
+          "feasible": true
+        }
+      ],
+      "feasible": true
+    }
+  }
+}

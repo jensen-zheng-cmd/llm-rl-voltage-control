@@ -39,4 +39,6 @@
 
 [PPO 微调阶段权重验证](ppo-checkpoints-v1/README.md)
 
+[配置 v2 筛选与可行性确认](v2-screen/README.md)
+
 全部实验口径、评价与后续优先级见 [实验总览与改进方向](../docs/实验总览与改进方向.md)。

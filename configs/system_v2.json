@@ -1,0 +1,40 @@
+{
+  "version": "case33_v2",
+  "status": "frozen_after_A1_A2",
+  "as_of": "2026-11-09",
+  "inherits": {
+    "system": "configs/system_selection.json",
+    "environment": "configs/environment_v1.json",
+    "unchanged": "network, OLTC/SC/PV buses and limits, reactive capacity factor 0.3, solver, aggregation, reward, voltage limits"
+  },
+  "data": {
+    "year": 2013,
+    "processed_source": "the v1 15-minute dataset restricted to 2013 dates",
+    "load_scale": 1.0,
+    "pv_scale": 1.0,
+    "year_normalization": "none; 2013 has stable inverter ratios"
+  },
+  "splits": {
+    "file": "configs/splits_v2.json",
+    "sha256": "3f8b4ea9c24c05dc0cc62ead46589cca7713f2e9f58f1048644d131cbb2feb72",
+    "primary": "A_half_month",
+    "leakage_comparison_only": "B_daily_4_1_1"
+  },
+  "pv_capacity": {
+    "rule": "1.2 times each inverter's raw 3-minute peak over split-A training days",
+    "s_factor": 1.2,
+    "raw_training_peak_mw": [1.5398297123089937, 1.5398297123089937, 1.763577285849385, 2.4738533422925686, 0.2345266537255487, 0.2345266537255487],
+    "rated_apparent_capacity_mva": [1.8477956547707923, 1.8477956547707923, 2.1162927430192617, 2.9686240107510824, 0.2814319844706584, 0.2814319844706584],
+    "shared_by_both_splits": true,
+    "assumption_not_paper_reported_rating": true
+  },
+  "selection_evidence": {
+    "screening": "results/v2-screen/summary.json",
+    "feasibility": "results/v2-screen/feasibility.json",
+    "rule": "fixed before screening; training days of split A only; no control-method result used"
+  },
+  "known_limitations": [
+    "Original violation rate 5.22% is about half the paper's 10.7%; PV scaling does not close the gap because the Original minimum voltage comes from evening load.",
+    "The current DistFlow conic MISOCP is not exact on high-PV days (cone slack up to 0.73 p.u.^2); its AC replay shows overvoltage up to 1.061 p.u. It must be tightened before serving as an optimisation reference."
+  ]
+}
