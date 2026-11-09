@@ -107,13 +107,42 @@ def prepare_data():
 
 
 class Dataset:
-    def __init__(self, directory=None):
+    """Processed 15-minute data with the split and inverter capacities of one configuration.
+
+    v1 uses the calendar ranges and capacities recorded with the processed data.
+    v2 reuses the same processed series (2013 dates only) with the frozen split lists
+    and capacities of configs/system_v2.json.
+    """
+
+    def __init__(self, directory=None, version="v1", split_scheme=None):
         self.runtime, self.system = load_configs()
         self.directory = Path(directory) if directory else processed_directory(self.runtime)
         self.info = read_json(self.directory / "manifest.json")
         with np.load(self.directory / "timeseries.npz", allow_pickle=False) as stored:
             self.arrays = {key: stored[key] for key in stored.files}
-        self.capacities = np.asarray(self.info["pv_rated_apparent_capacity_mva"])
+        self.version = version
+        if version == "v1":
+            if split_scheme is not None:
+                raise ValueError("v1 has a single calendar split")
+            self.capacities = np.asarray(self.info["pv_rated_apparent_capacity_mva"])
+            self.split_scheme = "calendar_v1"
+            self.splits = {name: np.arange(*map(np.datetime64, bounds), dtype="datetime64[D]").astype(str).tolist()
+                           for name, bounds in self.runtime["splits"].items()}
+        elif version == "v2":
+            config = read_json(PROJECT_ROOT / "configs/system_v2.json")
+            split_file = PROJECT_ROOT / config["splits"]["file"]
+            if sha256(split_file) != config["splits"]["sha256"]:
+                raise ValueError("Frozen v2 split file changed")
+            if config["data"]["load_scale"] != self.runtime["load_scale"] or config["data"]["pv_scale"] != self.runtime["pv_scale"]:
+                raise ValueError("v2 scales differ from the processed series")
+            self.split_scheme = split_scheme or config["splits"]["primary"]
+            self.splits = {name: list(dates) for name, dates in read_json(split_file)["splits"][self.split_scheme].items()}
+            self.capacities = np.asarray(config["pv_capacity"]["rated_apparent_capacity_mva"])
+        else:
+            raise ValueError(f"Unknown configuration version: {version}")
+
+    def split_dates(self, name):
+        return np.asarray(self.splits[name], dtype="datetime64[D]")
 
     def day(self, date):
         date = np.datetime64(date, "D")
@@ -123,9 +152,8 @@ class Dataset:
         return {name: values[mask].copy() for name, values in self.arrays.items()}
 
     def representative_training_day(self):
-        start, end = map(np.datetime64, self.runtime["splits"]["train"])
         times = self.arrays["step_start"]
-        mask = (times >= start) & (times < end)
+        mask = np.isin(times.astype("datetime64[D]"), self.split_dates("train"))
         p_load = self.arrays["p_load_mw"][mask].sum(axis=1).reshape(-1, 96).mean(axis=1)
         p_pv = self.arrays["p_pv_mw"][mask].sum(axis=1).reshape(-1, 96).mean(axis=1)
         features = np.column_stack((p_load, p_pv))

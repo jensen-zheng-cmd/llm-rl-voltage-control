@@ -36,7 +36,15 @@ def sample_plan(rng, kind):
 
 
 def split_dates(dataset, split):
-    return np.arange(*map(np.datetime64, dataset.runtime["splits"][split]), dtype="datetime64[D]")
+    return dataset.split_dates(split)
+
+
+# "improved" lowers the initial exploration std (log 0.37) and collects about ten days per update;
+# the minibatch size and epochs are unchanged, so both variants take the same number of gradient steps.
+VARIANTS = {
+    "original": dict(n_steps=384, log_std_init=0.0),
+    "improved": dict(n_steps=960, log_std_init=float(np.log(0.37))),
+}
 
 
 def flatten(observation):
@@ -151,17 +159,31 @@ def main():
     parser.add_argument("--episodes", choices=[20, 1500], type=int, required=True)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--config", choices=["v1", "v2"], default="v1")
+    parser.add_argument("--split-scheme", choices=["A_half_month"], default=None,
+                        help="v2 only; PPO is not trained on the leakage-check split B")
+    parser.add_argument("--variant", choices=sorted(VARIANTS), default="original")
     args = parser.parse_args()
+    if args.config == "v1" and (args.split_scheme or args.variant != "original"):
+        raise ValueError("v1 reproduces the original run; split scheme and variant apply to v2 only")
     args.output.mkdir(parents=True, exist_ok=False)
     torch.set_num_threads(1)
-    dataset = Dataset()
+    dataset = Dataset(version=args.config, split_scheme=args.split_scheme)
+    variant = VARIANTS[args.variant]
     mean, scale, norm_dates = normalization(dataset, args.seed + 1)
     np.savez(args.output / "normalization.npz", mean=mean, scale=scale)
     scenarios = validation_scenarios(dataset, 2026)
     pilot = [row for row in scenarios if row[2]]
-    settings = dict(n_steps=384, batch_size=32, n_epochs=4, gamma=.9, gae_lambda=.95, clip_range=.3)
+    settings = dict(n_steps=variant["n_steps"], batch_size=32, n_epochs=4, gamma=.9, gae_lambda=.95, clip_range=.3)
+    policy_kwargs = dict(net_arch=dict(pi=[256, 256], vf=[256, 256]), activation_fn=torch.nn.Tanh,
+                         log_std_init=variant["log_std_init"])
+    split_record = dataset.runtime["splits"] if args.config == "v1" else dict(
+        scheme=dataset.split_scheme, file="configs/splits_v2.json",
+        counts={name: len(dates) for name, dates in dataset.splits.items()},
+        train=dataset.splits["train"], validation=dataset.splits["validation"])
     (args.output / "config.json").write_text(json.dumps(dict(
-        seed=args.seed, episodes=args.episodes, splits=dataset.runtime["splits"],
+        seed=args.seed, episodes=args.episodes, config_version=args.config, variant=args.variant,
+        log_std_init=variant["log_std_init"], capacities_mva=dataset.capacities.tolist(), splits=split_record,
         dataset=str(dataset.directory), dataset_manifest=dataset.info, environment=dataset.runtime,
         normalization_dates=norm_dates, plan_probabilities=[.25, .50, .25],
         learning_rates=[1e-4, 1e-5], hidden_layers=[256, 256], activation="Tanh",
@@ -174,8 +196,7 @@ def main():
         env = TrainingEnv(dataset, mean, scale, history)
         model = PPO("MlpPolicy", env, **settings, seed=args.seed, device="cpu",
                     learning_rate=lambda remaining: 1e-5 + 9e-5 * remaining,
-                    policy_kwargs=dict(net_arch=dict(pi=[256, 256], vf=[256, 256]),
-                                       activation_fn=torch.nn.Tanh))
+                    policy_kwargs=policy_kwargs)
         model.set_logger(configure(str(args.output), ["csv"]))
         callbacks = [
             CheckpointCallback(300 * 96, str(args.output), name_prefix="ppo"),
