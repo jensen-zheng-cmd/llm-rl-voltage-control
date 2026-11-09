@@ -1,0 +1,88 @@
+{
+  "days": 181,
+  "training_seconds": 352.56734609999694,
+  "final_policy_identical_to_previous": true,
+  "new_validation_steps": 52128,
+  "checkpoints": {
+    "0": {
+      "mad_pu": 0.010816638509028684,
+      "violation_pct": 0.8301244489089792,
+      "min_pu": 0.9230290315525449,
+      "max_pu": 1.1069802182319017,
+      "mad_pu_paired": {
+        "improved": 0,
+        "worsened": 0,
+        "tied": 181
+      },
+      "violation_pct_paired": {
+        "improved": 0,
+        "worsened": 0,
+        "tied": 181
+      }
+    },
+    "30": {
+      "mad_pu": 0.010796752949709651,
+      "violation_pct": 0.8292524694458394,
+      "min_pu": 0.9275005353597993,
+      "max_pu": 1.1069802182319017,
+      "mad_pu_paired": {
+        "improved": 48,
+        "worsened": 133,
+        "tied": 0
+      },
+      "violation_pct_paired": {
+        "improved": 23,
+        "worsened": 29,
+        "tied": 129
+      }
+    },
+    "60": {
+      "mad_pu": 0.010854743798394708,
+      "violation_pct": 0.8182655282102794,
+      "min_pu": 0.9294329360590097,
+      "max_pu": 1.1069802182319017,
+      "mad_pu_paired": {
+        "improved": 38,
+        "worsened": 143,
+        "tied": 0
+      },
+      "violation_pct_paired": {
+        "improved": 40,
+        "worsened": 31,
+        "tied": 110
+      }
+    },
+    "100": {
+      "mad_pu": 0.01090540626987973,
+      "violation_pct": 0.836751492828841,
+      "min_pu": 0.9286314117463921,
+      "max_pu": 1.1069802182319017,
+      "mad_pu_paired": {
+        "improved": 39,
+        "worsened": 142,
+        "tied": 0
+      },
+      "violation_pct_paired": {
+        "improved": 26,
+        "worsened": 58,
+        "tied": 97
+      }
+    },
+    "150": {
+      "mad_pu": 0.01094489549755007,
+      "violation_pct": 0.828206094090072,
+      "min_pu": 0.9289995987022157,
+      "max_pu": 1.1069802182319017,
+      "mad_pu_paired": {
+        "improved": 39,
+        "worsened": 142,
+        "tied": 0
+      },
+      "violation_pct_paired": {
+        "improved": 32,
+        "worsened": 56,
+        "tied": 93
+      }
+    }
+  }
+}

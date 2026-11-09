@@ -1,0 +1,22 @@
+{
+  "runs": [
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\misocp_v1_1793717132569_licensed",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\misocp_multi_1793717775925\\2014-02-04",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\misocp_multi_1793717775925\\2014-05-29",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\misocp_multi_1793717775925\\2014-05-05"
+  ],
+  "deterministic": true,
+  "device_buses": [
+    13,
+    18,
+    22,
+    25,
+    29,
+    33
+  ],
+  "saturation_fraction": 0.99,
+  "inputs_sha256": {
+    "ppo.zip": "ffd793821d10d550a0d07af9ed206e0008b6b2f3c8ba1bc304b6466ab64a45d5",
+    "normalization.npz": "d0696ad74e42973294c570735fb42ad97c268198a0098575d11feec901f9ff29"
+  }
+}

@@ -34,3 +34,9 @@
 [181 日 PPO 联合验证](ppo-joint-v1/README.md)
 
 [单日 MISOCP 与 AC 回代](misocp-v1/README.md)
+
+[四日无功动作对齐](pv-dispatch-v1/README.md)
+
+[PPO 微调阶段权重验证](ppo-checkpoints-v1/README.md)
+
+全部实验口径、评价与后续优先级见 [实验总览与改进方向](../docs/实验总览与改进方向.md)。
