@@ -1,0 +1,111 @@
+{
+  "training_days": 221,
+  "high_pv_days": 45,
+  "thresholds": [
+    {
+      "threshold": 0.7,
+      "final_pool_size": 15,
+      "matched_existing_days": 206,
+      "high_pv_pool_entries": 10,
+      "all_training": {
+        "days": 221,
+        "mean": 0.8725617892750451,
+        "median": 0.871837559513154,
+        "p05": 0.7652791067622357,
+        "min": 0.7042685425053004,
+        "max": 1.0000000000000002,
+        "coverage_at_0_70": 1.0,
+        "coverage_at_0_80": 0.8280542986425339
+      },
+      "high_pv_training": {
+        "days": 45,
+        "mean": 0.8838742783638716,
+        "median": 0.8620657418947614,
+        "p05": 0.7851228335089324,
+        "min": 0.7740590804860664,
+        "max": 1.0000000000000002,
+        "coverage_at_0_70": 1.0,
+        "coverage_at_0_80": 0.8666666666666667
+      }
+    },
+    {
+      "threshold": 0.8,
+      "final_pool_size": 28,
+      "matched_existing_days": 193,
+      "high_pv_pool_entries": 15,
+      "all_training": {
+        "days": 221,
+        "mean": 0.9217660421173897,
+        "median": 0.9204751188906747,
+        "p05": 0.847916355646242,
+        "min": 0.8265541744584903,
+        "max": 1.0000000000000002,
+        "coverage_at_0_70": 1.0,
+        "coverage_at_0_80": 1.0
+      },
+      "high_pv_training": {
+        "days": 45,
+        "mean": 0.9397356840305844,
+        "median": 0.9546550238425001,
+        "p05": 0.8357083439440154,
+        "min": 0.8265541744584903,
+        "max": 1.0000000000000002,
+        "coverage_at_0_70": 1.0,
+        "coverage_at_0_80": 1.0
+      }
+    },
+    {
+      "threshold": 0.85,
+      "final_pool_size": 40,
+      "matched_existing_days": 181,
+      "high_pv_pool_entries": 17,
+      "all_training": {
+        "days": 221,
+        "mean": 0.9427524780944327,
+        "median": 0.9376357779136744,
+        "p05": 0.8831987945401354,
+        "min": 0.8679803892086408,
+        "max": 1.0000000000000002,
+        "coverage_at_0_70": 1.0,
+        "coverage_at_0_80": 1.0
+      },
+      "high_pv_training": {
+        "days": 45,
+        "mean": 0.9560378924942179,
+        "median": 0.9571448343494903,
+        "p05": 0.8921034197508544,
+        "min": 0.8793361538458656,
+        "max": 1.0000000000000002,
+        "coverage_at_0_70": 1.0,
+        "coverage_at_0_80": 1.0
+      }
+    },
+    {
+      "threshold": 0.9,
+      "final_pool_size": 60,
+      "matched_existing_days": 161,
+      "high_pv_pool_entries": 20,
+      "all_training": {
+        "days": 221,
+        "mean": 0.9617140991783082,
+        "median": 0.9574593791244282,
+        "p05": 0.9146117496008069,
+        "min": 0.9006489838668659,
+        "max": 1.0000000000000002,
+        "coverage_at_0_70": 1.0,
+        "coverage_at_0_80": 1.0
+      },
+      "high_pv_training": {
+        "days": 45,
+        "mean": 0.9665457637035763,
+        "median": 0.9708495237417251,
+        "p05": 0.9082450322000254,
+        "min": 0.9006489838668659,
+        "max": 1.0000000000000002,
+        "coverage_at_0_70": 1.0,
+        "coverage_at_0_80": 1.0
+      }
+    }
+  ],
+  "selection": "Report all four candidates; select two for C2 without using control outcomes or held-out dates"
+}

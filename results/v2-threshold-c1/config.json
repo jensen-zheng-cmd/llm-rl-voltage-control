@@ -1,0 +1,29 @@
+{
+  "version": "v2_c1",
+  "split_scheme": "A_half_month",
+  "scope": "train_only",
+  "training_days": 221,
+  "validation_days_used": 0,
+  "test_days_used": 0,
+  "thresholds": [
+    0.7,
+    0.8,
+    0.85,
+    0.9
+  ],
+  "forecast_seed": 42,
+  "forecast": {
+    "quantity": "hourly regional P_load minus P_PV and consistent sum over regions",
+    "aggregation_before_noise": true,
+    "noise": "independent multiplicative Gaussian, relative standard deviation 0.05",
+    "signed_reverse_flow": true,
+    "nodal_profiles_supplied_to_strategy": false
+  },
+  "high_pv_definition": "true daily maximum of summed six-PV active power >= split-A training upper quintile",
+  "high_pv_days": 45,
+  "simulation": "chronological first-representative clustering; sim < threshold adds a record; otherwise no size change",
+  "not_simulated": "reward-based record replacement, LLM calls, voltage effect, C2 final 200-day selection",
+  "coverage": "retrospective nearest-neighbor similarity of each training forecast to the final proxy pool",
+  "splits_sha256": "3f8b4ea9c24c05dc0cc62ead46589cca7713f2e9f58f1048644d131cbb2feb72",
+  "system_v2_sha256": "c2b766a57243a953f0c8f52dbcf2891042d38539e6943969cebcc582f93f4e38"
+}

@@ -100,6 +100,33 @@ def forecast(dataset, day):
     return {"date": day, "regions": profiles, "net_load_mw": net.round(5).tolist()}
 
 
+def forecast_v2(dataset, day):
+    """Paper-style v2 input: noisy regional hourly net demand, plus its consistent total.
+
+    Noise is multiplicative Gaussian with relative standard deviation 0.05 and is
+    applied after regional aggregation. Reverse net demand stays signed. The paper
+    does not specify the noise distribution or operation; these are explicit v2
+    implementation choices. Existing v1 forecasts above are unchanged.
+    """
+    if getattr(dataset, "version", "v1") != "v2":
+        raise ValueError("forecast_v2 requires the v2 dataset configuration")
+    rng = np.random.default_rng(np.random.SeedSequence([FORECAST_SEED, date.fromisoformat(day).toordinal()]))
+    data = dataset.day(day)
+    regions = dataset.system["regions_from_paper_topology"]
+    pv_buses = dataset.system["paper_devices"]["pv_buses"]
+    load_hourly = data["p_load_mw"].reshape(24, 4, -1).mean(axis=1)
+    pv_hourly = data["p_pv_mw"].reshape(24, 4, -1).mean(axis=1)
+    profiles, total = {}, np.zeros(24)
+    for name, buses in regions.items():
+        load = np.asarray(buses) - 2
+        pv = [i for i, bus in enumerate(pv_buses) if bus in buses]
+        net = load_hourly[:, load].sum(axis=1) - pv_hourly[:, pv].sum(axis=1)
+        noisy = net * (1 + rng.normal(0, .05, 24))
+        profiles[name] = {"net_load_mw": noisy.round(5).tolist()}
+        total += noisy
+    return {"date": day, "regions": profiles, "net_load_mw": total.round(5).tolist()}
+
+
 def score(env, day, spec):
     env.reset(day, parse_plan(spec))
     snapshots = []
@@ -174,6 +201,21 @@ def feedback(entry):
     metrics = entry["metrics"]
     return {"plan": entry["plan"], "reward": metrics["reward"],
             "violation_pct": metrics["violation_pct"], "violations": metrics["violations"]}
+
+
+def feedback_v2(entry, regions_from_paper_topology):
+    """Restrict LLM feedback to the paper's total reward and hourly region/total voltages."""
+    metrics = entry["metrics"]
+    hourly = np.asarray(metrics["hourly_bus_voltage_pu"], dtype=float)
+    if hourly.shape != (24, 33):
+        raise ValueError("Expected hourly voltage profiles for all 33 buses")
+    regions = {
+        name: hourly[:, np.asarray(buses) - 1].mean(axis=1).round(6).tolist()
+        for name, buses in regions_from_paper_topology.items()
+    }
+    return {"plan": entry["plan"], "reward": metrics["reward"],
+            "hourly_region_voltage_pu": regions,
+            "hourly_total_voltage_pu": hourly.mean(axis=1).round(6).tolist()}
 
 
 def representative_days(dataset):
