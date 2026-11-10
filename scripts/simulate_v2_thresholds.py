@@ -9,6 +9,7 @@ import sys
 import numpy as np
 
 from run_llm_planning import Dataset, FORECAST_SEED, forecast_v2, save, similarity
+from run_llm_planning_v2 import ORDER_SEED, day_groups
 from voltage_control.common import PROJECT_ROOT
 
 THRESHOLDS = (0.70, 0.80, 0.85, 0.90)
@@ -34,6 +35,8 @@ def distribution(values):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--order", choices=("chronological", "c2"), default="chronological",
+                        help="c2: six seed days always added, then the 200 C2 formal days in their fixed order")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
     dataset = Dataset(version="v2", split_scheme="A_half_month")
@@ -60,6 +63,17 @@ def main():
     high_pv = peak_pv >= np.quantile(peak_pv, .8)
     split_bytes = (PROJECT_ROOT / "configs/splits_v2.json").read_bytes()
     system_bytes = (PROJECT_ROOT / "configs/system_v2.json").read_bytes()
+    sequence, forced = list(range(len(dates))), 0
+    extra = {}
+    if args.order == "c2":
+        groups = day_groups(dataset)
+        position = {day: i for i, day in enumerate(dates)}
+        sequence = [position[day] for day in groups["seed"] + groups["formal"]]
+        forced = len(groups["seed"])
+        extra = {"order": "c2", "order_seed": ORDER_SEED,
+                 "simulation": "six C2 seed days always added, then the 200 C2 formal days in fixed random order; "
+                               "sim < threshold adds a record; otherwise no size change",
+                 "sequence_days": len(sequence), "coverage_days": len(dates)}
     save(args.output / "config.json", {
         "version": "v2_c1", "split_scheme": "A_half_month", "scope": "train_only",
         "training_days": len(dates), "validation_days_used": 0, "test_days_used": 0,
@@ -77,6 +91,7 @@ def main():
         "coverage": "retrospective nearest-neighbor similarity of each training forecast to the final proxy pool",
         "splits_sha256": hashlib.sha256(split_bytes).hexdigest(),
         "system_v2_sha256": hashlib.sha256(system_bytes).hexdigest(),
+        **extra,
     })
     np.savez_compressed(args.output / "forecasts.npz", dates=np.asarray(dates),
                         regional_net_load_mw=np.asarray(regional), total_net_load_mw=np.asarray(totals),
@@ -85,12 +100,15 @@ def main():
     trajectory, coverage_rows, summaries = [], [], []
     for threshold in THRESHOLDS:
         pool, pool_indices = [], []
-        for step, (day, prediction) in enumerate(zip(dates, predictions), 1):
+        for step, position in enumerate(sequence, 1):
+            day, prediction = dates[position], predictions[position]
             index, score = nearest(pool, prediction)
             action = "matched_existing" if index is not None and score >= threshold else "added"
+            if step <= forced:
+                action = "added"
             if action == "added":
                 pool.append(prediction)
-                pool_indices.append(step - 1)
+                pool_indices.append(position)
             trajectory.append({"threshold": threshold, "step": step, "date": day,
                                "nearest_similarity_before": score if index is not None else "",
                                "nearest_date_before": dates[pool_indices[index]] if index is not None else "",
@@ -106,7 +124,7 @@ def main():
                                   "nearest_final_pool_similarity": score})
         similarities = np.asarray(similarities)
         entry = {"threshold": threshold, "final_pool_size": len(pool),
-                 "matched_existing_days": len(dates) - len(pool),
+                 "matched_existing_days": len(sequence) - len(pool),
                  "high_pv_pool_entries": int(high_pv[pool_indices].sum()),
                  "all_training": distribution(similarities),
                  "high_pv_training": distribution(similarities[high_pv])}

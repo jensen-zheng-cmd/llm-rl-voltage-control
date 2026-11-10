@@ -151,8 +151,8 @@ def score(env, day, spec):
             "hourly_bus_voltage_pu": v.reshape(24, 4, 33).mean(axis=1).round(6).tolist()}
 
 
-def generate(key, payload, directory):
-    params = {"model": MODEL, "messages": [{"role": "system", "content": SYSTEM},
+def generate(key, payload, directory, system=SYSTEM):
+    params = {"model": MODEL, "messages": [{"role": "system", "content": system},
               {"role": "user", "content": json.dumps(payload, ensure_ascii=False)}],
               "response_format": {"type": "json_object"}, "thinking": {"type": "disabled"},
               "temperature": .7, "top_p": .8, "max_tokens": 1000}
