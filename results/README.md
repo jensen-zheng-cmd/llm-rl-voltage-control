@@ -49,4 +49,6 @@
 
 [LLM 经验库建库与冻结验证 C2](v2-llm-c2/README.md)
 
+[PPO 微调与联合验证 D](ppo-finetune-v2/README.md)
+
 全部实验口径、评价与后续优先级见 [实验总览与改进方向](../docs/实验总览与改进方向.md)。

@@ -1,0 +1,243 @@
+{
+  "days": 48,
+  "elapsed_seconds": 308.79744750005193,
+  "arms": {
+    "original": {
+      "mad_pu": 0.020792987757315997,
+      "violation_pct": 5.274752735690236,
+      "violation_free_days": 1,
+      "min_pu": 0.9284358048663306,
+      "max_pu": 1.1101151759031282
+    },
+    "no_rl": {
+      "mad_pu": 0.016485121956308964,
+      "violation_pct": 2.110953282828283,
+      "violation_free_days": 8,
+      "min_pu": 0.9257456891536846,
+      "max_pu": 1.107646536504741
+    },
+    "no_llm": {
+      "mad_pu": 0.010635211999928326,
+      "violation_pct": 0.110479797979798,
+      "violation_free_days": 37,
+      "min_pu": 0.9447179477772778,
+      "max_pu": 1.0755947057470894
+    },
+    "pretrained_ep000": {
+      "mad_pu": 0.00959682274558834,
+      "violation_pct": 0.06115845959595959,
+      "violation_free_days": 42,
+      "min_pu": 0.9410310248909891,
+      "max_pu": 1.0732040733128558
+    },
+    "proposed_ep030": {
+      "mad_pu": 0.009506737008668274,
+      "violation_pct": 0.06115845959595959,
+      "violation_free_days": 42,
+      "min_pu": 0.9409993407532548,
+      "max_pu": 1.0731960672863716
+    },
+    "proposed_ep060": {
+      "mad_pu": 0.009469048451016556,
+      "violation_pct": 0.05984322390572391,
+      "violation_free_days": 42,
+      "min_pu": 0.9412128806994905,
+      "max_pu": 1.0731873359785575
+    },
+    "proposed_ep100": {
+      "mad_pu": 0.009538110679187518,
+      "violation_pct": 0.05918560606060606,
+      "violation_free_days": 42,
+      "min_pu": 0.9413176444781022,
+      "max_pu": 1.0731780865586316
+    },
+    "proposed_ep150": {
+      "mad_pu": 0.009455683781549673,
+      "violation_pct": 0.05918560606060606,
+      "violation_free_days": 42,
+      "min_pu": 0.9413907797153831,
+      "max_pu": 1.0731974139955571
+    },
+    "nowarmup_ep030": {
+      "mad_pu": 0.009514887848719443,
+      "violation_pct": 0.06181607744107744,
+      "violation_free_days": 42,
+      "min_pu": 0.9410880426398396,
+      "max_pu": 1.0732050415021017
+    },
+    "nowarmup_ep060": {
+      "mad_pu": 0.009480947171258173,
+      "violation_pct": 0.06115845959595959,
+      "violation_free_days": 42,
+      "min_pu": 0.9410918741176596,
+      "max_pu": 1.073215881363175
+    },
+    "nowarmup_ep100": {
+      "mad_pu": 0.009482730334348434,
+      "violation_pct": 0.06115845959595959,
+      "violation_free_days": 42,
+      "min_pu": 0.9411376808822977,
+      "max_pu": 1.073231988570745
+    },
+    "nowarmup_ep150": {
+      "mad_pu": 0.009373619856765542,
+      "violation_pct": 0.05984322390572391,
+      "violation_free_days": 42,
+      "min_pu": 0.9411733455124072,
+      "max_pu": 1.0732436232785303
+    },
+    "nopt_ep030": {
+      "mad_pu": 0.01600700755265397,
+      "violation_pct": 1.8373842592592593,
+      "violation_free_days": 8,
+      "min_pu": 0.9260111027690529,
+      "max_pu": 1.1073095437104914
+    },
+    "nopt_ep060": {
+      "mad_pu": 0.015592319464950736,
+      "violation_pct": 1.6302346380471378,
+      "violation_free_days": 9,
+      "min_pu": 0.9263307146961413,
+      "max_pu": 1.104947625042822
+    },
+    "nopt_ep100": {
+      "mad_pu": 0.0148744473317734,
+      "violation_pct": 1.1988373316498315,
+      "violation_free_days": 11,
+      "min_pu": 0.9271134661650581,
+      "max_pu": 1.0992027356086143
+    },
+    "nopt_ep150": {
+      "mad_pu": 0.014483875565377217,
+      "violation_pct": 1.0462699915824916,
+      "violation_free_days": 11,
+      "min_pu": 0.927616315102782,
+      "max_pu": 1.0956915703967436
+    }
+  },
+  "mechanical": {
+    "llm_plans": {
+      "grid_code_compliant_days": 48,
+      "mean_oltc_changes": 1.7291666666666667,
+      "mean_sc_switching": 5.583333333333333
+    },
+    "neutral_plan": {
+      "oltc_changes": 0,
+      "sc_switching": 0
+    }
+  },
+  "paired": {
+    "proposed_ep150_vs_pretrained_ep000": {
+      "mad_pu": {
+        "mean_delta": -0.0001411389640386679,
+        "standard_error": 1.7334411316581635e-05,
+        "lower": 42,
+        "higher": 6,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -0.001972853535353536,
+        "standard_error": 0.0019728535353535363,
+        "lower": 1,
+        "higher": 0,
+        "tied": 47
+      }
+    },
+    "proposed_ep150_vs_nowarmup_ep150": {
+      "mad_pu": {
+        "mean_delta": 8.206392478413142e-05,
+        "standard_error": 1.775184935900827e-05,
+        "lower": 10,
+        "higher": 38,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -0.0006576178451178465,
+        "standard_error": 0.0006576178451178465,
+        "lower": 1,
+        "higher": 0,
+        "tied": 47
+      }
+    },
+    "proposed_ep150_vs_nopt_ep150": {
+      "mad_pu": {
+        "mean_delta": -0.005028191783827542,
+        "standard_error": 0.00018097140610822432,
+        "lower": 48,
+        "higher": 0,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -0.9870843855218855,
+        "standard_error": 0.16618341720873284,
+        "lower": 37,
+        "higher": 0,
+        "tied": 11
+      }
+    },
+    "proposed_ep150_vs_no_rl": {
+      "mad_pu": {
+        "mean_delta": -0.007029438174759294,
+        "standard_error": 0.00020904575735323854,
+        "lower": 48,
+        "higher": 0,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -2.051767676767677,
+        "standard_error": 0.2817304689385644,
+        "lower": 40,
+        "higher": 0,
+        "tied": 8
+      }
+    },
+    "proposed_ep150_vs_no_llm": {
+      "mad_pu": {
+        "mean_delta": -0.0011795282183786518,
+        "standard_error": 0.00015616491495022396,
+        "lower": 41,
+        "higher": 7,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -0.05129419191919191,
+        "standard_error": 0.025543022077595977,
+        "lower": 11,
+        "higher": 2,
+        "tied": 35
+      }
+    },
+    "no_llm_vs_original": {
+      "mad_pu": {
+        "mean_delta": -0.010157775757387673,
+        "standard_error": 0.0003033134865434891,
+        "lower": 48,
+        "higher": 0,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -5.164272937710439,
+        "standard_error": 0.5167262050257113,
+        "lower": 47,
+        "higher": 0,
+        "tied": 1
+      }
+    },
+    "nowarmup_ep150_vs_pretrained_ep000": {
+      "mad_pu": {
+        "mean_delta": -0.00022320288882279933,
+        "standard_error": 2.21888457851284e-05,
+        "lower": 47,
+        "higher": 1,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -0.0013152356902356895,
+        "standard_error": 0.0013152356902356897,
+        "lower": 1,
+        "higher": 0,
+        "tied": 47
+      }
+    }
+  }
+}
