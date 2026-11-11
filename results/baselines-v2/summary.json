@@ -1,0 +1,249 @@
+{
+  "days": 48,
+  "arms": {
+    "Original": {
+      "mad_pu": 0.020792987757315997,
+      "violation_pct": 5.274752735690236,
+      "violation_free_days": 1,
+      "min_pu": 0.9284358048663306,
+      "max_pu": 1.1101151759031282,
+      "worse_than_original_days": 0,
+      "paper_table3": {
+        "mad_pu": 0.025,
+        "violation_pct": 10.7
+      }
+    },
+    "No-LLM": {
+      "mad_pu": 0.010635211999928326,
+      "violation_pct": 0.110479797979798,
+      "violation_free_days": 37,
+      "min_pu": 0.9447179477772778,
+      "max_pu": 1.0755947057470894,
+      "worse_than_original_days": 0,
+      "paper_table3": {
+        "mad_pu": 0.0114,
+        "violation_pct": 0.0365
+      }
+    },
+    "No-RL": {
+      "mad_pu": 0.016485121956308964,
+      "violation_pct": 2.110953282828283,
+      "violation_free_days": 8,
+      "min_pu": 0.9257456891536846,
+      "max_pu": 1.107646536504741,
+      "worse_than_original_days": 2,
+      "paper_table3": {
+        "mad_pu": 0.0169,
+        "violation_pct": 1.21
+      }
+    },
+    "Proposed": {
+      "mad_pu": 0.009455683781549673,
+      "violation_pct": 0.05918560606060606,
+      "violation_free_days": 42,
+      "min_pu": 0.9413907797153831,
+      "max_pu": 1.0731974139955571,
+      "worse_than_original_days": 0,
+      "paper_table3": {
+        "mad_pu": 0.00822,
+        "violation_pct": 0.0026
+      }
+    },
+    "Pure-RL": {
+      "mad_pu": 0.010989743000620425,
+      "violation_pct": 0.3064499158249158,
+      "violation_free_days": 37,
+      "min_pu": 0.952074979206851,
+      "max_pu": 1.0903436681438936,
+      "worse_than_original_days": 0,
+      "paper_table3": {
+        "mad_pu": 0.0206,
+        "violation_pct": 3.24
+      }
+    },
+    "No-PT": {
+      "mad_pu": 0.014483875565377217,
+      "violation_pct": 1.0462699915824916,
+      "violation_free_days": 11,
+      "min_pu": 0.927616315102782,
+      "max_pu": 1.0956915703967436,
+      "worse_than_original_days": 0,
+      "paper_table3": {
+        "mad_pu": 0.0102,
+        "violation_pct": 1.26
+      }
+    },
+    "No-Reflexion": {
+      "mad_pu": 0.010002260556397831,
+      "violation_pct": 0.13218118686868688,
+      "violation_free_days": 37,
+      "min_pu": 0.9417698626462075,
+      "max_pu": 1.0816807178348329,
+      "worse_than_original_days": 0,
+      "paper_table3": {
+        "mad_pu": 0.0086,
+        "violation_pct": 0.00608
+      }
+    },
+    "Pure-RL day-ahead only (PV Q=0)": {
+      "mad_pu": 0.01746766338605819,
+      "violation_pct": 2.734375,
+      "violation_free_days": 6,
+      "min_pu": 0.9363856422953641,
+      "max_pu": 1.1236260037236574,
+      "worse_than_original_days": 11,
+      "paper_table3": null
+    },
+    "No-Reflexion day-ahead only (PV Q=0)": {
+      "mad_pu": 0.018232705291848565,
+      "violation_pct": 3.41500946969697,
+      "violation_free_days": 5,
+      "min_pu": 0.9255040183731948,
+      "max_pu": 1.1160363829770834,
+      "worse_than_original_days": 10,
+      "paper_table3": null
+    }
+  },
+  "paired": {
+    "Proposed_vs_Pure-RL": {
+      "mad_pu": {
+        "mean_delta": -0.0015340592190707517,
+        "standard_error": 0.00024528764772722815,
+        "lower": 38,
+        "higher": 10,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -0.24726430976430977,
+        "standard_error": 0.1032656508145446,
+        "lower": 11,
+        "higher": 2,
+        "tied": 35
+      }
+    },
+    "Proposed_vs_No-Reflexion": {
+      "mad_pu": {
+        "mean_delta": -0.0005465767748481593,
+        "standard_error": 0.00013832319238334787,
+        "lower": 35,
+        "higher": 13,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -0.07299558080808081,
+        "standard_error": 0.046956547831136015,
+        "lower": 11,
+        "higher": 3,
+        "tied": 34
+      }
+    },
+    "Proposed_vs_No-PT": {
+      "mad_pu": {
+        "mean_delta": -0.005028191783827542,
+        "standard_error": 0.00018097140610822432,
+        "lower": 48,
+        "higher": 0,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -0.9870843855218855,
+        "standard_error": 0.16618341720873284,
+        "lower": 37,
+        "higher": 0,
+        "tied": 11
+      }
+    },
+    "Proposed_vs_No-LLM": {
+      "mad_pu": {
+        "mean_delta": -0.0011795282183786518,
+        "standard_error": 0.00015616491495022396,
+        "lower": 41,
+        "higher": 7,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -0.05129419191919191,
+        "standard_error": 0.025543022077595977,
+        "lower": 11,
+        "higher": 2,
+        "tied": 35
+      }
+    },
+    "Proposed_vs_No-RL": {
+      "mad_pu": {
+        "mean_delta": -0.007029438174759294,
+        "standard_error": 0.00020904575735323854,
+        "lower": 48,
+        "higher": 0,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -2.051767676767677,
+        "standard_error": 0.2817304689385644,
+        "lower": 40,
+        "higher": 0,
+        "tied": 8
+      }
+    },
+    "No-Reflexion_vs_Pure-RL": {
+      "mad_pu": {
+        "mean_delta": -0.0009874824442225923,
+        "standard_error": 0.0002976892378901987,
+        "lower": 29,
+        "higher": 19,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": -0.1742687289562289,
+        "standard_error": 0.09950911912125784,
+        "lower": 10,
+        "higher": 7,
+        "tied": 31
+      }
+    },
+    "Pure-RL day-ahead_vs_No-RL": {
+      "mad_pu": {
+        "mean_delta": 0.000982541429749224,
+        "standard_error": 0.00042837521134148104,
+        "lower": 19,
+        "higher": 29,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": 0.6234217171717171,
+        "standard_error": 0.3650584807484121,
+        "lower": 17,
+        "higher": 26,
+        "tied": 5
+      }
+    },
+    "No-Reflexion day-ahead_vs_No-RL": {
+      "mad_pu": {
+        "mean_delta": 0.0017475833355395983,
+        "standard_error": 0.00033505601976581705,
+        "lower": 9,
+        "higher": 39,
+        "tied": 0
+      },
+      "violation_pct": {
+        "mean_delta": 1.3040561868686869,
+        "standard_error": 0.4010876450791007,
+        "lower": 12,
+        "higher": 27,
+        "tied": 9
+      }
+    }
+  },
+  "mechanical_validation_plans": {
+    "Pure-RL": {
+      "days": 48,
+      "mean_oltc_changes": 1.0416666666666667,
+      "mean_sc_switching": 4.770833333333333
+    },
+    "No-Reflexion": {
+      "days": 48,
+      "mean_oltc_changes": 2.2083333333333335,
+      "mean_sc_switching": 5.604166666666667
+    }
+  }
+}

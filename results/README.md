@@ -51,4 +51,6 @@
 
 [PPO 微调与联合验证 D](ppo-finetune-v2/README.md)
 
+[Pure-RL 与 No-Reflexion 对照 E1（含训练曲线与论文表 III 对比）](baselines-v2/README.md)
+
 全部实验口径、评价与后续优先级见 [实验总览与改进方向](../docs/实验总览与改进方向.md)。

@@ -258,7 +258,8 @@ def validate(args):
         if digest(directory / "normalization.npz") != norm_hash:
             raise ValueError(f"{arm} normalization differs from the pretrained model")
         jobs += [(f"{arm}_ep{ep:03}", model_file(directory, ep), False) for ep in CHECKPOINTS]
-    jobs.append(("no_llm", model_file(Path(runs["proposed"]), 150), True))
+    if not args.skip_no_llm:
+        jobs.append(("no_llm", model_file(Path(runs["proposed"]), 150), True))
     args.output.mkdir(parents=True)
     save(args.output / "config.json", {
         "stage": "validate", "dates": dates, "c2_source": str(args.c2), "c2_arm": args.c2_arm,
@@ -266,14 +267,14 @@ def validate(args):
         "models_sha256": {label: digest(path) for label, path, _ in jobs}, "normalization_sha256": norm_hash,
         "deterministic_policy": True, "final_proposed": "proposed_ep150 (fixed before validation)",
         "original_and_no_rl": "reused from the C2 validation records (PV reactive power zero)",
-        "no_llm": "neutral plan (tap 0, capacitors off) with proposed_ep150"})
+        "no_llm": None if args.skip_no_llm else "neutral plan (tap 0, capacitors off) with proposed_ep150"})
     started = perf_counter()
     with ProcessPoolExecutor(max_workers=args.workers) as pool:
         futures = [pool.submit(evaluate_job, label, path, norm_path, llm_plans, neutral) for label, path, neutral in jobs]
         results = dict(f.result() for f in futures)
     results["original"] = [{"date": d, **{m: float(c2[d][f"neutral_{m}"]) for m in METRICS}} for d in dates]
     results["no_rl"] = [{"date": d, **{m: plan_records[d]["metrics"][m] for m in METRICS}} for d in dates]
-    order = ["original", "no_rl", "no_llm", "pretrained_ep000",
+    order = ["original", "no_rl", *([] if args.skip_no_llm else ["no_llm"]), "pretrained_ep000",
              *[f"{arm}_ep{ep:03}" for arm in runs for ep in CHECKPOINTS]]
     with (args.output / "pairs.csv").open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=["date"] + [f"{a}_{m}" for a in order for m in METRICS])
@@ -292,15 +293,10 @@ def validate(args):
                           "mean_oltc_changes": float(np.mean([m["oltc_changes"] for m in llm_mech])),
                           "mean_sc_switching": float(np.mean([m["sc_switching"] for m in llm_mech]))},
             "neutral_plan": mechanical(NEUTRAL)}
-    comparisons = {
-        "proposed_ep150_vs_pretrained_ep000": paired(results["proposed_ep150"], results["pretrained_ep000"]),
-        "proposed_ep150_vs_nowarmup_ep150": paired(results["proposed_ep150"], results["nowarmup_ep150"]),
-        "proposed_ep150_vs_nopt_ep150": paired(results["proposed_ep150"], results["nopt_ep150"]),
-        "proposed_ep150_vs_no_rl": paired(results["proposed_ep150"], results["no_rl"]),
-        "proposed_ep150_vs_no_llm": paired(results["proposed_ep150"], results["no_llm"]),
-        "no_llm_vs_original": paired(results["no_llm"], results["original"]),
-        "nowarmup_ep150_vs_pretrained_ep000": paired(results["nowarmup_ep150"], results["pretrained_ep000"]),
-    }
+    pairs = [("proposed_ep150", "pretrained_ep000"), ("proposed_ep150", "nowarmup_ep150"),
+             ("proposed_ep150", "nopt_ep150"), ("proposed_ep150", "no_rl"), ("proposed_ep150", "no_llm"),
+             ("proposed_ep150", "original"), ("no_llm", "original"), ("nowarmup_ep150", "pretrained_ep000")]
+    comparisons = {f"{a}_vs_{b}": paired(results[a], results[b]) for a, b in pairs if a in results and b in results}
     save(args.output / "summary.json", {"days": len(dates), "elapsed_seconds": perf_counter() - started,
          "arms": arms, "mechanical": mech, "paired": comparisons})
     print(json.dumps(arms, indent=1), flush=True)
@@ -326,6 +322,7 @@ def main():
     v.add_argument("--pretrained", type=Path, default=PRETRAINED)
     v.add_argument("--output", type=Path, required=True)
     v.add_argument("--workers", type=int, default=7)
+    v.add_argument("--skip-no-llm", action="store_true", help="Omit the neutral-plan No-LLM arm")
     args = parser.parse_args()
     {"plans": plans, "train": train, "validate": validate}[args.command](args)
 

@@ -140,3 +140,12 @@ Git关联：与本条记录同次提交；提交信息为“建立执行记录�
 - 48 个验证日（Proposed 事先定为第 150 回合）：Original 0.020793 / 5.27%，No-RL 0.016485 / 2.11%，No-LLM 0.010635 / 0.110%，No-PT 0.014484 / 1.05%，预训练未微调 0.009597 / 0.061%，无预热 0.009374 / 0.060%，Proposed 0.009456 / 0.059%。Proposed 相对 No-RL 偏差降 43%（48/48 天），相对 No-LLM 降 11%（41/48 天）。LLM 计划日均 OLTC 换档 1.73 次、电容器投切 5.58 次，均通过约束检查。
 - 微调本身只降约 1.5%。预热改善了初期价值估计（解释方差 0.264 对 0.085），但最终无预热组略好 0.000082 p.u.（38/48 天），单种子不能定论。No-PT 150 回合远未收敛。
 - 单训练种子、单次 LLM 采样；测试集未打开；MISOCP 未比较。见 [结果说明](../results/ppo-finetune-v2/README.md)。
+
+## T21 v2 Pure-RL 与 No-Reflexion 对照（阶段 E1）
+
+- 2026-11-10 完成并经用户接受。新增 `scripts/train_pure_rl_v2.py`（日前 PPO：24 个小时步，输入同 LLM 的区域预测，违规动作扣 0.05 并改为保持原状态）、`scripts/plot_training_curves_v2.py`、`scripts/summarize_baselines_v2.py` 和 `tests/test_v2_pure_rl.py`；`run_llm_planning_v2.py` 增加 `--reflexion-rounds`，`finetune_ppo_v2.py validate` 增加 `--skip-no-llm`。全部 21 项测试通过。
+- 种子 42。Pure-RL 日前代理在 C2 同序 200 个训练日上训练；No-Reflexion 用初稿重新建库（206 次调用，57 条）。两者都用同一预训练日内 PPO，预热 20 回合后微调 150 回合。
+- 48 个验证日：Proposed 0.009456 / 0.059%，No-Reflexion 0.010002 / 0.132%，No-LLM 0.010635 / 0.110%，Pure-RL 0.010990 / 0.306%，No-PT 0.014484 / 1.05%。Proposed 比 No-Reflexion 低（35/48 天），比 Pure-RL 低 16%（38/48 天）。
+- 核对原文：图 7 纵轴为式 1 量纲（式 11 日奖励 × 节点数），与表 III 一致；后段斜坡来自跨阶段 25 回合滑动平均，后段不含预训练。训练曲线已按此对齐（含 6 个起步日、跨阶段连续平均），另附相对同日 Original 的改进图。前段终点 Proposed −47.5、No-Reflexion −54.8，图 7 约 −46、−54。
+- Pure-RL 与论文不同：日前 PPO 相对同日 Original 从 −22.4 改进到 +3.7，论文始终比 Original 差；冻结后的日前计划只比 Proposed 差 0.00098，19/48 天更好。论文未公开日前代理设计，本实现可能更好学；日内代理两边都做了预训练。是否加更难学的变体待 3 种子后再定；No-PT 起点差异保持现状并说明。本实现的违规处理是惩罚加环境拦截，不是动作屏蔽（action masking）。
+- 单种子、验证集，未做大预算 Pure-RL。见 [阶段结果](../results/baselines-v2/README.md)。

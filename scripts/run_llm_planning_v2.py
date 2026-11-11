@@ -176,7 +176,7 @@ def build(args, key, dataset, env, system, groups):
         check_pool(initial_pool, train)
     config = {
         "version": "v2_c2", "stage": args.stage, "split_scheme": dataset.split_scheme, "dates": days,
-        "threshold": args.threshold, "reflexion_rounds": REFLEXION_ROUNDS, "order_seed": ORDER_SEED,
+        "threshold": args.threshold, "reflexion_rounds": args.reflexion_rounds, "order_seed": ORDER_SEED,
         "forecast": "forecast_v2: regional hourly net load, aggregated then multiplicative Gaussian sd 0.05",
         "forecast_seed": FORECAST_SEED, "feedback": "feedback_v2: reward and hourly region/total voltages",
         "provider": PROVIDER, "model": MODEL, "temperature": .7, "top_p": .8, "pv_q_fraction": 0,
@@ -198,7 +198,7 @@ def build(args, key, dataset, env, system, groups):
         index, sim = closest(pool, prediction) if args.stage != "seed" else (None, 0.0)
         reference = pool[index] if index is not None else None
         candidates = []
-        for round_id in range(REFLEXION_ROUNDS + 1):
+        for round_id in range(args.reflexion_rounds + 1):
             payload = build_payload(prediction, regions, reference, candidates)
             plan, attempt = generate_plan(key, payload, directory / f"round_{round_id}", system)
             entry = {"forecast": prediction, "plan": plan, "metrics": score(env, day, plan)}
@@ -328,6 +328,8 @@ def main():
     parser.add_argument("--threshold", type=float, help="Similarity threshold for pilot and formal stages")
     parser.add_argument("--pool-arm", action="append", default=[], help="name=path frozen pool for validation")
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--reflexion-rounds", type=int, default=REFLEXION_ROUNDS,
+                        help="Revision rounds after the first draft; 0 gives the No-Reflexion ablation")
     args = parser.parse_args()
     if args.stage in ("pilot", "formal") and (args.pool is None or args.threshold is None):
         parser.error("pilot and formal require --pool and --threshold")
