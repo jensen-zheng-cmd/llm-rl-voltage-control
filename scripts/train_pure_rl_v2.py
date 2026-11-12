@@ -11,7 +11,8 @@ Subcommands
           LLM pool build; information equals the LLM input (noisy regional
           hourly net load forecasts) and scoring uses zero PV reactive power.
   plans   Deterministic plans for the 150 fine-tune days (stage D layout) and the
-          48 validation days (C2 validation layout).
+          48 validation days (C2 validation layout); --split test writes only the
+          48 test-day plans.
 """
 import argparse
 import csv
@@ -25,11 +26,10 @@ import torch
 from stable_baselines3 import PPO
 from stable_baselines3.common.logger import configure
 
-from finetune_ppo_v2 import digest, mechanical, select_days, v2_dataset
+from finetune_ppo_v2 import SELECTION_SEED, digest, mechanical, select_days, v2_dataset
 from run_llm_planning import NEUTRAL, VoltageControlEnv, forecast_v2, parse_plan, save, score
 from run_llm_planning_v2 import METRICS, day_groups
 
-SEED = 42
 EPISODES = 200
 PENALTY = .05
 SETTINGS = dict(n_steps=240, batch_size=60, n_epochs=10, learning_rate=3e-4, gamma=.99, gae_lambda=.95,
@@ -140,7 +140,7 @@ def train(args):
     env = DayAheadEnv(dataset, days, scale)
     args.output.mkdir(parents=True)
     save(args.output / "config.json", {
-        "stage": "pure_rl_train", "seed": SEED, "episodes": EPISODES, "days": days,
+        "stage": "pure_rl_train", "seed": args.seed, "episodes": EPISODES, "days": days,
         "day_order": "C2 formal training days in the LLM pool-build order", "settings": SETTINGS,
         "policy": "MlpPolicy 256-256 Tanh, MultiDiscrete [11 tap targets, 3 x on/off]",
         "observation": "3 regional + total hourly net-load forecasts (forecast_v2) / scale, hour one-hot, "
@@ -149,7 +149,7 @@ def train(args):
         "hard_constraint": "tap kept after four changes; a capacitor switched off stays off",
         "reward": "hourly sum of node-mean absolute deviation with PV reactive power zero, minus penalty",
         "reported_reward": "physical reward only (penalty excluded)"})
-    model = PPO("MlpPolicy", env, **SETTINGS, seed=SEED, device="cpu",
+    model = PPO("MlpPolicy", env, **SETTINGS, seed=args.seed, device="cpu",
                 policy_kwargs=dict(net_arch=dict(pi=[256, 256], vf=[256, 256]), activation_fn=torch.nn.Tanh))
     model.set_logger(configure(str(args.output), ["csv"]))
     started = perf_counter()
@@ -179,40 +179,42 @@ def plans(args):
     model = PPO.load(args.model / "dayahead.zip", device="cpu")
     env = DayAheadEnv(dataset, [], config["forecast_scale_mw"])
     scorer = VoltageControlEnv(dataset)
-    selection = select_days(dataset)
-    finetune, validation = args.output / "finetune_plans", args.output / "validation"
-    finetune.mkdir(parents=True)
-    validation.mkdir()
+    evaluation = args.output / args.split
+    evaluation.mkdir(parents=True)
     source = {"model": str(args.model / "dayahead.zip"), "model_sha256": digest(args.model / "dayahead.zip"),
               "deterministic_policy": True}
-    save(finetune / "config.json", {"stage": "plans", "seed": SEED, "selection": selection,
-                                    "planner": "pure_rl_dayahead", **source})
     records = []
-    for day, group in selection:
-        episode = plan_for(model, env, day)
-        metrics = score(scorer, day, episode["plan"])
-        if not np.isclose(metrics["reward"], episode["reward"], rtol=0, atol=1e-9):
-            raise RuntimeError(f"Day-ahead reward differs from the common scorer on {day}")
-        records.append({"date": day, "group": group, "plan": episode["plan"],
-                        "illegal_actions": episode["illegal_actions"],
-                        "no_rl": {m: metrics[m] for m in METRICS}, **mechanical(episode["plan"])})
-    save(finetune / "plans.json", records)
+    if args.split == "validation":
+        selection = select_days(dataset)
+        finetune = args.output / "finetune_plans"
+        finetune.mkdir()
+        save(finetune / "config.json", {"stage": "plans", "seed": SELECTION_SEED, "selection": selection,
+                                        "planner": "pure_rl_dayahead", **source})
+        for day, group in selection:
+            episode = plan_for(model, env, day)
+            metrics = score(scorer, day, episode["plan"])
+            if not np.isclose(metrics["reward"], episode["reward"], rtol=0, atol=1e-9):
+                raise RuntimeError(f"Day-ahead reward differs from the common scorer on {day}")
+            records.append({"date": day, "group": group, "plan": episode["plan"],
+                            "illegal_actions": episode["illegal_actions"],
+                            "no_rl": {m: metrics[m] for m in METRICS}, **mechanical(episode["plan"])})
+        save(finetune / "plans.json", records)
     rows = []
-    for day in dataset.split_dates("validation").astype(str):
+    for day in dataset.split_dates(args.split).astype(str):
         episode = plan_for(model, env, day)
         metrics, neutral = score(scorer, day, episode["plan"]), score(scorer, day, NEUTRAL)
-        (validation / day / "purerl").mkdir(parents=True)
-        save(validation / day / "purerl" / "scored.json", {"plan": episode["plan"], "metrics": metrics,
+        (evaluation / day / "purerl").mkdir(parents=True)
+        save(evaluation / day / "purerl" / "scored.json", {"plan": episode["plan"], "metrics": metrics,
                                                            "illegal_actions": episode["illegal_actions"]})
         rows.append({"date": day, **{f"neutral_{m}": neutral[m] for m in METRICS},
                      **{f"purerl_{m}": metrics[m] for m in METRICS}})
-    with (validation / "pairs.csv").open("w", newline="", encoding="utf-8") as f:
+    with (evaluation / "pairs.csv").open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0]))
         writer.writeheader()
         writer.writerows(rows)
-    save(validation / "config.json", {"stage": "pure_rl_validation_plans", **source})
-    print(f"Pure-RL plans: fine-tune mean MAD(PV Q=0) {np.mean([r['no_rl']['mad_pu'] for r in records]):.5f}; "
-          f"validation {np.mean([r['purerl_mad_pu'] for r in rows]):.5f} vs neutral "
+    save(evaluation / "config.json", {"stage": f"pure_rl_{args.split}_plans", **source})
+    tuned = f"fine-tune mean MAD(PV Q=0) {np.mean([r['no_rl']['mad_pu'] for r in records]):.5f}; " if records else ""
+    print(f"Pure-RL plans: {tuned}{args.split} {np.mean([r['purerl_mad_pu'] for r in rows]):.5f} vs neutral "
           f"{np.mean([r['neutral_mad_pu'] for r in rows]):.5f}", flush=True)
 
 
@@ -221,9 +223,12 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     t = sub.add_parser("train")
     t.add_argument("--output", type=Path, required=True)
+    t.add_argument("--seed", type=int, default=42)
     p = sub.add_parser("plans")
     p.add_argument("--model", type=Path, required=True, help="Pure-RL training output directory")
     p.add_argument("--output", type=Path, required=True)
+    p.add_argument("--split", choices=("validation", "test"), default="validation",
+                   help="validation also writes the fine-tune plans; test writes only the test-day plans")
     args = parser.parse_args()
     {"train": train, "plans": plans}[args.command](args)
 

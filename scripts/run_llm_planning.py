@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import sys
+from time import perf_counter
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
@@ -160,6 +161,7 @@ def generate(key, payload, directory, system=SYSTEM):
     request = Request(ENDPOINT,
                       data=json.dumps(params).encode(),
                       headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"})
+    started = perf_counter()
     try:
         with urlopen(request, timeout=90) as response:
             result = json.load(response)
@@ -167,11 +169,13 @@ def generate(key, payload, directory, system=SYSTEM):
         raise RuntimeError(f"DeepSeek API HTTP {error.code}") from None
     except (URLError, TimeoutError):
         raise RuntimeError("DeepSeek API connection failed or timed out") from None
+    elapsed = perf_counter() - started
     choice = result["choices"][0]
     content = choice["message"].get("content")
     save(directory / "response.json", {"provider": PROVIDER, "requested_model": MODEL, "returned_model": result.get("model"),
          "id": result.get("id"), "usage": result.get("usage"), "finish_reason": choice["finish_reason"],
-         "received_at_utc": datetime.now(timezone.utc).isoformat(), "content": content})
+         "received_at_utc": datetime.now(timezone.utc).isoformat(), "elapsed_seconds": round(elapsed, 3),
+         "content": content})
     if choice["finish_reason"] != "stop" or not content or not content.strip():
         raise ValueError("DeepSeek returned an empty or incomplete plan")
     spec = json.loads(content)

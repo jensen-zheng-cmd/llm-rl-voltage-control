@@ -266,15 +266,16 @@ def paired(rows, a, b):
 def validate(args, key, dataset, env, system):
     regions = dataset.system["regions_from_paper_topology"]
     train = set(dataset.split_dates("train").astype(str))
-    days = dataset.split_dates("validation").astype(str).tolist()
+    days = dataset.split_dates(args.split).astype(str).tolist()
     pools, hashes = {}, {}
     for spec in args.pool_arm:
         name, path = spec.split("=", 1)
         data = Path(path).read_bytes()
         pools[name], hashes[name] = json.loads(data), hashlib.sha256(data).hexdigest()
         check_pool(pools[name], train)
-    arms = [*pools, "none"]
-    config = {"version": "v2_c2", "stage": "validate", "split_scheme": dataset.split_scheme, "dates": days,
+    arms = [*pools] + ([] if args.skip_none else ["none"])
+    config = {"version": "v2_c2", "stage": "validate", "split_scheme": dataset.split_scheme, "split": args.split,
+              "dates": days, "invalid_plan": "neutral plan after two failed format repairs",
               "arms": arms, "pool_sha256": hashes, "reflexion_rounds": 0, "generations_per_arm": 1,
               "retrieval": "nearest pool day even below threshold", "order": "arms rotate by date index",
               "provider": PROVIDER, "model": MODEL, "temperature": .7, "top_p": .8, "pv_q_fraction": 0,
@@ -298,10 +299,16 @@ def validate(args, key, dataset, env, system):
                 index, sim = closest(pools[arm], prediction)
                 reference = pools[arm][index]
                 row[f"{arm}_reference_date"], row[f"{arm}_similarity"] = reference["forecast"]["date"], sim
-            plan, attempt = generate_plan(key, build_payload(prediction, regions, reference), directory / arm, system)
+            try:
+                plan, attempt = generate_plan(key, build_payload(prediction, regions, reference), directory / arm, system)
+                fallback, repairs = False, int(attempt.name.rsplit("_", 1)[1]) if "_repair_" in attempt.name else 0
+            except ValueError:
+                plan, attempt, fallback, repairs = NEUTRAL, directory / f"{arm}_fallback", True, 2
+                attempt.mkdir()
             metrics = score(env, day, plan)
-            save(attempt / "scored.json", {"plan": plan, "metrics": metrics})
+            save(attempt / "scored.json", {"plan": plan, "metrics": metrics, "fallback": fallback, "repairs": repairs})
             row.update({f"{arm}_{m}": metrics[m] for m in METRICS})
+            row.update({f"{arm}_fallback": fallback, f"{arm}_repairs": repairs})
         state["days"].append(row)
         save_state(args.output, state)
         print(f"{i + 1}/{len(days)} {day} " + " ".join(f"{a}={row[f'{a}_mad_pu']:.5f}" for a in arms), flush=True)
@@ -330,6 +337,8 @@ def main():
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--reflexion-rounds", type=int, default=REFLEXION_ROUNDS,
                         help="Revision rounds after the first draft; 0 gives the No-Reflexion ablation")
+    parser.add_argument("--split", choices=("validation", "test"), default="validation", help="Days for validate")
+    parser.add_argument("--skip-none", action="store_true", help="validate: omit the no-experience arm")
     args = parser.parse_args()
     if args.stage in ("pilot", "formal") and (args.pool is None or args.threshold is None):
         parser.error("pilot and formal require --pool and --threshold")

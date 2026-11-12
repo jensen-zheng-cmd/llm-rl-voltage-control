@@ -30,7 +30,7 @@ from run_llm_planning import (
 from run_llm_planning_v2 import METRICS as LLM_METRICS, build_payload, generate_plan, system_prompt
 from validate_ppo_joint import simulate
 
-SEED = 42
+SELECTION_SEED = 42  # fine-tune day selection; fixed across training seeds
 EPISODES, WARMUP_EPISODES = 150, 20
 FINETUNE = dict(n_steps=960, batch_size=32, n_epochs=4, gamma=.9, gae_lambda=.95, clip_range=.3)
 FINETUNE_LR, WARMUP_LR = 1e-5, 1e-4
@@ -53,7 +53,7 @@ def select_days(dataset):
                       for d in dates])
     load, pv = peaks.T
     high_load, high_pv = load >= np.quantile(load, .8), pv >= np.quantile(pv, .8)
-    rng = np.random.default_rng(SEED)
+    rng = np.random.default_rng(SELECTION_SEED)
     load_ids = rng.choice(np.flatnonzero(high_load), 30, replace=False)
     pv_ids = rng.choice(np.setdiff1d(np.flatnonzero(high_pv), load_ids), 30, replace=False)
     ordinary_ids = rng.choice(np.flatnonzero(~high_load & ~high_pv), 90, replace=False)
@@ -89,7 +89,7 @@ def plans(args):
     if not pool or any(e["forecast"]["date"] not in train for e in pool):
         raise ValueError("Pool must contain training dates only")
     selection = select_days(dataset)[:args.limit] if args.limit else select_days(dataset)
-    config = {"stage": "plans", "seed": SEED, "selection": selection, "pool": str(args.pool),
+    config = {"stage": "plans", "seed": SELECTION_SEED, "selection": selection, "pool": str(args.pool),
               "pool_sha256": hashlib.sha256(pool_bytes).hexdigest(), "provider": PROVIDER, "model": MODEL,
               "retrieval": "nearest pool day excluding the same date", "reflexion_rounds": 0,
               "generations_per_day": 1, "system_prompt_sha256": hashlib.sha256(system.encode()).hexdigest()}
@@ -146,7 +146,7 @@ def train(args):
     plan_list = [(r["date"], parse_plan(r["plan"])) for r in records]
     args.output.mkdir(parents=True)
     (args.output / "normalization.npz").write_bytes(norm_path.read_bytes())
-    config = {"stage": "train", "arm": args.arm, "seed": SEED, "episodes": EPISODES, "steps": EPISODES * 96,
+    config = {"stage": "train", "arm": args.arm, "seed": args.seed, "episodes": EPISODES, "steps": EPISODES * 96,
               "plans_sha256": digest(args.plans / "plans.json"), "plans": str(args.plans),
               "settings": FINETUNE, "learning_rate": FINETUNE_LR,
               "warmup": {"episodes": WARMUP_EPISODES, "days": "first 20 fine-tune days in order",
@@ -162,14 +162,14 @@ def train(args):
     warm = {}
     if args.arm == "nopt":
         env = FixedPlanEnv(dataset, plan_list, mean, scale)
-        model = PPO("MlpPolicy", env, **FINETUNE, seed=SEED, device="cpu",
+        model = PPO("MlpPolicy", env, **FINETUNE, seed=args.seed, device="cpu",
                     learning_rate=lambda remaining: 1e-5 + 9e-5 * remaining,
                     policy_kwargs=dict(net_arch=dict(pi=[256, 256], vf=[256, 256]),
                                        activation_fn=torch.nn.Tanh, log_std_init=float(np.log(.37))))
     else:
         lr = WARMUP_LR if args.arm == "proposed" else FINETUNE_LR
         first = FixedPlanEnv(dataset, plan_list[:WARMUP_EPISODES] if args.arm == "proposed" else plan_list, mean, scale)
-        model = PPO.load(args.pretrained / "ppo.zip", env=first, device="cpu", seed=SEED,
+        model = PPO.load(args.pretrained / "ppo.zip", env=first, device="cpu", seed=args.seed,
                          learning_rate=lr, **FINETUNE)
         model.policy.optimizer.state.clear()
         env = first
@@ -236,16 +236,25 @@ def paired(a, b):
     return stats
 
 
+def final_record(directory, arm):
+    """Scored plan actually used for one arm: neutral fallback, last format repair, or first attempt."""
+    for name in (f"{arm}_fallback", f"{arm}_repair_2", f"{arm}_repair_1", arm):
+        path = directory / name / "scored.json"
+        if path.exists():
+            return path
+    raise FileNotFoundError(f"No scored plan for {arm} in {directory}")
+
+
 def validate(args):
     dataset = v2_dataset()
-    dates = dataset.split_dates("validation").astype(str).tolist()
+    dates = dataset.split_dates(args.split).astype(str).tolist()
     with (args.c2 / "pairs.csv").open(encoding="utf-8", newline="") as f:
         c2 = {r["date"]: r for r in csv.DictReader(f)}
     if list(c2) != dates:
-        raise ValueError("C2 validation must cover the 48 validation days in order")
+        raise ValueError(f"Plan records must cover the {len(dates)} {args.split} days in order")
     plan_records, plan_hashes = {}, {}
     for date in dates:
-        path = args.c2 / date / args.c2_arm / "scored.json"
+        path = final_record(args.c2 / date, args.c2_arm)
         plan_hashes[date] = digest(path)
         plan_records[date] = json.loads(path.read_text(encoding="utf-8"))
     llm_plans = {d: r["plan"] for d, r in plan_records.items()}
@@ -262,7 +271,7 @@ def validate(args):
         jobs.append(("no_llm", model_file(Path(runs["proposed"]), 150), True))
     args.output.mkdir(parents=True)
     save(args.output / "config.json", {
-        "stage": "validate", "dates": dates, "c2_source": str(args.c2), "c2_arm": args.c2_arm,
+        "stage": "validate", "split": args.split, "dates": dates, "c2_source": str(args.c2), "c2_arm": args.c2_arm,
         "plan_record_sha256": plan_hashes, "runs": runs, "pretrained": str(args.pretrained),
         "models_sha256": {label: digest(path) for label, path, _ in jobs}, "normalization_sha256": norm_hash,
         "deterministic_policy": True, "final_proposed": "proposed_ep150 (fixed before validation)",
@@ -290,6 +299,7 @@ def validate(args):
                    "min_pu": float(min(r["min_pu"] for r in rows)), "max_pu": float(max(r["max_pu"] for r in rows))}
     llm_mech = [mechanical(p) for p in llm_plans.values()]
     mech = {"llm_plans": {"grid_code_compliant_days": len(llm_mech),
+                          "neutral_fallback_days": sum(bool(r.get("fallback")) for r in plan_records.values()),
                           "mean_oltc_changes": float(np.mean([m["oltc_changes"] for m in llm_mech])),
                           "mean_sc_switching": float(np.mean([m["sc_switching"] for m in llm_mech]))},
             "neutral_plan": mechanical(NEUTRAL)}
@@ -315,6 +325,7 @@ def main():
     t.add_argument("--plans", type=Path, required=True)
     t.add_argument("--pretrained", type=Path, default=PRETRAINED)
     t.add_argument("--output", type=Path, required=True)
+    t.add_argument("--seed", type=int, default=42, help="Training seed (PPO initialisation and sampling)")
     v = sub.add_parser("validate")
     v.add_argument("--c2", type=Path, required=True, help="C2 validation run directory")
     v.add_argument("--c2-arm", default="t090")
@@ -323,6 +334,7 @@ def main():
     v.add_argument("--output", type=Path, required=True)
     v.add_argument("--workers", type=int, default=7)
     v.add_argument("--skip-no-llm", action="store_true", help="Omit the neutral-plan No-LLM arm")
+    v.add_argument("--split", choices=("validation", "test"), default="validation")
     args = parser.parse_args()
     {"plans": plans, "train": train, "validate": validate}[args.command](args)
 
