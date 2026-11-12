@@ -25,6 +25,16 @@ def test_day_groups_are_disjoint_training_days_with_fixed_order():
     assert day_groups(dataset) == groups
 
 
+def test_day_groups_on_split_b_use_only_split_b_training_days():
+    dataset = Dataset(version="v2", split_scheme="B_daily_4_1_1")
+    train = set(dataset.split_dates("train").astype(str))
+    held_out = set(dataset.split_dates("validation").astype(str)) | set(dataset.split_dates("test").astype(str))
+    groups = day_groups(dataset)
+    assert {name: len(days) for name, days in groups.items()} == {"seed": 6, "formal": 200, "pilot": 3, "unused": 35}
+    every = [day for days in groups.values() for day in days]
+    assert len(every) == len(set(every)) == 244 and set(every) == train and not set(every) & held_out
+
+
 def test_prompt_lists_regions_and_devices():
     dataset = Dataset(version="v2", split_scheme="A_half_month")
     prompt = system_prompt(dataset.system)

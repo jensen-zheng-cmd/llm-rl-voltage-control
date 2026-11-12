@@ -1,4 +1,4 @@
-"""v2 day-ahead LLM experience-pool building and frozen-pool validation (split A).
+"""v2 day-ahead LLM experience-pool building and frozen-pool validation (split A; split B for C3).
 
 Information follows the paper: the LLM sees noisy hourly regional and total net
 load forecasts, and feedback is limited to the daily reward plus hourly region
@@ -339,6 +339,8 @@ def main():
                         help="Revision rounds after the first draft; 0 gives the No-Reflexion ablation")
     parser.add_argument("--split", choices=("validation", "test"), default="validation", help="Days for validate")
     parser.add_argument("--skip-none", action="store_true", help="validate: omit the no-experience arm")
+    parser.add_argument("--split-scheme", choices=("A_half_month", "B_daily_4_1_1"), default="A_half_month",
+                        help="B_daily_4_1_1 only measures adjacent-day leakage in retrieval (C3)")
     args = parser.parse_args()
     if args.stage in ("pilot", "formal") and (args.pool is None or args.threshold is None):
         parser.error("pilot and formal require --pool and --threshold")
@@ -349,7 +351,7 @@ def main():
     key = args.key_file.read_text(encoding="utf-8-sig").strip()
     if not key or any(c.isspace() for c in key):
         raise ValueError("Key file must contain one API key")
-    dataset = Dataset(version="v2", split_scheme="A_half_month")
+    dataset = Dataset(version="v2", split_scheme=args.split_scheme)
     env = VoltageControlEnv(dataset)
     system = system_prompt(dataset.system)
     if args.stage == "validate":

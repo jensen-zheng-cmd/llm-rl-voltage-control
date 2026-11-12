@@ -1,0 +1,179 @@
+{
+ "arm": "t090",
+ "A": {
+  "run": "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_c2_validate_20261110",
+  "split_scheme": "A_half_month",
+  "split": "validation",
+  "days": 48,
+  "pool_entries": 54,
+  "mad": {
+   "neutral": 0.020792987757315997,
+   "none": 0.020477312108081087,
+   "pool": 0.016485121956308964
+  },
+  "violation_pct": {
+   "none": 4.861768728956229,
+   "pool": 2.110953282828283
+  },
+  "mad_gain": {
+   "mean": 0.003992190151772119,
+   "standard_error": 0.00036363605370532916,
+   "n": 48,
+   "pool_better_days": 46,
+   "pool_worse_days": 2
+  },
+  "relative_mad_gain_pct": 19.495674679865118,
+  "violation_gain_pct_points": {
+   "mean": 2.750815446127946,
+   "standard_error": 0.46253695901303826,
+   "n": 48
+  },
+  "similarity": {
+   "mean": 0.9241993468306798,
+   "median": 0.9316161018610787,
+   "min": 0.6785275891015604,
+   "share_at_least_0.9": 0.8125,
+   "share_at_least_0.95": 0.3333333333333333
+  },
+  "reference_gap_days": {
+   "median": 41.5,
+   "share_within_1": 0.0,
+   "share_within_3": 0.0,
+   "share_within_7": 0.08333333333333333
+  },
+  "nearest_pool_date_gap_days": {
+   "median": 5.0,
+   "share_within_1": 0.0
+  },
+  "gain_by_reference_gap": {
+   "reference_within_1_day": {
+    "days": 0,
+    "mad_gain": null,
+    "relative_gain_pct": null
+   },
+   "reference_2_to_7_days": {
+    "days": 4,
+    "mad_gain": {
+     "mean": 0.004055088927083559,
+     "standard_error": 0.0011162978941530646,
+     "n": 4
+    },
+    "relative_gain_pct": 20.99860393721672
+   },
+   "reference_over_7_days": {
+    "days": 44,
+    "mad_gain": {
+     "mean": 0.0039864720812892605,
+     "standard_error": 0.00038698625874297976,
+     "n": 44
+    },
+    "relative_gain_pct": 19.36748873784502
+   }
+  },
+  "corr_similarity_gain": 0.3831442703815894
+ },
+ "B": {
+  "run": "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_c3b_validate_20261112",
+  "split_scheme": "B_daily_4_1_1",
+  "split": "validation",
+  "days": 61,
+  "pool_entries": 57,
+  "mad": {
+   "neutral": 0.020973924846425157,
+   "none": 0.020630608952426514,
+   "pool": 0.016804233961429854
+  },
+  "violation_pct": {
+   "none": 4.233420268256334,
+   "pool": 2.1661284980957114
+  },
+  "mad_gain": {
+   "mean": 0.0038263749909966654,
+   "standard_error": 0.000374534002272682,
+   "n": 61,
+   "pool_better_days": 57,
+   "pool_worse_days": 4
+  },
+  "relative_mad_gain_pct": 18.54707730547439,
+  "violation_gain_pct_points": {
+   "mean": 2.0672917701606224,
+   "standard_error": 0.4735398252790337,
+   "n": 61
+  },
+  "similarity": {
+   "mean": 0.9054743345415364,
+   "median": 0.9386842304925712,
+   "min": 0.40552088307276607,
+   "share_at_least_0.9": 0.7704918032786885,
+   "share_at_least_0.95": 0.3442622950819672
+  },
+  "reference_gap_days": {
+   "median": 58.0,
+   "share_within_1": 0.0,
+   "share_within_3": 0.06557377049180328,
+   "share_within_7": 0.08196721311475409
+  },
+  "nearest_pool_date_gap_days": {
+   "median": 3.0,
+   "share_within_1": 0.19672131147540983
+  },
+  "gain_by_reference_gap": {
+   "reference_within_1_day": {
+    "days": 0,
+    "mad_gain": null,
+    "relative_gain_pct": null
+   },
+   "reference_2_to_7_days": {
+    "days": 5,
+    "mad_gain": {
+     "mean": 0.0046109823143188605,
+     "standard_error": 0.0012172296750461503,
+     "n": 5
+    },
+    "relative_gain_pct": 21.071387940539932
+   },
+   "reference_over_7_days": {
+    "days": 56,
+    "mad_gain": {
+     "mean": 0.003756320765700041,
+     "standard_error": 0.0003949450483046103,
+     "n": 56
+    },
+    "relative_gain_pct": 18.30671146209626
+   }
+  },
+  "corr_similarity_gain": 0.17054197188218412
+ },
+ "shared_validation_settings": {
+  "provider": "paratera",
+  "model": "DeepSeek-V4.1-Flash-1017",
+  "temperature": 0.7,
+  "top_p": 0.8,
+  "pv_q_fraction": 0,
+  "forecast_seed": 42,
+  "system_prompt_sha256": "8ad94acb6cad843125a93893633fa4de055c16908b83e03083e4a147bdce9bc9",
+  "generations_per_arm": 1,
+  "reflexion_rounds": 0,
+  "retrieval": "nearest pool day even below threshold"
+ },
+ "overlapping_validation_dates": 7,
+ "uncertainty_note": "Within-split standard errors describe day-to-day variation only. The independent standard error below is an assumption-based reference, not a significance test: validation dates overlap and temporal dependence is not modelled. One pool and one LLM draw per day/arm do not quantify pool-building or LLM sampling uncertainty.",
+ "analysis_scope": "Split B construction and retrieval-gain comparison were planned. Reference-date gaps, gap subgroups and similarity correlations are post-hoc diagnostics.",
+ "B_minus_A": {
+  "mad_gain": -0.00016581516077545343,
+  "standard_error_independent": 0.0005220219328847959,
+  "relative_gain_pct_points": -0.9485973743907294
+ },
+ "source_sha256": {
+  "A": {
+   "config.json": "08985138b713d52cf1ae73f2df3b6fc7e1d18ecfc609cb144123ea1a63d72271",
+   "pairs.csv": "4797aec6259e5677801094f1f3fb4e750a0382041c72dd2169a1812b40d0f92b",
+   "frozen_pool_t090.json": "bc51c97fa8e44342e2e08841e3d080a2b409d9f9466be6c4e816d79fb21af743"
+  },
+  "B": {
+   "config.json": "e06e496497417201e7354f7fe28b7b7b9f6c6fbf246cbaf1b5547c49922a2666",
+   "pairs.csv": "d4637bc7e8cf6d4e47fbe116594b78f56c7fa6a56d9ca59120aae170ed7a3f59",
+   "frozen_pool_t090.json": "bcc59331e68fae965e05ec5d650380dc7d024c1be3616788c5041c8754ea25b7"
+  }
+ }
+}

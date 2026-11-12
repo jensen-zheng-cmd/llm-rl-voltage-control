@@ -1,0 +1,175 @@
+{
+ "misocp_run": "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\misocp_v2_test_20261112",
+ "days": 48,
+ "misocp": {
+  "stage2_ac_mad_pu": 0.005762893146106544,
+  "stage2_ac_violation_pct": 0.0,
+  "stage1_ac_mad_pu": 0.00577032768477162,
+  "violation_free_days": 48,
+  "soft_stage1_days": 1,
+  "stage1_time_limit_days": 0,
+  "max_stage1_gap": 0.004996995009193525,
+  "max_cone_slack": 0.24425054491853518,
+  "stage2_steps_not_optimal": 0,
+  "mean_seconds": 36.24683380000007,
+  "min_pu": 0.9602744275942448,
+  "max_pu": 1.0451141441529601,
+  "mean_oltc_changes": 3.8541666666666665,
+  "mean_sc_switching": 3.1666666666666665
+ },
+ "methods_seed_mean": {
+  "original": {
+   "mad_pu": 0.021237747730941017,
+   "violation_pct": 5.6390730218855225,
+   "excess_over_misocp": 0.015474854584834476,
+   "excess_standard_error": 0.00041883169416489173,
+   "days_below_misocp": 0,
+   "ratio_to_misocp": 3.685257941193896,
+   "share_of_original_gap_closed_pct": 0.0
+  },
+  "no_rl": {
+   "mad_pu": 0.016899862268368423,
+   "violation_pct": 2.6030706369248033,
+   "excess_over_misocp": 0.011136969122261878,
+   "excess_standard_error": 0.00016957565676181587,
+   "days_below_misocp": 0,
+   "ratio_to_misocp": 2.932530907637269,
+   "share_of_original_gap_closed_pct": 28.031833441742126
+  },
+  "no_pt": {
+   "mad_pu": 0.015522291264806818,
+   "violation_pct": 1.9176136363636367,
+   "excess_over_misocp": 0.009759398118700273,
+   "excess_standard_error": 0.00017363218266245345,
+   "days_below_misocp": 0,
+   "ratio_to_misocp": 2.693489341424593,
+   "share_of_original_gap_closed_pct": 36.93382987737675
+  },
+  "pure_rl": {
+   "mad_pu": 0.01200401361591931,
+   "violation_pct": 0.6966365039281706,
+   "excess_over_misocp": 0.006241120469812765,
+   "excess_standard_error": 0.00031545586739029275,
+   "days_below_misocp": 0,
+   "ratio_to_misocp": 2.082983895689497,
+   "share_of_original_gap_closed_pct": 59.669278728285235
+  },
+  "no_llm": {
+   "mad_pu": 0.01080646402670074,
+   "violation_pct": 0.34524936868686873,
+   "excess_over_misocp": 0.005043570880594198,
+   "excess_standard_error": 0.0001486193601991838,
+   "days_below_misocp": 0,
+   "ratio_to_misocp": 1.8751803569361116,
+   "share_of_original_gap_closed_pct": 67.40795945483747
+  },
+  "no_reflexion": {
+   "mad_pu": 0.01014798051630695,
+   "violation_pct": 0.19312044051627386,
+   "excess_over_misocp": 0.004385087370200405,
+   "excess_standard_error": 0.00011644859180490678,
+   "days_below_misocp": 0,
+   "ratio_to_misocp": 1.760917695162022,
+   "share_of_original_gap_closed_pct": 71.66314328731826
+  },
+  "proposed": {
+   "mad_pu": 0.009750508622308127,
+   "violation_pct": 0.13327721661054995,
+   "excess_over_misocp": 0.003987615476201582,
+   "excess_standard_error": 0.00011410426589962119,
+   "days_below_misocp": 0,
+   "ratio_to_misocp": 1.691946800869568,
+   "share_of_original_gap_closed_pct": 74.23164492860897
+  }
+ },
+ "diagnostic_runs": {
+  "v1": {
+   "days": 10,
+   "loss_weight": 0.0,
+   "safe_upper": false,
+   "stage1_ac": {
+    "mad_pu": 0.006092864189476717,
+    "violation_pct": 0.20517676767676765
+   },
+   "stage2_ac": {
+    "mad_pu": 0.0060338846945892,
+    "violation_pct": 0.15151515151515152,
+    "violation_free_days": 4,
+    "min_pu": 0.9655158105620536,
+    "max_pu": 1.0592647392006216
+   },
+   "soft_stage1_days": 0,
+   "stage1_time_limit_days": 0,
+   "max_stage1_gap": 0.004984352889378869,
+   "max_cone_slack": 0.7276473749182286,
+   "stage2_steps_not_optimal": 0,
+   "mean_seconds": 60.25382088999995
+  },
+  "loss10": {
+   "days": 10,
+   "loss_weight": 10.0,
+   "safe_upper": false,
+   "stage1_ac": {
+    "mad_pu": 0.006055234016989117,
+    "violation_pct": 0.08838383838383838
+   },
+   "stage2_ac": {
+    "mad_pu": 0.0060323781909122605,
+    "violation_pct": 0.07575757575757576,
+    "violation_free_days": 4,
+    "min_pu": 0.9698348093796139,
+    "max_pu": 1.0578746934391636
+   },
+   "soft_stage1_days": 0,
+   "stage1_time_limit_days": 0,
+   "max_stage1_gap": 0.004981743943234546,
+   "max_cone_slack": 0.09294403185388049,
+   "stage2_steps_not_optimal": 0,
+   "mean_seconds": 87.91456130000006
+  },
+  "safe": {
+   "days": 10,
+   "loss_weight": 0.0,
+   "safe_upper": true,
+   "stage1_ac": {
+    "mad_pu": 0.006435730371985709,
+    "violation_pct": 0.0
+   },
+   "stage2_ac": {
+    "mad_pu": 0.006357301010858603,
+    "violation_pct": 0.0,
+    "violation_free_days": 10,
+    "min_pu": 0.9595917259767308,
+    "max_pu": 1.0499999983646617
+   },
+   "soft_stage1_days": 3,
+   "stage1_time_limit_days": 0,
+   "max_stage1_gap": 0.004993681427974927,
+   "max_cone_slack": 0.8139364070403141,
+   "stage2_steps_not_optimal": 0,
+   "mean_seconds": 65.82450152999999
+  },
+  "safe_loss1": {
+   "days": 10,
+   "loss_weight": 1.0,
+   "safe_upper": true,
+   "stage1_ac": {
+    "mad_pu": 0.006377559857435655,
+    "violation_pct": 0.0
+   },
+   "stage2_ac": {
+    "mad_pu": 0.006336475779761368,
+    "violation_pct": 0.0,
+    "violation_free_days": 10,
+    "min_pu": 0.9595917259767499,
+    "max_pu": 1.0499999983653503
+   },
+   "soft_stage1_days": 3,
+   "stage1_time_limit_days": 0,
+   "max_stage1_gap": 0.004891225919840981,
+   "max_cone_slack": 0.2435758330700314,
+   "stage2_steps_not_optimal": 0,
+   "mean_seconds": 65.80953688000008
+  }
+ }
+}

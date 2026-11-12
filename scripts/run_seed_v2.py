@@ -12,6 +12,10 @@ outputs go to <runs>/<name>_s<seed>_<tag>, each with a .log next to it.
   ft_proposed, ft_nopt, ft_norefl, ft_purerl   fine-tuning (warm-up + 150 episodes; No-PT from scratch)
   val_proposed, val_norefl, val_purerl         joint validation
 
+--phase test (after the validation report was accepted) evaluates the frozen artefacts of the
+seed on the 48 test days: LLM plans from both frozen pools (one generation per day and pool),
+Pure-RL test plans, and the final (episode 150) policies of every method.
+
 Finished steps are skipped and interrupted LLM steps resume, so the same command can be rerun.
 """
 import argparse
@@ -101,6 +105,52 @@ def steps_for(seed, tag, key_file, runs, workers):
     return steps
 
 
+# Seed 42 was built before this orchestrator existed (stages D and E1), under these run names.
+SEED42 = {"pretrain": "ppo_v2A_improved_seed42_20261109", "pool": "llm_v2_c2_formal_t090_20261110",
+          "nr": "llm_v2_norefl_formal_t090_20261110", "purerl": "pure_rl_v2_dayahead_20261110",
+          "proposed": "ppo_finetune_v2_proposed_20261110", "nopt": "ppo_finetune_v2_nopt_20261110",
+          "norefl": "ppo_finetune_v2_norefl_20261110", "purerl_ft": "pure_rl_v2_finetune_20261110"}
+
+
+def trained_sources(seed, build_tag, runs):
+    """Frozen artefacts of one training seed: pretrained PPO, both pools, Pure-RL agent, fine-tuned policies."""
+    if seed == 42:
+        return {k: runs / v for k, v in SEED42.items()}
+    out = lambda name: runs / f"{name}_s{seed}_{build_tag}"
+    return {"pretrain": out("ppo_v2A_improved"), "pool": out("llm_v2_formal_t090"),
+            "nr": out("llm_v2_norefl_formal_t090"), "purerl": out("pure_rl_v2_dayahead"),
+            **{arm: out(f"ppo_finetune_v2_{arm}") for arm in ("proposed", "nopt", "norefl")},
+            "purerl_ft": out("ppo_finetune_v2_purerl")}
+
+
+def test_steps_for(seed, tag, build_tag, key_file, runs, workers):
+    """Frozen test evaluation: plans from the frozen pools / day-ahead agent, final weights only."""
+    src = trained_sources(seed, build_tag, runs)
+    missing = [str(p) for p in src.values() if not (p / "summary.json").exists()]
+    if missing:
+        raise FileNotFoundError(f"seed {seed}: incomplete training runs {missing}")
+    out = lambda name: runs / f"{name}_s{seed}_{tag}"
+    py = lambda script: [str(SCRIPTS / script)]
+    llm, purerl = out("llm_v2_test"), out("pure_rl_v2_testplans")
+    validate = py("finetune_ppo_v2.py") + ["validate", "--split", "test", "--final-only",
+                                           "--pretrained", str(src["pretrain"]), "--workers", str(workers)]
+    return [
+        Step("llm_test", llm, py("run_llm_planning_v2.py") + ["--stage", "validate", "--split", "test", "--skip-none",
+             "--pool-arm", f"t090={src['pool'] / 'pool.json'}", "--pool-arm", f"nr={src['nr'] / 'pool.json'}",
+             "--output", str(llm), "--key-file", str(key_file)], (), "validation_summary.json", True),
+        Step("purerl_test_plans", purerl, py("train_pure_rl_v2.py") + ["plans", "--split", "test", "--model",
+             str(src["purerl"]), "--output", str(purerl)], (), "test/config.json"),
+        Step("test_proposed", out("ppo_v2_test"), validate + ["--c2", str(llm), "--c2-arm", "t090",
+             "--run", f"proposed={src['proposed']}", "--run", f"nopt={src['nopt']}",
+             "--output", str(out("ppo_v2_test"))], ("llm_test",)),
+        Step("test_norefl", out("ppo_v2_norefl_test"), validate + ["--c2", str(llm), "--c2-arm", "nr",
+             "--run", f"norefl={src['norefl']}", "--skip-no-llm",
+             "--output", str(out("ppo_v2_norefl_test"))], ("llm_test",)),
+        Step("test_purerl", out("pure_rl_v2_test"), validate + ["--c2", str(purerl / "test"), "--c2-arm", "purerl",
+             "--run", f"purerl={src['purerl_ft']}", "--skip-no-llm",
+             "--output", str(out("pure_rl_v2_test"))], ("purerl_test_plans",)),
+    ]
+
 def execute(step):
     args = list(step.args)
     if step.output.exists():
@@ -125,8 +175,16 @@ def main():
     parser.add_argument("--runs", type=Path, default=RUNS)
     parser.add_argument("--workers", type=int, default=4, help="Processes per validation step")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--phase", choices=("validation", "test"), default="validation",
+                        help="validation: full rebuild; test: frozen evaluation on the 48 test days")
+    parser.add_argument("--build-tag", help="test phase: tag of the seed's training runs (ignored for seed 42)")
     args = parser.parse_args()
-    steps = steps_for(args.seed, args.tag, args.key_file, args.runs, args.workers)
+    if args.phase == "test":
+        if args.seed != 42 and not args.build_tag:
+            parser.error("--build-tag is required for the test phase")
+        steps = test_steps_for(args.seed, args.tag, args.build_tag, args.key_file, args.runs, args.workers)
+    else:
+        steps = steps_for(args.seed, args.tag, args.key_file, args.runs, args.workers)
     names = {s.name for s in steps}
     assert all(d in names for s in steps for d in s.deps)
     if args.dry_run:

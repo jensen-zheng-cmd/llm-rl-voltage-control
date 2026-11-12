@@ -1,6 +1,6 @@
 """v2 stage E: combine the per-seed validation runs of all methods.
 
-Each --seed-runs entry names one training seed and its three validation directories
+Each --seed-runs entry names one training seed and its three evaluation directories
 (finetune_ppo_v2.py validate outputs): LLM plans with proposed/nopt (+ Original, No-RL,
 No-LLM), No-Reflexion plans, and Pure-RL plans. Writes per-seed means, the across-seed
 mean and sample standard deviation, day-level pairs averaged over seeds, and the ranking
@@ -32,10 +32,64 @@ def column(rows, prefix, metric):
     return np.array([float(r[f"{prefix}_{metric}"]) for r in rows])
 
 
+def llm_costs(directory):
+    """Token use, response time and plan validity of one frozen-pool planning run (per pool arm)."""
+    directory = Path(directory)
+    with (directory / "pairs.csv").open(encoding="utf-8", newline="") as f:
+        rows = list(csv.DictReader(f))
+    arms = [c[:-len("_mad_pu")] for c in rows[0] if c.endswith("_mad_pu") and c != "neutral_mad_pu"]
+    result = {}
+    for arm in arms:
+        calls = []
+        for day in rows:
+            for attempt in sorted((directory / day["date"]).glob(f"{arm}*")):
+                if attempt.name != arm and not attempt.name.startswith(f"{arm}_repair_"):
+                    continue
+                path = attempt / "response.json"
+                if path.exists():
+                    record = json.loads(path.read_text(encoding="utf-8"))
+                    usage = record.get("usage") or {}
+                    calls.append({"date": day["date"], "prompt": usage.get("prompt_tokens"),
+                                  "completion": usage.get("completion_tokens"), "total": usage.get("total_tokens"),
+                                  "seconds": record.get("elapsed_seconds")})
+        stat = lambda xs: {"mean": float(np.mean(xs)), "median": float(np.median(xs)),
+                           "p95": float(np.percentile(xs, 95)), "max": float(np.max(xs))} if xs else None
+        per_day = {}
+        for c in calls:
+            per_day.setdefault(c["date"], [0, 0.0])
+            per_day[c["date"]][0] += c["total"] or 0
+            per_day[c["date"]][1] += c["seconds"] or 0
+        repairs = [int(d.get(f"{arm}_repairs") or 0) for d in rows]
+        fallback = [d.get(f"{arm}_fallback") == "True" for d in rows]
+        result[arm] = {"days": len(rows), "calls": len(calls),
+                       "valid_first_try_pct": 100 * float(np.mean([r == 0 and not fb for r, fb in zip(repairs, fallback)])),
+                       "valid_final_pct": 100 * float(np.mean([not fb for fb in fallback])),
+                       "format_repairs": int(sum(repairs)), "neutral_fallback_days": int(sum(fallback)),
+                       "prompt_tokens": stat([c["prompt"] for c in calls if c["prompt"] is not None]),
+                       "completion_tokens": stat([c["completion"] for c in calls if c["completion"] is not None]),
+                       "total_tokens_per_call": stat([c["total"] for c in calls if c["total"] is not None]),
+                       "response_seconds_per_call": stat([c["seconds"] for c in calls if c["seconds"] is not None]),
+                       "total_tokens_per_day": stat([v[0] for v in per_day.values()]),
+                       "response_seconds_per_day": stat([v[1] for v in per_day.values()])}
+    return result
+
+
+def mechanical_summary(directories):
+    """Daily OLTC and capacitor operations of the plans scored in each validation directory."""
+    names = ("proposed_pool", "no_reflexion_pool", "pure_rl")
+    out = {}
+    for name, d in zip(names, directories):
+        summary = json.loads((Path(d) / "summary.json").read_text(encoding="utf-8"))
+        out[name] = summary["mechanical"]["llm_plans"]
+    return out
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--seed-runs", nargs=4, action="append", required=True,
                         metavar=("SEED", "LLM_VALIDATE", "NOREFL_VALIDATE", "PURERL_VALIDATE"))
+    parser.add_argument("--llm-run", nargs=2, action="append", default=[], metavar=("SEED", "LLM_PLANNING_RUN"),
+                        help="Frozen-pool planning run of a seed, for token use, response time and validity")
+    parser.add_argument("--split", choices=("validation", "test"), default="validation")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     labels = {**METHODS, **DIAGNOSTIC}
@@ -81,7 +135,9 @@ def main():
         paired[f"proposed_vs_{other}"] = stats
     ranking = {s: sorted(METHODS, key=lambda m: per_seed[s][m]["mad_pu"]) for s in seeds}
     args.output.mkdir(parents=True, exist_ok=True)
-    summary = {"seeds": seeds, "days": len(dates), "sources": {s: d for s, *d in args.seed_runs},
+    summary = {"split": args.split, "seeds": seeds, "days": len(dates), "sources": {s: d for s, *d in args.seed_runs},
+               "mechanical": {s: mechanical_summary(d) for s, *d in args.seed_runs},
+               "llm_costs": {s: llm_costs(d) for s, d in args.llm_run},
                "methods": list(METHODS), "diagnostics": list(DIAGNOSTIC), "per_seed": per_seed,
                "across_seeds": across, "paired_day_means": paired, "ranking_by_mad": ranking,
                "ranking_identical": len({tuple(r) for r in ranking.values()}) == 1}

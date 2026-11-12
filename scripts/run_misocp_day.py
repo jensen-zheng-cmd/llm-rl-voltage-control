@@ -30,7 +30,8 @@ def ac_replay(net, day, plan, reactive):
     return np.stack(voltage), np.array(loss), max(residual)
 
 
-def solve(net, day, llm_plan, output, fixed=False, soft=False, time_limit=90):
+def solve(net, day, llm_plan, output, fixed=False, soft=False, time_limit=90, loss_weight=0.0, threads=4,
+          safe_upper=False):
     output.mkdir()
     units = net.base_mva
     settings = net.system["paper_devices"]
@@ -63,7 +64,7 @@ def solve(net, day, llm_plan, output, fixed=False, soft=False, time_limit=90):
     with gp.Model("case33_distflow") as m:
         m.Params.LogFile = str(output / "solver.log")
         m.Params.NonConvex = 0
-        m.Params.Threads = 4
+        m.Params.Threads = threads
         m.Params.Seed = 42
         m.Params.TimeLimit = time_limit
         m.Params.MIPGap = .005
@@ -84,6 +85,9 @@ def solve(net, day, llm_plan, output, fixed=False, soft=False, time_limit=90):
             m.addConstr(over >= v - 1.05**2)
             m.addConstr(under >= .95**2 - v)
             objective += 100 * (over.sum() + under.sum())
+        if loss_weight:
+            # Penalising modelled losses discourages fictitious currents that make the cone relaxation inexact.
+            objective += loss_weight * (ell * r).sum()
         step = settings["oltc_voltage_step_pu"]
         tap_values = np.arange(-5, 6)
         if fixed:
@@ -118,6 +122,25 @@ def solve(net, day, llm_plan, output, fixed=False, soft=False, time_limit=90):
             m.addConstr(p[:, edge] == p_out + demand_p[:, bus] + r[edge] * ell[:, edge])
             m.addConstr(q[:, edge] == q_out + q_local + x[edge] * ell[:, edge])
         m.addConstr(v[:, dst] == v[:, src] - 2*(p*r + q*x) + ell*(r*r+x*x))
+        if safe_upper:
+            # Lossless (LinDistFlow) voltages bound every branch-flow solution from above, the exact AC one
+            # included, so limiting them keeps the AC replay below the upper limit despite an inexact cone.
+            p_hat = m.addMVar((96, 32), lb=-GRB.INFINITY, name="p_hat")
+            q_hat = m.addMVar((96, 32), lb=-GRB.INFINITY, name="q_hat")
+            v_hat = m.addMVar((96, 33), lb=-GRB.INFINITY, ub=GRB.INFINITY if soft else vmax**2, name="v_hat")
+            for bus in range(1, 33):
+                edge, out = parents[bus], children[bus]
+                q_local = demand_q[:, bus]
+                if bus in pv_pos:
+                    q_local = q_local - pv_q[:, pv_pos[bus]]
+                if bus in sc_pos:
+                    q_local = q_local - sc[np.arange(96)//4, sc_pos[bus]] * sc_capacity
+                m.addConstr(p_hat[:, edge] == (p_hat[:, out].sum(axis=1) if out else 0) + demand_p[:, bus])
+                m.addConstr(q_hat[:, edge] == (q_hat[:, out].sum(axis=1) if out else 0) + q_local)
+            m.addConstr(v_hat[:, 0] == v[:, 0])
+            m.addConstr(v_hat[:, dst] == v_hat[:, src] - 2*(p_hat*r + q_hat*x))
+            if soft:
+                m.addConstr(over >= v_hat - 1.05**2)
         # Scalar Q constraints preserve the recognized rotated-cone form.
         pv, qv, iv, vv = [a.tolist() for a in (p, q, ell, v)]
         for t in range(96):
@@ -127,7 +150,8 @@ def solve(net, day, llm_plan, output, fixed=False, soft=False, time_limit=90):
         m.optimize()
         result = dict(status=int(m.Status), solutions=int(m.SolCount), seconds=float(m.Runtime),
                       variables=m.NumVars, binary_variables=m.NumBinVars,
-                      cone_constraints=m.NumQConstrs, soft_voltage=soft,
+                      cone_constraints=m.NumQConstrs, soft_voltage=soft, loss_weight=loss_weight,
+                      safe_upper=safe_upper,
                       objective="sum_abs_squared_voltage_deviation" if not soft else
                       "sum_abs_squared_voltage_deviation_plus_100_times_voltage_slack")
         if not m.SolCount:

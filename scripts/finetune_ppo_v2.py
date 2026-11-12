@@ -261,17 +261,18 @@ def validate(args):
     runs = dict(spec.split("=", 1) for spec in args.run)
     norm_path = args.pretrained / "normalization.npz"
     norm_hash = digest(norm_path)
+    episodes = (EPISODES,) if args.final_only else CHECKPOINTS
     jobs = [("pretrained_ep000", args.pretrained / "ppo.zip", False)]
     for arm, directory in runs.items():
         directory = Path(directory)
         if digest(directory / "normalization.npz") != norm_hash:
             raise ValueError(f"{arm} normalization differs from the pretrained model")
-        jobs += [(f"{arm}_ep{ep:03}", model_file(directory, ep), False) for ep in CHECKPOINTS]
+        jobs += [(f"{arm}_ep{ep:03}", model_file(directory, ep), False) for ep in episodes]
     if not args.skip_no_llm:
         jobs.append(("no_llm", model_file(Path(runs["proposed"]), 150), True))
     args.output.mkdir(parents=True)
     save(args.output / "config.json", {
-        "stage": "validate", "split": args.split, "dates": dates, "c2_source": str(args.c2), "c2_arm": args.c2_arm,
+        "stage": "validate", "split": args.split, "final_only": args.final_only, "dates": dates, "c2_source": str(args.c2), "c2_arm": args.c2_arm,
         "plan_record_sha256": plan_hashes, "runs": runs, "pretrained": str(args.pretrained),
         "models_sha256": {label: digest(path) for label, path, _ in jobs}, "normalization_sha256": norm_hash,
         "deterministic_policy": True, "final_proposed": "proposed_ep150 (fixed before validation)",
@@ -284,7 +285,7 @@ def validate(args):
     results["original"] = [{"date": d, **{m: float(c2[d][f"neutral_{m}"]) for m in METRICS}} for d in dates]
     results["no_rl"] = [{"date": d, **{m: plan_records[d]["metrics"][m] for m in METRICS}} for d in dates]
     order = ["original", "no_rl", *([] if args.skip_no_llm else ["no_llm"]), "pretrained_ep000",
-             *[f"{arm}_ep{ep:03}" for arm in runs for ep in CHECKPOINTS]]
+             *[f"{arm}_ep{ep:03}" for arm in runs for ep in episodes]]
     with (args.output / "pairs.csv").open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=["date"] + [f"{a}_{m}" for a in order for m in METRICS])
         writer.writeheader()
@@ -335,6 +336,7 @@ def main():
     v.add_argument("--workers", type=int, default=7)
     v.add_argument("--skip-no-llm", action="store_true", help="Omit the neutral-plan No-LLM arm")
     v.add_argument("--split", choices=("validation", "test"), default="validation")
+    v.add_argument("--final-only", action="store_true", help="Score only the final (episode 150) weights")
     args = parser.parse_args()
     {"plans": plans, "train": train, "validate": validate}[args.command](args)
 
