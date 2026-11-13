@@ -1,0 +1,85 @@
+{
+  "summary_sources": {
+    "results\\test-v2\\summary.json": "d969301e9d103296f7e93c6b30154ca1aba117a1e0d2d1cd7cd73a69d5244875",
+    "results\\misocp-v2\\summary.json": "93d1cdf82a0c12725b0d7410234afbc03312bb2d5f68e031c43a2de89e69c97e",
+    "results\\misocp-v2\\days.csv": "9d69798304fec49ff7f78591952f06d2eb1ce2b4e18b90ad4c78665f764b5cfa"
+  },
+  "training_sources": {
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_c2_seed_20261109\\days.csv": "be4721c0eb54eaf45311397202dbf7fdc6557a1a05051960124341c35c3e5a28",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_c2_formal_t090_20261110\\days.csv": "83ad00db87440c83d66abb49b126e9c17fd5af6f50e75112b15764fe7f0605a5",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_norefl_seed_20261110\\days.csv": "80ce68c9507313bd7b1efb0b74371fbb4299b9b0c4af4ddc724958383f1b89d6",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_norefl_formal_t090_20261110\\days.csv": "e9a835776c2bc8a6626307d1df23e0cab62cf6ddf5daac1c96e525855d83d11f",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\pure_rl_v2_dayahead_20261110\\episode_rewards.csv": "f66943fa15f5ce22975b0806f596c4a2e88d9509036cc6d0455e2b59fd68349c",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\ppo_finetune_v2_proposed_20261110\\episode_rewards.csv": "a1a7f6adf22350645c5ca103f90e20a9d9adde272ac8bb09f17b994fc0199bb9",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\pure_rl_v2_finetune_20261110\\episode_rewards.csv": "07b60bca28fc4861e29a115e410691be19bf6ae095f7e79741abf2ccf7c5770e",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\ppo_finetune_v2_nopt_20261110\\episode_rewards.csv": "837a90f719b9f120ab2613f08a28325daef7da2a73c58366f12fc0815f661b8c",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_seed_s43_20261111\\days.csv": "75ec4d6977fc71d98f166ce325266388b69752f8719623d6b211648b803ff353",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_formal_t090_s43_20261111\\days.csv": "5ee137cc8e18b8d2f3a23f4e1f3722b19f8893129a9bfe84011f82fcf4c4945e",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_norefl_seed_s43_20261111\\days.csv": "39477a500a93091eadb04c2b8fa4168ed22a5655111f6c2a219b455997d03b1f",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_norefl_formal_t090_s43_20261111\\days.csv": "eac3d1f68ab5022629dad99d2436f7e912f3fa152bbf626d20ae433a292cf2cd",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\pure_rl_v2_dayahead_s43_20261111\\episode_rewards.csv": "d156e6c682ee8249debb48b7da9b70fea89307522d71ac85ec4ee1b6eea8e200",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\ppo_finetune_v2_proposed_s43_20261111\\episode_rewards.csv": "b8fce715fc3f8699891a37b4e8e745564abb21a4f699cff83229f865067434dc",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\ppo_finetune_v2_purerl_s43_20261111\\episode_rewards.csv": "0233c3bd5916544ca7cc3a88431c843ea26f2965b07c7ff199aa94b60e9a2a59",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\ppo_finetune_v2_nopt_s43_20261111\\episode_rewards.csv": "1f80030e5d40571836184d90191994364d48d32e48284ee77b6125f6652f3c22",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_seed_s44_20261111\\days.csv": "b9a38177eeb6044e58a48e798a65d574ed3e70a1c4169ea739509b0def48ac3e",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_formal_t090_s44_20261111\\days.csv": "03e568d50ac41d7a7d3415beec3db1b5b36edf2d91cde537b289ea2b84578c01",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_norefl_seed_s44_20261111\\days.csv": "ca749749aef87a051e61459ac8c8439c3a40a2af054f4bb1a85d43e423a5ba37",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_norefl_formal_t090_s44_20261111\\days.csv": "7554c6a8e469de25a90c339188d26d20e78cbe1f07ed4173390e1cef89df9f8d",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\pure_rl_v2_dayahead_s44_20261111\\episode_rewards.csv": "b0be45828a2cb015e31e0ad44128189196427b8aa0b30afa5f4b7e8889915574",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\ppo_finetune_v2_proposed_s44_20261111\\episode_rewards.csv": "4722e6905a1c91e0aca719a2eb50531dbcfeaa121d60b41209a92f2d507cf349",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\ppo_finetune_v2_purerl_s44_20261111\\episode_rewards.csv": "670c0d1946cfd3d4c9d0d3e6d933aa9d3ef06ff3592e7814eca372218b749752",
+    "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\ppo_finetune_v2_nopt_s44_20261111\\episode_rewards.csv": "892ab27754c18e39aba112e8fec1ff5453c9386ca270500addea60dae782a90a"
+  },
+  "figure_style": "paper Fig.7, Table III and Fig.9; original data not digitized or invented",
+  "training": {
+    "formal_planning_episodes": 200,
+    "finetuning_episodes": 150,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "smoothing": "per-seed trailing 25 episodes, continuous across phase boundary; then mean +/- sample SD",
+    "reward": "daily reward multiplied by 33, negative sum of all node-time absolute voltage deviations",
+    "not_on_axis": "6 LLM seed days; 1500 PPO pretraining episodes; value-network warmup",
+    "No-PT_phase1": "shared Proposed phase-1 history is used only to initialize smoothing; not plotted as separate observations",
+    "No-Reflexion_display": "first 200 formal planning episodes only, matching paper Fig.7 stage definition"
+  },
+  "execution": {
+    "RL_daily_episodes": 144,
+    "unique_test_dates": 48,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "MISOCP_days": 48,
+    "SD": "sample standard deviation of daily episode metrics, not standard deviation of three seed means",
+    "Original": "same deterministic date metric evaluated for each seed; no independence or confidence interval is implied",
+    "voltage_metric": "mean |V-1| over 96 times and 33 nodes; violations are node-time percentage"
+  },
+  "voltage": {
+    "date": "2013-10-29",
+    "seed": 42,
+    "bus": 29,
+    "array_index": 28,
+    "time": "96 intervals starting 00:00, every 15 minutes",
+    "day_selection": "Original whole-network daily MAD nearest median of 48 test dates, date as tie-breaker; fixed before replay",
+    "Original_test_median_mad": 0.02127206300057298,
+    "policy": "frozen final weights, deterministic prediction, saved test day-ahead plans",
+    "replay_metric_tolerance": 1e-09,
+    "max_replay_metric_error": 0.0,
+    "source_hashes": {
+      "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_test_s42_20261112\\2013-10-29\\t090\\scored.json": "dd9ad3c6d73375166ef9f9cc06c6798a261dc82e29fc70317e28968bfcd0bb99",
+      "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\llm_v2_test_s42_20261112\\2013-10-29\\nr\\scored.json": "93f472c6f4dd8c75cd8131f50c77eb9e9ae2ac27ec5bd5d19e5e7528810c2a27",
+      "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\pure_rl_v2_testplans_s42_20261112\\test\\2013-10-29\\purerl\\scored.json": "7e3cbe1a4ae2ccbfc5bab489f95f620ded86f44284fcc8500aa6156f041b4448",
+      "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\ppo_finetune_v2_proposed_20261110\\ppo_150.zip": "265003947dda727583f39933c2cec5c3ca5d4dce939e8faf7d13c14edc3f6236",
+      "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\ppo_v2A_improved_seed42_20261109\\normalization.npz": "c47f00aa5dcdb4e9dad99c967205148a682bb68e829edcc20408c34b80517eb3",
+      "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\pure_rl_v2_finetune_20261110\\ppo_150.zip": "04407efd60356475e37ed75238aa513652b68b44a40e8b02a645709bcfeca03c",
+      "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\ppo_finetune_v2_nopt_20261110\\ppo_150.zip": "919a2b13b634ef43977d4615ef1724053d89238cafbe248bb50b8240f5d31a27",
+      "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\ppo_finetune_v2_norefl_20261110\\ppo_150.zip": "950de92fefd00377d0e90c78d9519a712a443207f0abbefa183d0981356072f7",
+      "D:\\Codex\\outputs\\llm-rl-voltage\\runs\\misocp_v2_test_20261112\\2013-10-29\\stage2.npz": "d3f7f0988095c956b4ed4313a203d15ab3779fba360733e18f6c38f9ad19bfe2"
+    },
+    "all_bus_traces": "D:\\Codex\\outputs\\llm-rl-voltage\\figure_replays\\paper_style_v2_20261112\\all_bus_traces.npz"
+  }
+}
